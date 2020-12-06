@@ -1,9 +1,20 @@
 import React from 'react';
+import Navbar from '../../styledComponents/navbar.style';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { GoSearch } from 'react-icons/go';
+import { Div } from './navigation.style';
+import logo from '../../assets/logos/logo.png';
 
 
-function Navigation() {
+const Navigation = () => {
     return(
-        <p>Hey I'm the Navigation!</p>
+        <Div>
+            <Navbar>
+                <AiOutlineMenu color={"white"} fontSize={"3rem"}/>
+                <img src={logo} alt="logo"/> 
+                <GoSearch color={"white"} fontSize={"3rem"}/>
+            </Navbar>
+        </Div>
     )
 };
 

@@ -1,38 +1,23 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/footer/footer.component';
 import Navigation from './components/navigation/navigation.component';
 import Pages from './components/pages/pages.component';
+import Footer from './components/footer/footer.component';
 import {  BrowserRouter as Router } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import theme from './styledComponents/themeGlobal';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+const App = () => {
 
-
-function App() {
-
-  
-  
   return (
-    <div>
-
+    <ThemeProvider theme={theme}>
       <Router>
-
         <Navigation />
-        <Link to="/signIn">
-          <button >Sign In!</button>
-        </Link>
-        <Link to="/signUp">
-          <button >Sign Up!</button>
-        </Link>
-
         <Pages />
-
         <Footer />
-
       </Router>
-
-    </div>
+    </ThemeProvider>
   )
 }
 
