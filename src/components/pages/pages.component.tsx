@@ -10,7 +10,7 @@ function Pages(){
                 <Route exact path="/signIn">
                     <SignIn />
                 </Route>
-                <Route exact path="/signOut">
+                <Route exact path="/signUp">
                     <SignUp />
                 </Route>
             </Switch>

@@ -3,7 +3,7 @@ import React from 'react';
 
 function Navigation() {
     return(
-        <p>Ciao!</p>
+        <p>Hey I'm the Navigation!</p>
     )
 };
 
