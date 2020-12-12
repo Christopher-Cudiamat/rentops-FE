@@ -1,14 +1,16 @@
 import React from 'react';
-import banner from '../../../../assets/images/header-hero-image.jpg';
-import { Button } from '../../../../styledComponents/button.style';
-import { Select, Option } from '../../../../styledComponents/select.style';
+import { Button } from "../../../components/ui/button.style"
+import { Form } from '../../../components/ui/form.style';
+import { Select } from '../../../components/ui/select.style';
+import { Option } from '../../../components/ui/option.style';
+
 
 import { Div } from './headerForm.style';
 
 const HeaderForm = () => {
   return (
     <Div>
-      <form>
+      <Form>
         <h1>We'll guide you home</h1>
         <h2>Apartments, condos and more...</h2>
         <Select>
@@ -29,8 +31,12 @@ const HeaderForm = () => {
           <Option>dasd</Option>
           <Option>dsadas</Option>
         </Select>
-        <Button primary>Search</Button>
-      </form>
+        <Button 
+        secondary 
+        widthMobile={"100%"}
+        widthTablet={"90%"}
+        widthLaptop={"50%"}>Search</Button>
+      </Form>
     </Div>
   );
 }

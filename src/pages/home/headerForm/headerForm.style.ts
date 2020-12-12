@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bannerImg from "../../../../assets/images/header-hero-image.jpg";
+import bannerImg from "../../../assets/images/header-hero-image.jpg";
 
 interface IHeaderForm {
   banner?:boolean,
@@ -29,10 +29,10 @@ export const Div = styled.div<IHeaderForm>`
     color: ${props => props.theme.color.white};
     text-align: center;
     @media ${props => props.theme.media.tablet} { 
-      width: 70%;
+      width: 90%;
     }
     @media ${props => props.theme.media.laptop} { 
-      width: 50%;
+      width: 60%;
       top: 78%;
     }
 
@@ -69,7 +69,7 @@ export const Div = styled.div<IHeaderForm>`
     & select:nth-child(5) {
       float: right;
     }
-    & button:last-child {
+    /* & button:last-child {
       font-size: 1.8rem;
       font-weight: 500;
       @media ${props => props.theme.media.laptop} { 
@@ -77,7 +77,7 @@ export const Div = styled.div<IHeaderForm>`
         height: 6rem;
         font-size: 2.2rem;
       }
-    }
+    } */
   }
     
 `
