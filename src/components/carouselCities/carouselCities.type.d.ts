@@ -2,7 +2,7 @@ export interface CarouselCitiesPropTypes {
   sliderArr: sliderList[],
 }
 
-interface sliderList {
+export interface sliderList {
   cityImage: string,
   cityName: string,
   cityAltText: string,

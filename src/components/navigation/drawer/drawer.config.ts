@@ -1,42 +1,46 @@
+import likeIcon from '../../../assets/icon/nav/like.svg';
+import keyIcon from '../../../assets/icon/nav/key.svg';
+import aboutIcon from '../../../assets/icon/nav/about.svg';
+import contactIcon from '../../../assets/icon/nav/contact.svg';
+import houseIcon from '../../../assets/icon/nav/house.svg';
+import helpIcon from '../../../assets/icon/nav/help.svg';
+
 export const drawerLinks = [
   {
-    linkName: "LINK NAME",
+    linkName: "RENT",
     path: "./",
-    color: "#222"
+    icon: keyIcon,
+    altText: "Like"
   },
   {
-    linkName: "LINK NAME",
+    linkName: "FAVORITES",
     path: "./",
-    color: "#222"
+    icon: likeIcon,
+    altText: "Like"
   },
   {
-    linkName: "LINK NAME",
+    linkName: "ADD PROPERTIES",
     path: "./",
-    color: "#000"
+    icon: houseIcon,
+    altText: "Like"
   },
   {
-    linkName: "LINK NAME",
+    linkName: "ABOUT US",
     path: "./",
-    color: "#000"
+    icon: aboutIcon,
+    altText: "Like"
   },
   {
-    linkName: "LINK NAME",
+    linkName: "CONTACT US",
     path: "./",
-    color: "#ccc"
+    icon: contactIcon,
+    altText: "Like"
   },
   {
-    linkName: "LINK NAME",
+    linkName: "HELP",
     path: "./",
-    color: "#ccc"
+    icon: helpIcon,
+    altText: "Like"
   },
-  {
-    linkName: "LINK NAME",
-    path: "./",
-    color: "#ccc"
-  },
-  {
-    linkName: "LINK NAME",
-    path: "./",
-    color: "#ccc"
-  }
+
 ]

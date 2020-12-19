@@ -32,7 +32,7 @@ export const Div = styled.div<IHeaderForm>`
       width: 90%;
     }
     @media ${props => props.theme.media.laptop} { 
-      width: 60%;
+      width: 50%;
       top: 78%;
     }
 
@@ -69,15 +69,12 @@ export const Div = styled.div<IHeaderForm>`
     & select:nth-child(5) {
       float: right;
     }
-    /* & button:last-child {
-      font-size: 1.8rem;
-      font-weight: 500;
+    & button:last-child {
       @media ${props => props.theme.media.laptop} { 
-        width: 50%;
-        height: 6rem;
+        font-weight: bold;
         font-size: 2.2rem;
       }
-    } */
+    }
   }
     
 `

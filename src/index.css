@@ -52,6 +52,9 @@ body {
 ol, ul {
 	list-style: none;
 }
+li {
+	cursor: pointer;
+}
 blockquote, q {
 	quotes: none;
 }

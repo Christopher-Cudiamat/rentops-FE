@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import SVG from "react-inlinesvg";
 
 export const Div = styled.div`
@@ -16,6 +16,10 @@ export const IconMenu = styled(SVG)`
       cursor: pointer;
     }
   }
+  @media ${props => props.theme.media.laptop} { 
+    width: 3.5rem;
+    height: 3.5rem;
+  }
 `;
 
 export const IconSearch = styled(SVG)`
@@ -29,6 +33,10 @@ export const IconSearch = styled(SVG)`
       cursor: pointer;
     }
   }
+  @media ${props => props.theme.media.laptop} { 
+    width: 3.5rem;
+    height: 3.5rem;
+  }
 `;
 
 export const ImageLogo = styled.img`
@@ -37,7 +45,8 @@ export const ImageLogo = styled.img`
     width: 30%;
   }
   @media ${props => props.theme.media.laptop} { 
-    width: 15%;
-    margin-left: 1rem
+    width: 18%;
+    margin-left: 1rem;
+    margin-top: 1rem;
   }
 `

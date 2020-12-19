@@ -20,6 +20,7 @@ export const Button = styled.button<IButton>`
   border: none;
   outline: none;
   min-width: 5%;
+  transition: all .7s;
 
   @media ${props => props.theme.media.tablet} { 
     width: ${props => props.widthTablet ? props.widthTablet : "70%"};
@@ -28,7 +29,8 @@ export const Button = styled.button<IButton>`
 
   @media ${props => props.theme.media.laptop} { 
     width: ${props => props.widthLaptop ? props.widthLaptop : "30%"};
-
+    font-size: 2rem;
+    font-weight: 500;
   }
   
   ${({primary}) => primary &&

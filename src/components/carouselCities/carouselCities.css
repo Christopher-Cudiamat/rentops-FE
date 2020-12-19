@@ -1,18 +1,17 @@
 .slideCity {
   overflow: hidden;
-  /* width: 100% !important; */
+  position: relative;
 }
 
 .slideCity .slick-track {
   display: flex;
 }
 
-/* @media screen and (max-width: 992px) { */
-.slideCity .slick-list .slick-track .slick-slide  {
 
-    width: 30%;
+.slideCity .slick-list .slick-track .slick-slide  {
+  width: 30%;
 }
-/* } */
+
 
 .slick-slider .slick-dots  {
   display: flex !important;

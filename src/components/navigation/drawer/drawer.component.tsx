@@ -1,23 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { drawerLinks } from './drawer.config';
-import { DrawerContainer, DrawerList, DrawerUnderlay } from './drawer.style';
+import { 
+  DrawerButton,
+  DrawerButtonsContainer,
+  DrawerClose,
+  DrawerContainer, 
+  DrawerLinkIcon, 
+  DrawerLinkText, 
+  DrawerList, 
+  DrawerListContainer, 
+  DrawerUnderlay 
+} from './drawer.style';
 import { DrawerPropTypes } from './drawer.type';
+import closeIcon from '../../../assets/icon/close.svg';
 
 const Drawer: React.FC<DrawerPropTypes> = ({showDrawer,setShowDrawer}) => {
+
+  useEffect(() => {
+    if(showDrawer){
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [showDrawer]);
 
   return (
     <>
       <DrawerContainer showDrawer={showDrawer}>
-        <DrawerList onClick={() => setShowDrawer(false)}>BACK</DrawerList>
-        {
-          drawerLinks.map((el:any, index: number) => (
-            <DrawerList 
-              key={index} 
-              linkColor={el.color}>
-              {el.linkName}
-            </DrawerList>
-          ))
-        }
+        <DrawerListContainer>
+          <DrawerClose src={closeIcon} alt="Close" onClick={() => setShowDrawer(false)}/>
+          {
+            drawerLinks.map((el:any, index: number) => (
+              <DrawerList key={index}>
+                <DrawerLinkIcon src={el.icon} alt={el.text}/>
+                <DrawerLinkText>
+                  {el.linkName}
+                </DrawerLinkText>
+              </DrawerList>
+            ))
+          }
+        </DrawerListContainer>
+        <DrawerButtonsContainer>
+          <DrawerButton primary>LOGIN</DrawerButton>
+          <DrawerButton secondary>SING UP</DrawerButton>
+        </DrawerButtonsContainer>
       </DrawerContainer>
       <DrawerUnderlay showDrawer={showDrawer} onClick={() => setShowDrawer(false)}/>
     </>
