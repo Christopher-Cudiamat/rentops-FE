@@ -8,7 +8,7 @@ interface IDiv {
 
 
 export const Div = styled.div<IDiv>`
-  flex: ${props => props.display ? props.display : "block"};
+  display: ${props => props.display ? props.display : "block"};
   justify-content: ${props => props.justify ? props.justify : "flex-start"};
   align-items: ${props => props.align ? props.align : "center"};
 `

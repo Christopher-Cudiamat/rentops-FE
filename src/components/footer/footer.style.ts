@@ -40,12 +40,12 @@ export const FooterSocialContainer = styled.div`
 `
 
 export const FooterSocialIcon = styled.img`
-  width: 3rem;
+  width: 2rem;
   margin: 3rem 1.5rem;
   
   @media ${({theme}) => theme.media.laptop} { 
     margin-bottom: 6rem;
-    width: 4rem;
+    width: 3rem;
   }
 
   &:hover {

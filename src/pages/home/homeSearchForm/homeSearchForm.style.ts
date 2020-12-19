@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bannerImg from "../../../assets/images/header-hero-image.jpg";
+import bannerImg from "../../../assets/images/apartments-hero.png";
 
 interface IHeaderForm {
   banner?:boolean,
@@ -16,8 +16,8 @@ export const Div = styled.div<IHeaderForm>`
   width: 100vw;
   height: 58.5rem;
   background-position: center;
-  @media ${props => props.theme.media.tablet} { 
-    background-position-y: 87%;
+  @media ${({theme}) => theme.media.tablet} { 
+    background-position-y: 50%;
   }
   & form:first-child {
     padding: 0rem 1rem;
@@ -26,12 +26,12 @@ export const Div = styled.div<IHeaderForm>`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    color: ${props => props.theme.color.white};
+    color: ${({theme}) => theme.color.white};
     text-align: center;
-    @media ${props => props.theme.media.tablet} { 
+    @media ${({theme}) => theme.media.tablet} { 
       width: 90%;
     }
-    @media ${props => props.theme.media.laptop} { 
+    @media ${({theme}) => theme.media.laptop} { 
       width: 50%;
       top: 78%;
     }
@@ -42,14 +42,14 @@ export const Div = styled.div<IHeaderForm>`
     }
     & h1:first-child {
       font-size: 3.4rem;
-      @media ${props => props.theme.media.laptop} { 
+      @media ${({theme}) => theme.media.laptop} { 
         font-size: 5rem;
       }
     }
     & h2:nth-child(2) {
       font-weight: 400;
       font-size: 2.2rem;
-      @media ${props => props.theme.media.laptop} { 
+      @media ${({theme}) => theme.media.laptop} { 
         font-size: 2.4rem;
       }
     }
@@ -70,7 +70,7 @@ export const Div = styled.div<IHeaderForm>`
       float: right;
     }
     & button:last-child {
-      @media ${props => props.theme.media.laptop} { 
+      @media ${({theme}) => theme.media.laptop} { 
         font-weight: bold;
         font-size: 2.2rem;
       }

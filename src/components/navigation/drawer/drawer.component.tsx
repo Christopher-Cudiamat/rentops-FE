@@ -33,7 +33,7 @@ const Drawer: React.FC<DrawerPropTypes> = ({showDrawer,setShowDrawer}) => {
             drawerLinks.map((el:any, index: number) => (
               <DrawerList key={index}>
                 <DrawerLinkIcon src={el.icon} alt={el.text}/>
-                <DrawerLinkText>
+                <DrawerLinkText to={el.path}>
                   {el.linkName}
                 </DrawerLinkText>
               </DrawerList>
@@ -41,8 +41,18 @@ const Drawer: React.FC<DrawerPropTypes> = ({showDrawer,setShowDrawer}) => {
           }
         </DrawerListContainer>
         <DrawerButtonsContainer>
-          <DrawerButton primary>LOGIN</DrawerButton>
-          <DrawerButton secondary>SING UP</DrawerButton>
+          <DrawerButton 
+            primary 
+            to="/signIn"  
+            onClick={() => setShowDrawer(false)}>
+            LOGIN
+          </DrawerButton>
+          <DrawerButton 
+            secondary 
+            to="/signUp"  
+            onClick={() => setShowDrawer(false)}>
+            SING UP
+          </DrawerButton>
         </DrawerButtonsContainer>
       </DrawerContainer>
       <DrawerUnderlay showDrawer={showDrawer} onClick={() => setShowDrawer(false)}/>
