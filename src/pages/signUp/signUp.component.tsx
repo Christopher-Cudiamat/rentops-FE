@@ -21,13 +21,24 @@ import ShowPasswordIcon from '../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../assets/icon/hide-password.svg';
 import { SignUpButton } from './signUp.style';
 import { Div } from '../../components/ui/div';
+import { signup } from '../../services/signupController';
 
 
 
 const SignUp: React.FC = () => {
 
 	const { register, handleSubmit, watch, errors } = useForm();
-	const onSubmit = (data:any) => console.log(data);
+	const onSubmit = (data:any) => {
+		console.log(data);
+		signup(data)
+		.then((res) =>{
+			console.log(res);
+		})
+		.catch ((err) => {
+			console.log(err)
+		});
+
+	}
 	const [showPassword,setShowPassword] = useState(false);
 	
 	return(
