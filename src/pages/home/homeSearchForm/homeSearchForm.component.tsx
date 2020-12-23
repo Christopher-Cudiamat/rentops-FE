@@ -12,19 +12,19 @@ const HeaderForm: React.FC = () => {
         <h1>We'll guide you home</h1>
         <h2>Apartments, condos and more...</h2>
         <Select>
-          <Option selected>Where do you want to live</Option>
+          <Option>Where do you want to live</Option>
           <Option>dasd</Option>
           <Option>dasd</Option>
           <Option>dsadas</Option>
         </Select>
         <Select>
-          <Option selected>Any price</Option>
+          <Option>Any price</Option>
           <Option>324234</Option>
           <Option>dasd</Option>
           <Option>dsadas</Option>
         </Select>
         <Select>
-          <Option selected>1 bedroom</Option>
+          <Option>1 bedroom</Option>
           <Option>dasd</Option>
           <Option>dasd</Option>
           <Option>dsadas</Option>

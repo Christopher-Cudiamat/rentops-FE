@@ -25,7 +25,6 @@ export const pagesLinksArr = [
   },
 ]
 
-
 export const FooterSocialArr = [
   {
     icon: facebookIcon,
@@ -47,4 +46,13 @@ export const FooterSocialArr = [
     icon: linkedInIcon,
     altText: "linkedIn"
   },
-]
+];
+
+export const FooterLowerArr = [
+  {
+    text: "Fair Housing and Equal Opportunities",
+  },
+  {
+    text: "@ Rentops 2020",
+  }
+];

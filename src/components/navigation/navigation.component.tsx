@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import Navbar from './navbar.style';
 import { 
     Div,
     IconMenu, 
     IconSearch,
+    ImageLink,
     ImageLogo,
+    Navbar,
+    NavbarLeft,
 } from './navigation.style';
 import logo from '../../assets/logos/logo.png';
 import searchIcon from '../../assets/icon/search.svg';
-import menuIcon from '../../assets/icon/menu.svg';
 import Drawer from './drawer/drawer.component';
 
 const Navigation = () => {
@@ -16,11 +17,16 @@ const Navigation = () => {
     return(
         <Div>
             <Navbar>
-                <IconMenu 
-                    src={menuIcon} 
-                    alt="Burger menu" 
-                    onClick={() => setShowDrawer(!showDrawer)}/>
-                <ImageLogo src={logo} alt="logo"/> 
+                <NavbarLeft>
+                    <IconMenu onClick={() => setShowDrawer(!showDrawer)}>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </IconMenu>
+                    <ImageLink to="./">
+                        <ImageLogo src={logo} alt="logo"/>
+                    </ImageLink>
+                </NavbarLeft>
                 <IconSearch src={searchIcon} alt="Search icon"/>
             </Navbar>
             <Drawer showDrawer={showDrawer} setShowDrawer={setShowDrawer}/>

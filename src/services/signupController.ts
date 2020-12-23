@@ -1,15 +1,35 @@
 import { instancePost } from "../configs/axios.config";
 
-export const signup = async (data:any) => {
-  console.log("REG",data)
-  const {firstName,lastName,email,password,termsAndConditions} = data;
+interface ISignup {
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+  termsAndConditions: boolean
+}
 
-  const config = {headers:{'Content-Type': 'application/json'}}
+interface IEmailVerification {
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+  termsAndConditions: boolean
+}
+
+export const signup = async (data: ISignup) => {
   let url = '/api/user/sign-up';
-  console.log("URL",url)
-  let body = {firstName,lastName,email,password,termsAndConditions};
+  let body = data;
+  const res = await instancePost.post(url,body);
+  return res.data;
+};
 
-  const res = await instancePost.post(url,body,config );
-  console.log("EMAIL VERIFICATION RESPONE",res.data);
+export const emailVerification = async (
+  token: string, 
+  insertedVerificationCode:  string
+  ) => {
+
+  let url = '/api/user/email-verification';
+  let body = {token,insertedVerificationCode};
+  const res = await instancePost.post(url,body);
   return res.data;
 };

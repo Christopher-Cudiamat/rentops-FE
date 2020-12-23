@@ -17,13 +17,13 @@ export const Title = styled.p<IDiv>`
 
   ${({primary}) => primary &&
     css`
-    color: ${props => props.theme.color.primary};
+    color: ${({theme}) => theme.color.primary};
     `
   };
 
   ${({secondary}) => secondary &&
     css`
-    color: ${props => props.theme.color.secondary};
+    color: ${({theme}) => theme.color.secondary};
     `
   };
 
@@ -36,7 +36,7 @@ export const Title = styled.p<IDiv>`
   ${({section}) => section &&
     css`
     font-size: 3rem;
-    @media ${props => props.theme.media.tablet} { 
+    @media ${({theme}) => theme.media.tablet} { 
       margin-bottom: 4rem;
     }
     `
@@ -56,18 +56,18 @@ export const Title = styled.p<IDiv>`
 
   ${({black}) => black &&
     css`
-    color: ${props => props.theme.color.black};
+    color: ${({theme}) => theme.color.black};
     `
   };
 
   ${({white}) => white &&
     css`
-    color: ${props => props.theme.color.white};
+    color: ${({theme}) => theme.color.white};
     `
   };
   ${({gray}) => gray &&
     css`
-    color: ${props => props.theme.color.gray};
+    color: ${({theme}) => theme.color.gray};
     `
   };
 `

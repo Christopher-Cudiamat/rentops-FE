@@ -4,11 +4,12 @@ interface IDiv {
   display?: string,
   justify?: string,
   align?: string,
+  direction?: string,
 }
 
-
 export const Div = styled.div<IDiv>`
-  display: ${props => props.display ? props.display : "block"};
-  justify-content: ${props => props.justify ? props.justify : "flex-start"};
-  align-items: ${props => props.align ? props.align : "center"};
+  display: ${({display}) => display ? display : "block"};
+  justify-content: ${({justify})=> justify ? justify : "flex-start"};
+  align-items: ${({align}) => align ? align : "center"};
+  flex-direction: ${({direction}) => direction ? direction : "row"};
 `

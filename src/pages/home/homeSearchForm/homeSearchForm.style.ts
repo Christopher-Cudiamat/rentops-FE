@@ -11,18 +11,22 @@ export const Div = styled.div<IHeaderForm>`
   left: 0;
   top: 0;
   background:url(${bannerImg}); 
-  background-size: cover;
+  /* background-size: cover; */
   background-repeat:no-repeat;
   width: 100vw;
-  height: 58.5rem;
+  height: 68.5rem;
   background-position: center;
+  background-size: 50rem auto;
   @media ${({theme}) => theme.media.tablet} { 
     background-position-y: 50%;
+    height: 58.5rem;
+    background-size: auto;
   }
+  
   & form:first-child {
     padding: 0rem 1rem;
     position: absolute;
-    top: 82%;
+    top: 72%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -39,6 +43,11 @@ export const Div = styled.div<IHeaderForm>`
     & h1:first-child,
     & h2:nth-child(2)  {
       text-align: left;
+      font-weight: bold;
+      color: ${({theme})=> theme.color.blackLight};
+      background:rgba(255,255,255, 0.7);
+      display: inline-block;
+      padding: .1rem .5rem;
     }
     & h1:first-child {
       font-size: 3.4rem;
@@ -47,12 +56,17 @@ export const Div = styled.div<IHeaderForm>`
       }
     }
     & h2:nth-child(2) {
-      font-weight: 400;
+      font-weight: bold;
       font-size: 2.2rem;
       @media ${({theme}) => theme.media.laptop} { 
         font-size: 2.4rem;
       }
     }
+    & select {
+      border: 2px solid ${({theme})=> theme.color.grayLight};
+      background: ${({theme})=> theme.color.white};
+    }
+ 
     & select:nth-child(3) {
       width: 100%;
       margin-bottom: 1rem;

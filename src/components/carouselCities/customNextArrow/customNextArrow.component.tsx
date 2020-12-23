@@ -8,7 +8,7 @@ interface CustomPrevArrowPropTypes{
 
 export const Img = styled.img`
   display: none;
-  @media ${props => props.theme.media.tablet} { 
+  @media ${({theme}) => theme.media.tablet} { 
     display: block;
     width: 7rem;
     height: 7rem;
@@ -20,9 +20,9 @@ export const Img = styled.img`
     cursor: pointer;
     transition: all .5s;
     }
-  @media ${props => props.theme.media.laptop} { 
+  @media ${({theme}) => theme.media.laptop} { 
     &:hover {
-      background: ${props => props.theme.color.black};
+      background: ${({theme}) => theme.color.black};
       padding: 1rem;
     }
   }

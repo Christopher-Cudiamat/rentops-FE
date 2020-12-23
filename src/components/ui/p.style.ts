@@ -8,21 +8,21 @@ interface IPharagrap {
   bold?: boolean,
   white?: boolean,
   gray?: boolean,
+  error?: boolean,
 }
 
-
-export const P = styled.p<IPharagrap>`
+export const Paragraph = styled.p<IPharagrap>`
   font-size: 1.6rem;
 
   ${({primary}) => primary &&
     css`
-    color: ${props => props.theme.color.primary};
+    color: ${({theme}) => theme.color.primary};
     `
   };
 
   ${({secondary}) => secondary &&
     css`
-    color: ${props => props.theme.color.secondary};
+    color: ${({theme}) => theme.color.secondary};
     `
   };
 
@@ -34,12 +34,18 @@ export const P = styled.p<IPharagrap>`
 
   ${({white}) => white &&
     css`
-    color: ${props => props.theme.color.white};
+    color: ${({theme}) => theme.color.white};
     `
   };
   ${({gray}) => gray &&
     css`
-    color: ${props => props.theme.color.gray};
+    color: ${({theme}) => theme.color.gray};
+    `
+  };
+
+  ${({error}) => error &&
+    css`
+    color: ${({theme}) => theme.color.error};
     `
   };
 `

@@ -1,5 +1,9 @@
 import React from 'react';
-import { FooterSocialArr, pagesLinksArr } from './footer.config';
+import {
+    FooterLowerArr,
+    FooterSocialArr,
+    pagesLinksArr } 
+from './footer.config';
 import { 
     FooterContainer,
     FooterLink,
@@ -9,7 +13,11 @@ import {
     FooterSocialContainer,
     FooterSocialIcon 
 } from './footer.style';
-import { IFooterLinks, IFooterSocial } from './footer.type';
+import { 
+    IFooterLinks,
+    IFooterSocial,
+    IFooterLowerLinks 
+} from './footer.type';
 
 const Footer: React.FC = () => {
     return(
@@ -28,14 +36,12 @@ const Footer: React.FC = () => {
                     )
                 }
             </FooterSocialContainer>
-
             <FooterLower>
-                <FooterLowerText>
-                    Fair Housing and Equal Opportunities
-                </FooterLowerText>
-                <FooterLowerText>
-                    @ Rentops 2020
-                </FooterLowerText>
+                {
+                    FooterLowerArr.map((el: IFooterLowerLinks,index: number) => 
+                        <FooterLowerText key={index}>{el.text}</FooterLowerText>
+                    )
+                }
             </FooterLower>
         </FooterContainer>
     )

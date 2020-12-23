@@ -1,5 +1,6 @@
 import styled  from "styled-components";
-import { Button } from "../../components/ui/button.style";
+import { Button } from "../../../components/ui/button.style";
+import { Form } from "../../../components/ui/form.style";
 
 
 export const SignUpButton = styled(Button)`
@@ -9,5 +10,8 @@ export const SignUpButton = styled(Button)`
     text-align:center;
     width: 80%;
   }
-  
+`
+export const FormControl = styled(Form)`
+  padding: 6rem 2rem;
+  margin: auto;
 `

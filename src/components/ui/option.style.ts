@@ -1,11 +1,6 @@
 import styled  from "styled-components";
 
-interface IOption {
-
-}
-
-
-export const Option = styled.option<IOption>`
+export const Option = styled.option`
   color: ${props => props.theme.color.gray};
   font-size:1.6rem;
   

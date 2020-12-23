@@ -1,7 +1,7 @@
 import React from 'react';
 import { Title } from '../../../components/ui/title.style';
 import realEstateAgent from '../../../assets/images/home-add-property.jpg';
-import { P } from '../../../components/ui/p.style';
+import { Paragraph } from '../../../components/ui/p.style';
 import { Button } from '../../../components/ui/button.style';
 import { Div } from './homeAddProperty.style';
 
@@ -14,9 +14,9 @@ const HomeAddProperty: React.FC = () => {
         <Div wrapper>
           <img src={realEstateAgent} alt="Real estate agent"/>
           <Div detailsWrapper>
-            <P> 
+            <Paragraph> 
               It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </P>
+            </Paragraph>
             <Button secondary>Add Property</Button>
           </Div>
         </Div>

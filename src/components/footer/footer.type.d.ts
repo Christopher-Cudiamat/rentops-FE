@@ -6,3 +6,7 @@ export interface IFooterSocial {
 export interface IFooterLinks {
   name: string;
 }
+
+export interface IFooterLowerLinks {
+  text: string;
+}

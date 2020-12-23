@@ -1,4 +1,4 @@
-import { regexEmail, regexLetters } from "../../utils/validation";
+import { regexEmail, regexLetters } from "../../../utils/validation";
 
 export const signupFormArr = [
   {

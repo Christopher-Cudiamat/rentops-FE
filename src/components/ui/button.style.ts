@@ -11,8 +11,8 @@ interface IButton {
 }
 
 export const Button = styled.button<IButton>`
-  width: ${props => props.width ||  props.widthMobile ? props.width ||  props.widthMobile : "100%"};
-  color: ${props => props.color ||  props.color ? props.color : props.theme.color.white};
+  width: ${({width,widthMobile}) => width || widthMobile ? width || widthMobile : "100%"};
+  color: ${({color, theme}) => color ? color : theme.color.white};
   height: 5rem;
   border-radius: 1rem;
   text-align: center;
@@ -22,31 +22,31 @@ export const Button = styled.button<IButton>`
   min-width: 5%;
   transition: all .7s;
 
-  @media ${props => props.theme.media.tablet} { 
-    width: ${props => props.widthTablet ? props.widthTablet : "70%"};
+  @media ${({theme}) => theme.media.tablet} { 
+    width: ${({widthTablet}) => widthTablet ? widthTablet : "70%"};
     font-size: 1.8rem;
   }
 
-  @media ${props => props.theme.media.laptop} { 
-    width: ${props => props.widthLaptop ? props.widthLaptop : "30%"};
+  @media ${({theme}) => theme.media.laptop} { 
+    width: ${({widthLaptop}) => widthLaptop ? widthLaptop : "30%"};
     font-size: 2rem;
     font-weight: 500;
   }
   
   ${({primary}) => primary &&
     css`
-    background: ${props => props.theme.color.primary};
+    background: ${({theme}) => theme.color.primary};
     &:hover {
-      background: ${props => props.theme.color.secondary};
+      background: ${({theme}) => theme.color.secondary};
     }
     `
   };
 
   ${({secondary}) => secondary &&
     css`
-     background: ${props => props.theme.color.secondary};
+     background: ${({theme}) => theme.color.secondary};
     &:hover {
-      background: ${props => props.theme.color.primary};
+      background: ${({theme}) => theme.color.primary};
     }
     `
   };

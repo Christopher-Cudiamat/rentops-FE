@@ -49,9 +49,10 @@ export const P = styled.p<ICarousel>`
   left: 0%;
   bottom: 0%;
   z-index: 999;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  margin-bottom: 0rem;
+  background: ${({theme}) => theme.color.white};;
+  color: ${({theme}) => theme.color.primary};
+  font-weight: bold;
+  margin-bottom: -2px;
   padding: 1rem 6rem 1rem 1.5rem;
   clip-path: polygon(0 0, 71% 0, 100% 100%, 0% 100%);
 `

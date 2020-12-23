@@ -6,7 +6,7 @@ export const instanceGet = axios.create({
 });
 
 export const instancePost = axios.create({
-    headers: {"Content-Type": "application/json"}
+  headers: {"Content-Type": "application/json"}
 });
 
 export const instanceDelete = axios.create({

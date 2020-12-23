@@ -13,18 +13,19 @@ const Navbar = styled.div<INavbars>`
   align-items: center;
   z-index: 100;
   height: 5rem;
-  color: ${props => props.theme.color.white};
+  align-items: center;
+  color: ${({theme}) => theme.color.white};
   justify-content: space-between;
 
   ${({primary}) => primary &&
     css`
-    background: ${props => props.theme.color.primary};
+    background: ${({theme}) => theme.color.primary};
     `
   };
 
   ${({secondary}) => secondary &&
     css`
-    background: ${props => props.theme.color.secondary};
+    background: ${({theme}) => theme.color.secondary};
     `
   };
   
