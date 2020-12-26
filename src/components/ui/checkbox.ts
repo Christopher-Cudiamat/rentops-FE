@@ -28,6 +28,7 @@ export const CheckboxError= styled.p`
   color: ${({theme}) => theme.color.error};
   margin-bottom: 0rem;
   width:100%;
+  font-size: 1.2rem;
 `
 
 export const LabelLink = styled.span`

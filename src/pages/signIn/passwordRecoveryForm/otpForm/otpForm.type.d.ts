@@ -1,3 +1,4 @@
 export interface IOtpFormProps {
-  setStep: React.Dispatch<React.SetStateAction<number>>
+  setStep: React.Dispatch<React.SetStateAction<number>>,
+  generatedOtp: string,
 }

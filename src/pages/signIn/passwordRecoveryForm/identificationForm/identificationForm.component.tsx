@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import AuthButton from '../../../../components/authButton/authButton.component';
 import { Div } from '../../../../components/ui/div';
 import { 
 	Input,
@@ -7,19 +8,30 @@ import {
 	InputError,
 	InputLabel, 
 } from '../../../../components/ui/input.style';
+import { sendOtp } from '../../../../services/signinController';
 import { recoverPasswordSteps } from '../passwordRecoveryForm.config';
-import { ContinueButton, FormControl } from '../passwordRecoveryForm.style';
+import { FormControl } from '../passwordRecoveryForm.style';
 import { IIdentificationFormProps } from './identificationForm.type';
 import { identificationFormArr } from './identificatoinForm.config';
 
 
-const IdentificationForm: React.FC<IIdentificationFormProps> = ({setStep}) => {
+const IdentificationForm: React.FC<IIdentificationFormProps> = ({
+	setStep,
+	setGeneratedOtp,
+	setEmail
+	}) => {
 
 	const { register, handleSubmit, errors } = useForm();
-
-	// const [error, setError] = useState("");
+	const [error, setError] = useState("");
+	
 	const onSubmit = (data:any) => {
-    console.log(data)
+	 sendOtp(data)
+		.then(res => {
+			setEmail(data.email);
+			setGeneratedOtp(res.generatedOtp);
+			if(res) setStep(recoverPasswordSteps.otp);
+		})
+		.catch (err => setError(err.response.data.error));
 	}
 	
 	return(
@@ -43,16 +55,9 @@ const IdentificationForm: React.FC<IIdentificationFormProps> = ({setStep}) => {
 					</InputControl>
 				)
 			}
-
-			<Div display={"flex"} justify={"center"}>
-        <ContinueButton 
-          primary 
-          type="submit"
-          onClick={() => setStep(recoverPasswordSteps.otp)}>
-					Continue
-				</ContinueButton>
-			</Div>
-				
+			<AuthButton error={error}>
+				Continue
+			</AuthButton>	
 		</FormControl>
 	)
 };

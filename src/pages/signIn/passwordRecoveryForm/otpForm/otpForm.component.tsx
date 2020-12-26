@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Div } from '../../../../components/ui/div';
+import AuthButton from '../../../../components/authButton/authButton.component';
 import { Input, InputControl, InputError, InputLabel } from '../../../../components/ui/input.style';
+import { otpVerification } from '../../../../services/signinController';
 import { recoverPasswordSteps } from '../passwordRecoveryForm.config';
-import { ContinueButton, FormControl } from '../passwordRecoveryForm.style';
+import { FormControl } from '../passwordRecoveryForm.style';
 import { IOtpFormProps } from './otpForm.type';
 
 
-const OtpForm: React.FC<IOtpFormProps> = ({setStep}) => {
+const OtpForm: React.FC<IOtpFormProps> = ({setStep,generatedOtp}) => {
   
   const { register, handleSubmit, errors } = useForm();
+  const [error, setError] = useState("");
 
-	// const [error, setError] = useState("");
 	const onSubmit = (data:any) => {
-    console.log(data)
+    otpVerification(generatedOtp,data.otp)
+    .then(() => setStep(recoverPasswordSteps.changePassword))
+    .catch(err => setError(err.response.data.error));
   }
   
   return (
@@ -29,14 +32,9 @@ const OtpForm: React.FC<IOtpFormProps> = ({setStep}) => {
           })}/>
         <InputError visibility={errors.otp?.type}>Please Insert your OTP</InputError>
       </InputControl>
-			<Div display={"flex"} justify={"center"}>
-        <ContinueButton 
-          primary 
-          type="submit"
-          onClick={() => setStep(recoverPasswordSteps.changePassword)}>
-					Continue
-				</ContinueButton>
-			</Div>
+      <AuthButton error={error}>
+				Continue
+			</AuthButton>	
 		</FormControl>
   );
 }

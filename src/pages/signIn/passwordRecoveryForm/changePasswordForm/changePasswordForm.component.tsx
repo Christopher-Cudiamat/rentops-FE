@@ -8,12 +8,18 @@ import {
 	InputIcon,
 	InputLabel, 
 } from '../../../../components/ui/input.style';
-import { FormControl, ContinueButton } from '../passwordRecoveryForm.style';
-import { Div } from '../../../../components/ui/div';
+import { FormControl} from '../passwordRecoveryForm.style';
 import ShowPasswordIcon from '../../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../../assets/icon/hide-password.svg';
+import { changePassword } from '../../../../services/signinController';
+import { IChangePasswordProps } from './changePassword.type';
+import { signInPages } from '../../signIn.config';
+import AuthButton from '../../../../components/authButton/authButton.component';
 
-const ChangePasswordForm: React.FC = () => {
+const ChangePasswordForm: React.FC<IChangePasswordProps> = ({
+  email,
+  setForm
+  }) => {
 
   const { register, handleSubmit, errors, watch } = useForm({
     mode: 'onSubmit',
@@ -21,14 +27,14 @@ const ChangePasswordForm: React.FC = () => {
   });
   const [showPassword,setShowPassword] = useState(false);
   const [newPassword,setNewPassword] = useState("");
+  const [error,setError] = useState("");
   const password = useRef({});
   password.current = watch("newPassword", "");
 
-  console.log("NEW", newPassword);
-
   const onSubmit = (data:any) => {
-
-		console.log(data);
+    changePassword(email,data.newPassword)
+      .then(() => setForm(signInPages.signIn))
+      .catch(err => setError(err.response.data.error))
 	}
 
   return (
@@ -64,7 +70,7 @@ const ChangePasswordForm: React.FC = () => {
               />
             }
 						{
-							el.type === "password"	&& 
+							el.name === "newPassword"	&& 
 							<InputIcon 
 								onClick={() => {setShowPassword(!showPassword)}}
 								src={showPassword ? HidePasswordIcon : ShowPasswordIcon} 
@@ -77,13 +83,9 @@ const ChangePasswordForm: React.FC = () => {
 					</InputControl>
 				)
 			}
-      <Div display={"flex"} justify={"center"}>
-        <ContinueButton 
-          primary 
-          type="submit">
-					Change Password
-				</ContinueButton>
-			</Div>
+      <AuthButton error={error}>
+				Change password
+			</AuthButton>	
     </FormControl>
   );
 }

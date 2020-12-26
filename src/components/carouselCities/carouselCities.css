@@ -16,3 +16,5 @@
 .slick-slider .slick-dots  {
   display: flex !important;
 }
+
+.slick-list, .slick-track { touch-action:pan-y; }

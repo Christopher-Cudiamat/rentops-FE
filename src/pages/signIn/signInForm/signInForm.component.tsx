@@ -14,16 +14,20 @@ import { FormControl, Text, SignInButton } from './signInForm.style';
 import ShowPasswordIcon from '../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
 import { ISignInFormProps } from './signInForm.type';
+import { signin } from '../../../services/signinController';
+import { signInPages } from '../signIn.config';
+import AuthButton from '../../../components/authButton/authButton.component';
 
 const SignInForm: React.FC<ISignInFormProps> = ({setForm}) => {
   
   const { register, handleSubmit, errors } = useForm();
   const [showPassword,setShowPassword] = useState(false);
-  // const [error, setError] = useState("");
-  console.log("ERORR",errors)
+  const [error, setError] = useState("");
+ 
 	const onSubmit = (data:any) => {
-
-		console.log("DATA",data)
+    signin(data)
+    .then(res => console.log("Res",res))
+    .catch(err => setError(err.response.data.error))
 	}
     
   return (
@@ -58,17 +62,12 @@ const SignInForm: React.FC<ISignInFormProps> = ({setForm}) => {
             </InputControl>
           )
         }
-        <Div 
-          display={"flex"} 
-          justify={"center"} 
-          direction={"column"}>
-          <Text gray onClick={() => setForm("passwordRecoveryForm")}>
-            Forgot password?
-          </Text>
-          <SignInButton primary type="submit">
-            Sign in
-          </SignInButton>
-			  </Div>
+        <Text onClick={() => setForm(signInPages.recoverPassword)}>
+          Forgot password?
+        </Text>
+        <AuthButton error={error}>
+					Sign in
+				</AuthButton>	
       </FormControl>
     </div>
   );

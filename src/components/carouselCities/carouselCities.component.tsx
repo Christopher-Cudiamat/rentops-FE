@@ -39,7 +39,6 @@ const CarouselCities: React.FC<CarouselCitiesPropTypes> = ({
           variableWidth: true,
           centerMode: true,
           infinite: true,
-          swipeToSlide: true,
         }
       },
     ]

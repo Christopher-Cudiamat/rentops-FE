@@ -19,8 +19,11 @@ export const FormControl = styled(Form)`
   margin: auto;
 `
 
-export const Text = styled(Paragraph)`
+export const Text = styled.div`
   margin: 0rem 0rem 1rem 0rem;
   cursor: pointer;
+  font-size: 1.6rem;
+  color:  ${({theme}) => theme.color.gray};
+  text-align: center;
 
 `

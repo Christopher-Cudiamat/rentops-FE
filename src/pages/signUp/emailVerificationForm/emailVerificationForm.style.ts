@@ -2,7 +2,7 @@ import styled  from "styled-components";
 import { Button } from "../../../components/ui/button.style";
 import { Paragraph } from "../../../components/ui/p.style";
 
-export const DivContainer = styled.div`
+export const FormControl = styled.form`
   padding: 3rem 2rem 15rem 2rem;
   @media ${props => props.theme.media.tablet} { 
     margin: auto;

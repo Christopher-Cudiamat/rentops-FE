@@ -18,38 +18,36 @@ import { Title } from '../../../components/ui/title.style';
 import { signupFormArr } from './signupForm.config';
 import ShowPasswordIcon from '../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
-import { FormControl, SignUpButton } from './signupForm.style';
-import { Div } from '../../../components/ui/div';
+import { FormControl } from './signupForm.style';
 import { signup } from '../../../services/signupController';
-import { ISignupFormProps } from './signupForm.type';
-
+import { ISignupFormProps, ISignupObj } from './signupForm.type';
+import AuthButton from '../../../components/authButton/authButton.component';
 
 
 const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
 
 	const { register, handleSubmit, errors } = useForm();
 	const [showPassword,setShowPassword] = useState(false);
-	// const [error, setError] = useState("");
+	const [error, setError] = useState("");
+	const [errorStatus, setErrorStatus] = useState(422);
+	
 	const onSubmit = (data:any) => {
-
 		signup(data)
 		.then((res) =>{
 			setForm("email-verification");
 			setUserData(res);
-			console.log(res)
 		})
-		.catch ((err) => {
-			console.log(err.error)
-			// setError(err);
+		.catch (err => {
+			setErrorStatus(err.response.status);
+			setError(err.response.data.error);
 		});
 	}
 	
 	return(
 		<FormControl  onSubmit={handleSubmit(onSubmit)}>
-		
 			<Title main bold gray>Registration</Title>
 			{
-				signupFormArr.map((el: any,index: number) => 
+				signupFormArr.map((el: ISignupObj,index: number) => 
 					<InputControl key={index}>
 						<InputLabel>{el.label}</InputLabel>
 						<Input
@@ -60,7 +58,7 @@ const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
 							ref={register({
 								required: el.required,
 								pattern: el.pattern,
-								minLength: el.minLength
+								minLength: el.minLength,
 							})}/>
 						{
 							el.type === "password"	&& 
@@ -69,8 +67,10 @@ const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
 								src={showPassword ? HidePasswordIcon : ShowPasswordIcon} 
 								alt="Password"/>
 						}
-						<InputError visibility={errors[el.name]?.type}>
-							{el.errorMessage[errors[el.name]?.type]}
+						<InputError visibility={
+								(error !== "" && el.name === "email") || errors[el.name]?.type
+							}>
+							{error !== "" ? error : el.errorMessage[errors[el.name]?.type]}
 						</InputError>
 					</InputControl>
 				)
@@ -90,16 +90,9 @@ const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
 					</CheckboxError>
 				}
 			</CheckboxControl>
-			{/* {
-				error !== "" &&
-				<P>{error}</P>
-			} */}
-			<Div display={"flex"} justify={"center"}>
-				<SignUpButton primary type="submit">
-					Signup
-				</SignUpButton>
-			</Div>
-				
+			<AuthButton error={errorStatus === 500 ? error : ""}>
+				Sign Up
+			</AuthButton>	
 		</FormControl>
 	)
 };

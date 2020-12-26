@@ -9,15 +9,12 @@ const Signup: React.FC = () => {
   console.log("USER",userData)
 	return(
     <>
-    { form === "signup" 
-      ?
+    { 
+      form === "signup" ?
       <SignupForm 
         setForm={setForm} 
         setUserData={setUserData}/>
-      :
-      <EmailVerificationForm 
-        setForm={setForm}
-        userData={userData}/>
+      : <EmailVerificationForm userData={userData}/>
     }
     </>
 	)

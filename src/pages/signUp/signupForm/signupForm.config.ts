@@ -5,7 +5,7 @@ export const signupFormArr = [
     label:"First Name",
     name: "firstName",
     placeholder: "First Name",
-    defaultValue: "",
+    defaultValue: "".toString(),
     required: true,
     pattern: regexLetters,
     errorMessage: {
@@ -34,7 +34,8 @@ export const signupFormArr = [
     pattern: regexEmail,
     errorMessage: {
       required: "Email is required",
-      pattern: "Email is not acceptable"
+      pattern: "Email is not acceptable",
+      validate: "Email already Exist"
     },
     type: "checkbox"
   },

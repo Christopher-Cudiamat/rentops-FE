@@ -1,5 +1,4 @@
 export interface IEmailVerificationFormProps {
-  setForm: React.Dispatch<React.SetStateAction<string>>,
   userData: IUserData
 }
 

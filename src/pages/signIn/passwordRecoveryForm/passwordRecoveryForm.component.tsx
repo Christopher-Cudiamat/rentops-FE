@@ -3,19 +3,31 @@ import ChangePasswordForm from './changePasswordForm/changePasswordForm.componen
 import IdentificationForm from './identificationForm/identificationForm.component';
 import OtpForm from './otpForm/otpForm.component';
 import { recoverPasswordSteps } from './passwordRecoveryForm.config';
+import { IPasswordRecoveryFormProps } from './passwordRecoveryForm.type';
 
-const PasswordRecoveryForm: React.FC = () => {
+const PasswordRecoveryForm: React.FC<IPasswordRecoveryFormProps> = ({
+  setForm
+  }) => {
 
   const [step,setStep] = useState(recoverPasswordSteps.identification);
+  const [generatedOtp, setGeneratedOtp] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleStep = (step: number) => {
     switch(step) {
       case recoverPasswordSteps.otp:
-        return <OtpForm setStep={setStep}/>
+        return  <OtpForm 
+                  setStep={setStep}
+                  generatedOtp={generatedOtp}/>
       case recoverPasswordSteps.changePassword:
-        return <ChangePasswordForm/>
+        return  <ChangePasswordForm 
+                  email={email}
+                  setForm={setForm}/>
       default:
-        return <IdentificationForm setStep={setStep}/> 
+        return  <IdentificationForm 
+                  setGeneratedOtp={setGeneratedOtp}        
+                  setStep={setStep}
+                  setEmail={setEmail}/> 
     }
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title } from '../../../components/ui/title.style';
-import realEstateAgent from '../../../assets/images/home-add-property.jpg';
+import realEstateAgent from '../../../assets/images/home-add-property-2.png';
 import { Paragraph } from '../../../components/ui/p.style';
 import { Button } from '../../../components/ui/button.style';
 import { Div } from './homeAddProperty.style';
