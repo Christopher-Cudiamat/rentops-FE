@@ -26,7 +26,7 @@ export const drawerLinks = [
   },
   {
     linkName: "ABOUT US",
-    path: "./",
+    path: "/about",
     icon: aboutIcon,
     altText: "Like"
   },

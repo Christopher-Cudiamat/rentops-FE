@@ -5,11 +5,12 @@ import { emailVerification } from '../../../services/signupController';
 import { IEmailVerificationFormProps } from './emailVerification.type';
 import { Text, FormControl } from './emailVerificationForm.style';
 import { useHistory } from 'react-router-dom';
-import AuthButton from '../../../components/authButton/authButton.component';
+import AuthButton from '../../../components/authButton/authButton.container';
 import { useForm } from 'react-hook-form';
 
 const EmailVerificationForm: React.FC<IEmailVerificationFormProps> = ({
-    userData
+		userData,
+		setUserAuth
     }) => {
 			
 		const { register, handleSubmit, errors } = useForm();
@@ -18,31 +19,34 @@ const EmailVerificationForm: React.FC<IEmailVerificationFormProps> = ({
 	
 		const onSubmit = (data:any) => {
 			emailVerification(userData.token,data.verificationCode)
-			.then(() => history.push('./'))
-			.catch((err) => setError(err.response.data.error))
+				.then((res) => {
+					setUserAuth(res);
+					history.push('./')
+				})
+				.catch((err) => setError(err.response.data.error))
 		}
 
 	return(
-        <FormControl onSubmit={handleSubmit(onSubmit)}>
-            <Title main bold gray>Email Verification</Title>
-            <Text>{userData.message}</Text>
-            <InputControl>
-							<Input
-								placeholder="Verification Code"
-								name="verificationCode"
-								type="number"
-								defaultValue=""
-								ref={register({
-									required: true,
-								})}/>
-              <InputError visibility={errors.verificationCode?.type}>
-                Verification code is required
-              </InputError>
-            </InputControl>
-						<AuthButton error={error}>
-							Verify code
-						</AuthButton>	
-        </FormControl>
+		<FormControl onSubmit={handleSubmit(onSubmit)}>
+			<Title main bold gray>Email Verification</Title>
+			<Text>{userData.message}</Text>
+			<InputControl>
+				<Input
+					placeholder="Verification Code"
+					name="verificationCode"
+					type="number"
+					defaultValue=""
+					ref={register({
+						required: true,
+					})}/>
+				<InputError visibility={errors.verificationCode?.type}>
+					Verification code is required
+				</InputError>
+			</InputControl>
+			<AuthButton error={error}>
+				Verify code
+			</AuthButton>	
+		</FormControl>
 	)
 };
 

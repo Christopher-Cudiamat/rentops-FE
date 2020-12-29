@@ -1,5 +1,8 @@
+import { IUserAuthState } from "../../../store/userAuth/userAuth.type";
+
 export interface IEmailVerificationFormProps {
-  userData: IUserData
+  userData: IUserData,
+  setUserAuth: (data:IUserAuthState) => void
 }
 
 interface IUserData {

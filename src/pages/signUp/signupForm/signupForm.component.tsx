@@ -21,7 +21,7 @@ import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
 import { FormControl } from './signupForm.style';
 import { signup } from '../../../services/signupController';
 import { ISignupFormProps, ISignupObj } from './signupForm.type';
-import AuthButton from '../../../components/authButton/authButton.component';
+import AuthButton from '../../../components/authButton/authButton.container';
 
 
 const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
@@ -81,12 +81,12 @@ const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
 				name={"termsAndConditions"} 
 				ref={register({required: true})}/>
 				<CheckboxLabel>
-					I have agreed to the <LabelLink>Terms and Conditions</LabelLink> of the website.
+					By creating an account, you agree to Rentop's <LabelLink>Terms and Conditions</LabelLink> and <LabelLink>Privacy Policy</LabelLink>.
 				</CheckboxLabel>
 				{
 					errors.termsAndConditions?.type &&
 					<CheckboxError>
-						You did not agree to the terms and conditions of the website
+						You did not agree to the Terms and Conditions/Privacy Policy of the website
 					</CheckboxError>
 				}
 			</CheckboxControl>

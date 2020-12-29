@@ -5,7 +5,7 @@ export const signupFormArr = [
     label:"First Name",
     name: "firstName",
     placeholder: "First Name",
-    defaultValue: "".toString(),
+    defaultValue: "",
     required: true,
     pattern: regexLetters,
     errorMessage: {

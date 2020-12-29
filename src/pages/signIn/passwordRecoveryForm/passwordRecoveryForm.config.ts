@@ -3,3 +3,9 @@ export enum recoverPasswordSteps {
   otp = 2,
   changePassword = 3 
 }
+
+export const stepperLabelsArr = [
+  { label: 'Insert credentials' },
+  { label: 'Confirm OTP' },
+  { label: 'Reset password' }
+]

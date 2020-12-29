@@ -16,6 +16,6 @@ export const ContinueButton = styled(Button)`
 `
 
 export const FormControl = styled(Form)`
-  padding: 6rem 2rem;
+  padding: 2rem 2rem 6rem 2rem;
   margin: auto;
 `

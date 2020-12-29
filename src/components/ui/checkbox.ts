@@ -15,6 +15,7 @@ export const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   padding: 0rem 1rem;
   border-radius: .5rem;
   border: 1px solid ${({theme}) => theme.color.gray};
+  margin-right: 1rem;
 `
 
 export const CheckboxLabel = styled.label`
@@ -22,7 +23,7 @@ export const CheckboxLabel = styled.label`
   color: ${({theme}) => theme.color.gray};
   display: inline;
   width: 90%;
-  padding: 1rem;
+  padding: 1rem 0rem;
 `
 export const CheckboxError= styled.p`
   color: ${({theme}) => theme.color.error};

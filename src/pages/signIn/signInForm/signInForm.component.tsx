@@ -10,25 +10,34 @@ import {
 } from '../../../components/ui/input.style';
 import { Title } from '../../../components/ui/title.style';
 import { signInFormArr } from './signInform.config';
-import { FormControl, Text, SignInButton } from './signInForm.style';
+import { FormControl, Text } from './signInForm.style';
 import ShowPasswordIcon from '../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
 import { ISignInFormProps } from './signInForm.type';
 import { signin } from '../../../services/signinController';
 import { signInPages } from '../signIn.config';
-import AuthButton from '../../../components/authButton/authButton.component';
+import AuthButton from '../../../components/authButton/authButton.container';
+import { useHistory } from 'react-router-dom';
 
-const SignInForm: React.FC<ISignInFormProps> = ({setForm}) => {
+const SignInForm: React.FC<ISignInFormProps> = ({
+  setForm,
+  login
+  }) => {
   
   const { register, handleSubmit, errors } = useForm();
   const [showPassword,setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const history = useHistory();
  
 	const onSubmit = (data:any) => {
     signin(data)
-    .then(res => console.log("Res",res))
-    .catch(err => setError(err.response.data.error))
-	}
+      .then(res => {
+        login(res);
+        history.push('./');
+      })
+      .catch(err => setError(err.response.data.error))
+  }
+  
     
   return (
     <div>
@@ -62,12 +71,12 @@ const SignInForm: React.FC<ISignInFormProps> = ({setForm}) => {
             </InputControl>
           )
         }
-        <Text onClick={() => setForm(signInPages.recoverPassword)}>
-          Forgot password?
-        </Text>
         <AuthButton error={error}>
 					Sign in
-				</AuthButton>	
+				</AuthButton>
+        <Text onClick={() => setForm(signInPages.recoverPassword)}>
+          Forgot password?
+        </Text>	
       </FormControl>
     </div>
   );

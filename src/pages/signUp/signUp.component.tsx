@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import EmailVerificationForm from './emailVerificationForm/emailVerificationForm.component';
+import EmailVerificationForm from './emailVerificationForm/emailVerification.contianer';
 import SignupForm from './signupForm/signupForm.component';
 
 const Signup: React.FC = () => {
 
   const [form,setForm] = useState("signup");
   const [userData,setUserData] = useState({token:"",message:""});
-  console.log("USER",userData)
+
 	return(
     <>
     { 

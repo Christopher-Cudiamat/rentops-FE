@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import AuthButton from '../../../../components/authButton/authButton.component';
+import AuthButton from '../../../../components/authButton/authButton.container';
 import { Div } from '../../../../components/ui/div';
 import { 
 	Input,

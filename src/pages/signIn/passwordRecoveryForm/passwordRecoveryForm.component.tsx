@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { StepperStyled } from '../../../components/stepper/stepperStyled.style';
 import ChangePasswordForm from './changePasswordForm/changePasswordForm.component';
 import IdentificationForm from './identificationForm/identificationForm.component';
 import OtpForm from './otpForm/otpForm.component';
-import { recoverPasswordSteps } from './passwordRecoveryForm.config';
+import { recoverPasswordSteps, stepperLabelsArr } from './passwordRecoveryForm.config';
 import { IPasswordRecoveryFormProps } from './passwordRecoveryForm.type';
 
 const PasswordRecoveryForm: React.FC<IPasswordRecoveryFormProps> = ({
@@ -33,6 +34,10 @@ const PasswordRecoveryForm: React.FC<IPasswordRecoveryFormProps> = ({
 
   return (
     <>
+      <StepperStyled
+        steps={stepperLabelsArr}
+        activeStep={step - 1}
+      />
       {handleStep(step)}
     </>
   );

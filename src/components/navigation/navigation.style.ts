@@ -51,43 +51,35 @@ export const IconMenu = styled.div`
     transition: all .3s;
     height: .5rem;
     background: ${({theme}) => theme.color.blackLightest};
-    @media ${({theme}) => theme.media.laptop} { 
-      height: .5rem;
-    }
   }
   & div:first-child {
+    height: .5rem;
     width: 4rem;
-    @media ${({theme}) => theme.media.laptop} { 
-      width: 5rem;
-    }
   }
   & div:nth-child(2) {
+    height: .5rem;
     width: 3rem;
     margin-top:.8rem;
-    @media ${({theme}) => theme.media.laptop} { 
-      width: 3rem;
-      margin-top: 1rem;
-    }
+
   }
   & div:last-child {
+    height: .5rem;
     width: 4rem;
     margin-top:.8rem;
-    @media ${({theme}) => theme.media.laptop} { 
-      width: 5rem;
-      margin-top: 1rem;
-    }
+
   }
 `;
+
+export const IconSearchContainer = styled.div`
+  cursor: pointer;
+  &:hover svg path {
+    fill: ${({theme}) => theme.color.primary};
+  }
+`
 
 export const IconSearch = styled(SVG)`
   width: 3.2rem;
   height: 3.2rem;
-  & path {
-    &:hover {
-      fill: ${({theme}) => theme.color.primary};
-      cursor: pointer;
-    }
-  }
   @media ${({theme}) => theme.media.laptop} { 
     width: 3.5rem;
     height: 3.5rem;
@@ -95,8 +87,8 @@ export const IconSearch = styled(SVG)`
 `;
 
 export const ImageLink = styled(Link)`
-width: 60%;
-@media ${({theme}) => theme.media.laptop} { 
+  width: 60%;
+  @media ${({theme}) => theme.media.laptop} { 
     width: 65%;
   }
 `
@@ -115,3 +107,13 @@ export const ImageLogo = styled.img`
 export const NavbarLeft = styled.div`
   display: flex;
 `
+export const NavbarRight = styled.div`
+  display: flex;
+`
+
+// export const NavButtonContainer = styled.div`
+//   display: none;
+//   @media ${({theme}) => theme.media.laptop} { 
+//     display: flex;
+//   }
+// `

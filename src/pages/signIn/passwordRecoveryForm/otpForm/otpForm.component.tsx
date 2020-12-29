@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import AuthButton from '../../../../components/authButton/authButton.component';
+import AuthButton from '../../../../components/authButton/authButton.container';
 import { Input, InputControl, InputError, InputLabel } from '../../../../components/ui/input.style';
 import { otpVerification } from '../../../../services/signinController';
 import { recoverPasswordSteps } from '../passwordRecoveryForm.config';

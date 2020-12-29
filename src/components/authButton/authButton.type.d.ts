@@ -1,4 +1,5 @@
 export interface IAuthButtonProps {
   error?: string,
-  children: any
+  children: any,
+  isLoading?: boolean
 }

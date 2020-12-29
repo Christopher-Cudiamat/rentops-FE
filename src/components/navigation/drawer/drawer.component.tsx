@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { drawerLinks } from './drawer.config';
 import { 
-  DrawerButton,
   DrawerButtonsContainer,
   DrawerClose,
   DrawerContainer, 
@@ -13,16 +12,25 @@ import {
 } from './drawer.style';
 import { DrawerPropTypes } from './drawer.type';
 import closeIcon from '../../../assets/icon/close.svg';
+import { AuthButtonLink } from '../../ui/buttonLink.style';
 
-const Drawer: React.FC<DrawerPropTypes> = ({showDrawer,setShowDrawer}) => {
+
+const Drawer: React.FC<DrawerPropTypes> = ({
+  showDrawer,
+  setShowDrawer,
+  isAuthenticated,
+  setLogout
+  }) => {
 
   useEffect(() => {
-    if(showDrawer){
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+      showDrawer ?  
+      document.body.style.overflow = 'hidden' :  document.body.style.overflow = 'unset';
   }, [showDrawer]);
+
+  const handleLogout = () => {
+    setShowDrawer(false);
+    setLogout();
+  }
 
   return (
     <>
@@ -31,7 +39,7 @@ const Drawer: React.FC<DrawerPropTypes> = ({showDrawer,setShowDrawer}) => {
           <DrawerClose src={closeIcon} alt="Close" onClick={() => setShowDrawer(false)}/>
           {
             drawerLinks.map((el:any, index: number) => (
-              <DrawerList key={index}>
+              <DrawerList key={index} onClick={() => setShowDrawer(false)}>
                 <DrawerLinkIcon src={el.icon} alt={el.text}/>
                 <DrawerLinkText to={el.path}>
                   {el.linkName}
@@ -41,18 +49,30 @@ const Drawer: React.FC<DrawerPropTypes> = ({showDrawer,setShowDrawer}) => {
           }
         </DrawerListContainer>
         <DrawerButtonsContainer>
-          <DrawerButton 
-            primary 
-            to="/signIn"  
-            onClick={() => setShowDrawer(false)}>
-            LOGIN
-          </DrawerButton>
-          <DrawerButton 
-            secondary 
-            to="/signUp"  
-            onClick={() => setShowDrawer(false)}>
-            SING UP
-          </DrawerButton>
+          {
+          !isAuthenticated ?
+          <>
+            <AuthButtonLink 
+              primary
+              to="/signIn"
+              onClick={() => setShowDrawer(false)}>
+              Sign in
+            </AuthButtonLink>
+            <AuthButtonLink 
+              secondary
+              to="/signUp"
+              onClick={() => setShowDrawer(false)}>
+              Sign up
+            </AuthButtonLink>
+          </>
+          :
+          <AuthButtonLink 
+            tertiary
+            to="./"
+            onClick={() => handleLogout()}>
+            Logout
+          </AuthButtonLink>
+          }
         </DrawerButtonsContainer>
       </DrawerContainer>
       <DrawerUnderlay showDrawer={showDrawer} onClick={() => setShowDrawer(false)}/>

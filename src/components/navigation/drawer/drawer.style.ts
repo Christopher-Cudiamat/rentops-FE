@@ -1,9 +1,6 @@
 import styled from "styled-components/macro";
 import { keyframes } from 'styled-components'
-import { Button } from "../../ui/button.style";
 import { Link } from "react-router-dom";
-import { ButtonLink } from "../../ui/buttonLink.style";
-
 interface IDrawer {
   showDrawer?: boolean,
   linkColor?: string,
@@ -43,7 +40,11 @@ export const DrawerContainer = styled.div<IDrawer>`
 
 export const DrawerListContainer = styled.ul<IDrawer>``
 
-export const DrawerButtonsContainer = styled.div<IDrawer>``
+export const DrawerButtonsContainer = styled.div<IDrawer>`
+  /* @media ${({theme}) => theme.media.laptop} { 
+    display: none;
+  } */
+`
 
 export const DrawerUnderlay = styled.div<IDrawer>`
   height: 100vh;
@@ -80,28 +81,6 @@ export const DrawerLinkText = styled(Link)`
   margin: 0rem;
   color: ${({theme}) => theme.color.blackLight}; 
 `
-
-
-export const DrawerButton = styled(ButtonLink)`
-  margin: 1rem 0rem;
-  height: 4rem;
-  font-size: 1.6rem;
-  display: block;
-  @media ${props => props.theme.media.tablet} { 
-    display: inline;
-    margin: 1rem 1rem 1rem 0rem;
-    width: 40%;
-    &:hover {
-      color: ${({theme}) => theme.color.primary}; 
-      background: ${({theme}) => theme.color.white};
-      border: 2px solid ${({theme}) => theme.color.primary};
-    }
-  }
-  @media ${props => props.theme.media.laptop} { 
-    width: 100%;
-    display: block;
-  }
-`;
 
 export const DrawerClose = styled.img<IDrawer>`
   position: absolute;

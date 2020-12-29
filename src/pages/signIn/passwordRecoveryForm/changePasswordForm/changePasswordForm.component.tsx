@@ -14,7 +14,7 @@ import HidePasswordIcon from '../../../../assets/icon/hide-password.svg';
 import { changePassword } from '../../../../services/signinController';
 import { IChangePasswordProps } from './changePassword.type';
 import { signInPages } from '../../signIn.config';
-import AuthButton from '../../../../components/authButton/authButton.component';
+import AuthButton from '../../../../components/authButton/authButton.container';
 
 const ChangePasswordForm: React.FC<IChangePasswordProps> = ({
   email,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PasswordRecoveryForm from './passwordRecoveryForm/passwordRecoveryForm.component';
 import { signInPages } from './signIn.config';
-import SignInForm from './signInForm/signInForm.component';
+import SignInForm from './signInForm/signInForm.container';
 
 
 const SignIn: React.FC = () => {

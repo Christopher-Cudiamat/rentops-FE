@@ -1,8 +1,10 @@
 import React from 'react';
-import { Container, ErrorMessage, StyledButton } from './authButton.style';
+import { Container, ErrorMessage, LoaderIcon, StyledButton } from './authButton.style';
 import { IAuthButtonProps } from './authButton.type';
+import loaderGif from '../../assets/gifs/reload.gif';
 
-const AuthButton: React.FC<IAuthButtonProps> = ({error,children}) => {
+const AuthButton: React.FC<IAuthButtonProps> = ({error,children,isLoading}) => {
+  
   return (
     <Container 
       display={"flex"} 
@@ -14,6 +16,7 @@ const AuthButton: React.FC<IAuthButtonProps> = ({error,children}) => {
       <StyledButton 
         primary 
         type="submit">
+        {isLoading ? <LoaderIcon src={loaderGif} alt="loader icon"/> : null}
         {children}
       </StyledButton>
     </Container>

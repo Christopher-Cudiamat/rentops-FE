@@ -86,3 +86,7 @@ textarea {
     sans-serif;
 	font-size: inherit;
 }
+
+*:focus {
+	outline: 0 !important;
+}
