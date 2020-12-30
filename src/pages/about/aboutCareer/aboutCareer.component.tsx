@@ -7,11 +7,11 @@ import { Container } from './aboutCareer.style';
 const AboutCareer = () => {
   return (
     <Container>
-        <Title gray sub>
-          Become our roomie
+        <Title bold>
+          Become our team-mate
         </Title>
         <Paragraph>
-          At Zumper, we celebrate individuality, thrive off of collaboration, and recognize each other’s unique contributions. When you join our team, you join our family.
+          At Rentops, we celebrate individuality, thrive off of collaboration, and recognize each other’s unique contributions. When you join our team, you join our family.
         </Paragraph>
         <Button primary>See open positions</Button>
     </Container>

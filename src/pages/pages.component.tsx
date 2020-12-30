@@ -4,6 +4,9 @@ import SignIn from './signIn/signIn.component';
 import Signup from './signup/signup.component';
 import Home from './home/home.component';
 import About from './about/about.component';
+import Contact from './contact/contact.component';
+import Listings from './listings/listings.component';
+import AddProperty from './addProperty/addProperty.component';
 
 function Pages(){
     return(
@@ -20,6 +23,15 @@ function Pages(){
                 </Route>
                 <Route exact path="/about">
                     <About />
+                </Route>
+                <Route exact path="/contact">
+                    <Contact />
+                </Route>
+                <Route exact path="/my-listings">
+                    <Listings />
+                </Route>
+                <Route exact path="/add-property">
+                    <AddProperty />
                 </Route>
             </Switch>
         </div>

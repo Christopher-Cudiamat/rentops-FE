@@ -2,12 +2,15 @@ import {combineReducers} from "redux";
 import {createBrowserHistory} from "history";
 import { loaderReducer } from "../store/loader/loader.reducer";
 import { userAuthReducer } from "../store/userAuth/userAuth.reducer";
+import { propertyInfoReducer } from "../store/propertyInfo/propertyInfo.reducer";
+
 
 export const history = createBrowserHistory();
 
 export const appReducer = combineReducers({
   "loader":loaderReducer,
-  "userAuth": userAuthReducer
+  "userAuth": userAuthReducer,
+  "propertyInfo": propertyInfoReducer
 });
 
 

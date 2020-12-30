@@ -7,10 +7,16 @@ import helpIcon from '../../../assets/icon/nav/help.svg';
 
 export const drawerLinks = [
   {
-    linkName: "RENT",
-    path: "./",
+    linkName: "MY LISTINGS",
+    path: "/my-listings",
     icon: keyIcon,
-    altText: "Like"
+    altText: "Listing"
+  },
+  {
+    linkName: "RENT",
+    path: "/my-listings",
+    icon: keyIcon,
+    altText: "Listing"
   },
   {
     linkName: "FAVORITES",
@@ -20,7 +26,7 @@ export const drawerLinks = [
   },
   {
     linkName: "ADD PROPERTIES",
-    path: "./",
+    path: "add-property",
     icon: houseIcon,
     altText: "Like"
   },
@@ -32,7 +38,7 @@ export const drawerLinks = [
   },
   {
     linkName: "CONTACT US",
-    path: "./",
+    path: "/contact",
     icon: contactIcon,
     altText: "Like"
   },

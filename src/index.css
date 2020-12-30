@@ -90,3 +90,19 @@ textarea {
 *:focus {
 	outline: 0 !important;
 }
+
+.input-range__slider {
+	width: 2.5rem !important;
+	height: 2.5rem !important;
+	margin-top: -1.4rem !important;
+	margin-left: -1rem !important;
+	background: #1799E2 !important;
+	border: none !important;
+}
+.input-range__track--active{
+	background: #1799E2 !important;
+}
+
+.input-range__label-container {
+	display: none !important;
+}

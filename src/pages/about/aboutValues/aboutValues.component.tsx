@@ -1,7 +1,7 @@
 import React from 'react';
 import { Title } from '../../../components/ui/title.style';
 import { Container } from './aboutValues.styles';
-import aboutValues from "../../../assets/images/about-team.jpg"
+import aboutValues from "../../../assets/images/about-values.png"
 import { Paragraph } from '../../../components/ui/p.style';
 import { aboutValuesArr } from './aboutValues.config';
 

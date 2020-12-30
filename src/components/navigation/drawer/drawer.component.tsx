@@ -39,7 +39,10 @@ const Drawer: React.FC<DrawerPropTypes> = ({
           <DrawerClose src={closeIcon} alt="Close" onClick={() => setShowDrawer(false)}/>
           {
             drawerLinks.map((el:any, index: number) => (
-              <DrawerList key={index} onClick={() => setShowDrawer(false)}>
+              <DrawerList 
+                showLink={el.linkName === "MY LISTINGS" && isAuthenticated}
+                key={index} 
+                onClick={() => setShowDrawer(false)}>
                 <DrawerLinkIcon src={el.icon} alt={el.text}/>
                 <DrawerLinkText to={el.path}>
                   {el.linkName}

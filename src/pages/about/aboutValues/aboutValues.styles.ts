@@ -2,9 +2,12 @@ import styled from "styled-components/macro";
 
 
 export const Container = styled.div`
-  padding: 0rem 1.5rem;
+  padding: 0rem 1rem;
+  position: relative;
+  margin-top: -12rem;
   @media ${props => props.theme.media.laptop} { 
     padding: 2rem  10rem;
+    margin-top: 0rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,7 +15,7 @@ export const Container = styled.div`
 
   & > div {
     background:  ${({theme}) => theme.color.grayLightest};
-    padding: 2rem;
+    padding: 10rem 2rem 8rem 2rem;
     @media ${props => props.theme.media.laptop} { 
       padding: 3rem 4rem;
     }
@@ -47,9 +50,11 @@ export const Container = styled.div`
   }
 
   & img {
+    margin-top: -12rem;
     @media ${props => props.theme.media.laptop} { 
+      margin-top: -0rem;
       order: -1;
-       padding-right: 4rem;
+      padding-right: 4rem;
     }
   }
   

@@ -16,6 +16,8 @@ export const StepperStyled = styled(Stepper)`
     height: 2.5rem;
     width: 2.5rem;
     margin-top: -3px;
+    border-radius: 0rem;
+    clip-path: polygon(50% 0%, 100% 37%, 89% 37%, 89% 100%, 12% 100%, 12% 39%, 0 38%);
   }
   & > div > div > button > span {
     font-size: 1.2rem;

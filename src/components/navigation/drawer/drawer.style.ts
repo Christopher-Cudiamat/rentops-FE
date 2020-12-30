@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 interface IDrawer {
   showDrawer?: boolean,
   linkColor?: string,
+  showLink?: boolean
 }
 
 const drawerSlideIn = keyframes`
@@ -64,7 +65,7 @@ export const DrawerList = styled.li<IDrawer>`
   margin: 2.5rem 0rem;
   font-size: 1.6rem;
   transition: all .3s;
-  display: flex;
+  display: ${({showLink}) => showLink ? "flex":"flex"};
   align-items: end;
   &:hover a {
     color: ${({theme}) => theme.color.primary}; 
