@@ -26,7 +26,9 @@ export const setLogout = (): IUserAuthAction => {
     payload:   {
       token: null,
       isAuthenticated: false,
-      email: ""
+      email: "",
+      firstName: "",
+      lastName: ""
     }
   }
 }

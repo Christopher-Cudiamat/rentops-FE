@@ -7,19 +7,17 @@ interface CustomPrevArrowPropTypes{
 }
 
 export const Img = styled.img`
-  display: none;
-  @media ${({theme}) => theme.media.tablet} { 
-    display: block;
-    width: 7rem;
-    height: 7rem;
-    position: absolute;
-    top: 45%;
-    right: -1%;
-    z-index: 999;
-    opacity: 0.6;
-    cursor: pointer;
-    transition: all .5s;
-    }
+  display: block;
+  width: 7rem;
+  height: 7rem;
+  position: absolute;
+  top: 45%;
+  right: -1%;
+  z-index: 999;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all .5s;
+
   @media ${({theme}) => theme.media.laptop} { 
     &:hover {
       background: ${({theme}) => theme.color.black};

@@ -1,14 +1,25 @@
 import axios from 'axios';
 import { setIsLoadingButton } from '../store/loader/loader.action';
 import store from './store.config';
-
+const token = localStorage.getItem('token');
+console.log("TOKEEENNN ----",token);
 
 export const instanceGet = axios.create({
   headers: {"Content-Type": "application/json"}
 });
 
+export const instanceGetPrivate = axios.create({
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": token,
+  }
+});
+
 export const instancePost = axios.create({
-  headers: {"Content-Type": "application/json"}
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": token,
+  }
 });
 
 

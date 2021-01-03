@@ -10,7 +10,10 @@ import {
 const initialState: IUserAuthState = {
   token: localStorage.getItem('token'),
   isAuthenticated: false,
-  email: ""
+  email: "",
+  // phoneNumber: 0,
+  lastName: "",
+  firstName: ""
 } 
 
 export const userAuthReducer = (state = initialState, action: IUserAuthAction) => {

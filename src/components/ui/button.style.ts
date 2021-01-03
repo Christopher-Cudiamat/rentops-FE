@@ -50,7 +50,4 @@ export const Button = styled.button<IButton>`
     }
     `
   };
-
-
-  
 `

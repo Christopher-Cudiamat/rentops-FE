@@ -12,6 +12,7 @@ const initialState: any = {
   price: 1000,
   size: 0,
   contractLength: "Long-term",
+  propertyType: "Apartment",
   furnish: "",
   bed: "1",
   bathroom: "1",

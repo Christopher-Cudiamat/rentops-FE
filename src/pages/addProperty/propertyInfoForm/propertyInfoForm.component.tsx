@@ -13,8 +13,13 @@ import FieldFurnish from '../../../components/fieldFurnish/fieldFurnish.componen
 import FieldSize from '../../../components/fieldSize/fieldSize.component';
 import FieldAmenities from '../../../components/fieldAmenities/fieldAmenities.component';
 import { Button } from '../../../components/ui/button.style';
+import { IProperyInfoFormProps } from './propertyInfoForm.type';
+import { AddPropertyPage } from '../addProperty.config';
 
-const PropertyInfoForm = () => {
+const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
+  setStep
+  }) => {
+
   return (
     <Form style={{padding: "4rem 2rem 10rem 2rem"}}>
       <FieldLocation/>
@@ -29,7 +34,10 @@ const PropertyInfoForm = () => {
         <FieldBathroom/>
       </Wrapper>
       <FieldAmenities/>
-      <Button primary style={{marginTop: "3rem"}}>
+      <Button 
+        primary
+        onClick={() =>  setStep(AddPropertyPage.contact)} 
+        style={{marginTop: "3rem"}}>
         Continue
       </Button>
     </Form>

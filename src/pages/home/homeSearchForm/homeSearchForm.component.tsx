@@ -4,8 +4,18 @@ import { Form } from '../../../components/ui/form.style';
 import { Select } from '../../../components/ui/select.style';
 import { Option } from '../../../components/ui/option.style';
 import { Div } from './homeSearchForm.style';
+import { Input } from '../../../components/ui/input.style';
+import { getLocation } from '../../../services/propertyController';
 
 const HeaderForm: React.FC = () => {
+
+  // const handleLocation = () => {
+  //   getLocation()
+  //   .then(res => {
+  //     console.log("RES LOCATION", res);
+  //   })
+  // }
+
   return (
     <Div>
       <Form>
@@ -17,6 +27,9 @@ const HeaderForm: React.FC = () => {
           <Option>dasd</Option>
           <Option>dsadas</Option>
         </Select>
+        {/* <Input
+        onBlur={handleLocation}
+        /> */}
         <Select>
           <Option>Any price</Option>
           <Option>324234</Option>

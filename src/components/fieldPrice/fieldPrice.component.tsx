@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPropertyInfo } from '../../store/propertyInfo/propertyInfo.action';
+import { formatToThousand } from '../../utils/formatNumbers';
 import { Paragraph } from '../ui/p.style';
 import { StyledInputRange } from './fieldPrice.style';
 
@@ -13,11 +14,6 @@ const FieldPrice = () => {
   const handlePrice = (e: any) => {
     setValue(e);
     dispatch(setPropertyInfo("price",e * 1000))
-  }
-
-  const formatToThousand = (num: number) => {
-    let numThousand = num * 1000;
-    return numThousand.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   return (

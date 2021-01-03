@@ -4,9 +4,9 @@ import { StepperStyled } from '../../components/stepper/stepperStyled.style';
 import { resetPropertyInfo } from '../../store/propertyInfo/propertyInfo.action';
 import { AddPropertyPage, stepperLabelsArr } from './addProperty.config';
 import { IAddPropertyFormProps } from './addProperty.type';
-import PropertyContactForm from './propertyContactForm/propertyContactForm.component';
+import PropertyContactForm from './propertyContactForm/propertyContactForm.container';
 import PropertyInfoForm from './propertyInfoForm/propertyInfoForm.component';
-import ProperUploadMediaForm from './propertyUploadMediaForm/propertyUploadMediaForm.component';
+import PropertyUploadMediaForm from './propertyUploadMediaForm/propertyUploadMediaForm.container';
 
 const AddProperty: React.FC<IAddPropertyFormProps> = () => {
 
@@ -21,11 +21,11 @@ const AddProperty: React.FC<IAddPropertyFormProps> = () => {
   const handleStep = (step: number) => {
     switch(step) {
       case AddPropertyPage.contact:
-        return <PropertyContactForm/>
+        return <PropertyContactForm setStep={setStep}/>
       case AddPropertyPage.media:
-        return  <ProperUploadMediaForm/>
+        return  <PropertyUploadMediaForm/>
       default:
-        return  <PropertyInfoForm/>
+        return  <PropertyInfoForm setStep={setStep}/>
     }
   }
 

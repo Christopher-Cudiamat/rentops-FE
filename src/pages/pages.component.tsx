@@ -5,7 +5,7 @@ import Signup from './signup/signup.component';
 import Home from './home/home.component';
 import About from './about/about.component';
 import Contact from './contact/contact.component';
-import Listings from './listings/listings.component';
+import Listings from './listings/listings.container';
 import AddProperty from './addProperty/addProperty.component';
 
 function Pages(){
