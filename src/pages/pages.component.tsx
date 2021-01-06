@@ -7,6 +7,7 @@ import About from './about/about.component';
 import Contact from './contact/contact.component';
 import Listings from './listings/listings.container';
 import AddProperty from './addProperty/addProperty.component';
+import Rent from './rent/rent.container';
 
 function Pages(){
     return(
@@ -20,6 +21,9 @@ function Pages(){
                 </Route>
                 <Route exact path="/signUp">
                     <Signup />
+                </Route>
+                <Route exact path="/rent">
+                    <Rent />
                 </Route>
                 <Route exact path="/about">
                     <About />

@@ -29,7 +29,7 @@ export const DrawerContainer = styled.div<IDrawer>`
   z-index: 999999;
   animation-name: ${({showDrawer}) => showDrawer ? drawerSlideIn : drawerSlideOut};
   animation-duration: .3s;
-  padding: 2rem 2rem 3rem 1rem;
+  padding: 2rem 0rem;
   @media ${({theme}) => theme.media.tablet} { 
     width: 50%;
   }
@@ -41,10 +41,15 @@ export const DrawerContainer = styled.div<IDrawer>`
 
 export const DrawerListContainer = styled.ul<IDrawer>``
 
+export const DrawerSubListContainer = styled.ul<IDrawer>`
+  width: 100%;
+  margin-top: 1rem;
+  background: ${({theme}) => theme.color.grayLightest};
+  padding: 0rem 0rem 0rem 6rem;
+`
+
 export const DrawerButtonsContainer = styled.div<IDrawer>`
-  /* @media ${({theme}) => theme.media.laptop} { 
-    display: none;
-  } */
+  padding: 0rem 1rem; 
 `
 
 export const DrawerUnderlay = styled.div<IDrawer>`
@@ -67,18 +72,30 @@ export const DrawerList = styled.li<IDrawer>`
   transition: all .3s;
   display: ${({showLink}) => showLink ? "flex":"flex"};
   align-items: end;
-  &:hover a {
+  flex-wrap: wrap;
+  &:hover > a {
     color: ${({theme}) => theme.color.primary}; 
     text-decoration: none;
   }
 `
+export const DrawerSubList = styled.ul<IDrawer>`
+  margin: 1.5rem 0rem;
+`
+
 export const DrawerLinkIcon = styled.img`
   opacity: 0.3;
   height: 2rem;
   margin-right: 1rem;
+  padding: 0rem 0rem 0rem 1rem;
 `
 export const DrawerLinkText = styled(Link)`
   font-size: 1.6rem;
+  margin: 0rem;
+  color: ${({theme}) => theme.color.blackLight}; 
+  width: 80%;
+`
+export const DrawerSubLinkText = styled(Link)`
+  font-size: 1.4rem;
   margin: 0rem;
   color: ${({theme}) => theme.color.blackLight}; 
 `

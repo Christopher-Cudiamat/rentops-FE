@@ -2,21 +2,21 @@ import {
   ADD_TO_ARRAY,
   REMOVE_FROM_ARRAY,
   RESET_PROPERTY_INFO,
+  SET_INITIAL_DEFAULT_INFO,
   SET_PROPERTY_INFO,
   }
 from "./propertyInfo.type";
 
 
 const initialState: any = {
-  location: "Makati City",
-  price: 1000,
+  location: "",
+  price: 0,
   size: 0,
-  contractLength: "Long-term",
-  propertyType: "Apartment",
+  contractLength: "",
   furnish: "",
-  bed: "1",
-  bathroom: "1",
-  developer: "none",
+  bed: "",
+  bathroom: "",
+  developer: "",
   amenities: []
 } 
 
@@ -40,6 +40,18 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
       [name] : state[name].filter((el: string) => el !== value)
     }
     case RESET_PROPERTY_INFO:
+      return {
+        location: "",
+        price: 0,
+        size: 0,
+        contractLength: "",
+        furnish: "",
+        bed: "",
+        bathroom: "",
+        developer: "",
+        amenities: []
+      }
+    case SET_INITIAL_DEFAULT_INFO:
       return {
         location: "Makati City",
         price: 1000,

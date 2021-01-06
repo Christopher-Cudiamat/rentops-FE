@@ -1,7 +1,7 @@
 import styled  from "styled-components/macro";
 import furniture from '../../assets/icon/furniture.svg'
 import bed from '../../assets/icon/bed.svg'
-import bath from '../../assets/icon/bath.svg'
+import bath from '../../assets/icon/shower.svg'
 import Slider from "react-slick";
 
 interface IStyledSlides {
@@ -21,8 +21,7 @@ export const CardContainer = styled.div`
   
 `
 export const CardTitle= styled.p`
-  /* background: rgba(24,131,191,0.7); */
-  /* background: rgba(0,0,0,0.4); */
+
   background: ${({theme}) => theme.color.secondary};
   padding: .7rem 1rem;
   font-size: 1.6rem;
@@ -31,16 +30,16 @@ export const CardTitle= styled.p`
   margin-bottom: 0rem;
   text-align: center;
   position: absolute;
-  /* width: 100%; */
-  /* top: 0%; */
-  /* bottom: 20%;
-  left: 25%; */
   width: fit-content;
   position: absolute;
-  bottom: 22%;
+  bottom: 24%;
   left: 50%;
   transform: translate(-50%, -20%);
   z-index: 999;
+`
+
+export const SlidesContainer = styled.div<IStyledSlides>`
+  position: relative;
 `
 
 export const Slides = styled.div<IStyledSlides>`
@@ -50,6 +49,16 @@ export const Slides = styled.div<IStyledSlides>`
   height: 22rem;
   background-position: center;
   background-size:cover;
+`
+export const TextNew = styled.div<IStyledSlides>`
+  color: ${({theme}) => theme.color.white};
+  background: ${({theme}) => theme.color.tertiary}; 
+  position: absolute;
+  right: -3rem;
+  top: .5rem;
+  transform: rotate(34deg); 
+  font-size: 1.4rem;
+  padding:  0rem 4rem;
 `
 
 
@@ -76,7 +85,7 @@ export const CardDetails = styled.div`
 
   & > div:last-child {
     display: flex;
-    & p {
+    & > p {
       color: ${({theme}) => theme.color.blackLight};
       font-size: 1.4rem;
       margin-right: 2rem;

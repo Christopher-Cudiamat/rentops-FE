@@ -26,6 +26,7 @@ const FieldImageUploadGallery = (props:any) => {
   return (
     <UploadsImageContainer>
       <ImageUploading
+        resolutionType={'less'}
         multiple={props.multiple}
         value={images}
         onChange={handleListingPhoto}

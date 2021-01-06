@@ -3,6 +3,7 @@ import {
   REMOVE_FROM_ARRAY,
   RESET_PROPERTY_INFO,
   SET_PROPERTY_INFO,
+  SET_INITIAL_DEFAULT_INFO
 } from "./propertyInfo.type"
 
 
@@ -30,8 +31,14 @@ export const removeAmenities = (name: string, value: string): any => {
   }
 }
 
+export const setDefaultPropertyInfo = (): any => {
+  return {
+    type: SET_INITIAL_DEFAULT_INFO
+  }
+}
+
 export const resetPropertyInfo = (): any => {
   return {
-    type: RESET_PROPERTY_INFO,
+    type: RESET_PROPERTY_INFO
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { drawerLinks } from './drawer.config';
 import { 
   DrawerButtonsContainer,
@@ -13,6 +13,7 @@ import {
 import { DrawerPropTypes } from './drawer.type';
 import closeIcon from '../../../assets/icon/close.svg';
 import { AuthButtonLink } from '../../ui/buttonLink.style';
+import DrawerDropDown from './drawerDropDown/drawerDropDown.component';
 
 
 const Drawer: React.FC<DrawerPropTypes> = ({
@@ -22,6 +23,9 @@ const Drawer: React.FC<DrawerPropTypes> = ({
   setLogout
   }) => {
 
+  const [selectedLink, setSelectedLink] = useState(-1);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   useEffect(() => {
       showDrawer ?  
       document.body.style.overflow = 'hidden' :  document.body.style.overflow = 'unset';
@@ -30,6 +34,15 @@ const Drawer: React.FC<DrawerPropTypes> = ({
   const handleLogout = () => {
     setShowDrawer(false);
     setLogout();
+  }
+
+  const handleClickLink = (obj: any, index: number) => {
+    if(obj.hasOwnProperty("dropDownLinks")){
+      setSelectedLink(index);
+      setShowDropdown(!showDropdown);
+      return;
+    }
+    setShowDrawer(false);
   }
 
   return (
@@ -42,12 +55,19 @@ const Drawer: React.FC<DrawerPropTypes> = ({
               <DrawerList 
                 showLink={el.linkName === "MY LISTINGS" && isAuthenticated}
                 key={index} 
-                onClick={() => setShowDrawer(false)}>
+                onClick={() => handleClickLink(el,index)}>
                 <DrawerLinkIcon src={el.icon} alt={el.text}/>
                 <DrawerLinkText to={el.path}>
                   {el.linkName}
                 </DrawerLinkText>
+                { 
+                  showDropdown && index === selectedLink ?
+                    <DrawerDropDown 
+                      arr={el.dropDownLinks}
+                      setShowDrawer={setShowDrawer}/> : null
+                }
               </DrawerList>
+
             ))
           }
         </DrawerListContainer>

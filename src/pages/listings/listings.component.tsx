@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import CardProperty from '../../components/cardProperty/cardProperty.component';
 import { getAddedProperties } from '../../services/propertyController';
-import { IListingsProps } from './propertyList/listings.type';
+import { IListingsProps } from './listings.type';
 
 const Listings: React.FC<IListingsProps> = ({
   properties,
@@ -12,7 +12,6 @@ const Listings: React.FC<IListingsProps> = ({
   useEffect(() => {
     getAddedProperties()
       .then(res => {
-        console.log("RESPONSE",res);
         setPropertyList(res);
       })
 

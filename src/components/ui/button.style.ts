@@ -1,8 +1,9 @@
 import styled, {css} from "styled-components";
-
+import backArrow from '../../assets/icon/back-arrow.svg';
 interface IButton {
   primary?: boolean,
   secondary?: boolean,
+  tertiary?: boolean,
   width?: string,
   widthMobile?: string,
   widthTablet?: string,
@@ -50,4 +51,35 @@ export const Button = styled.button<IButton>`
     }
     `
   };
+
+  ${({tertiary}) => tertiary &&
+    css`
+     background: ${({theme}) => theme.color.tertiary};
+    &:hover {
+      background: ${({theme}) => theme.color.primary};
+    }
+    `
+  };
+`
+
+
+export const ButtonBack = styled.button<IButton>`
+  color: ${({theme}) => theme.color.gray};
+  background: transparent;
+  font-size: 1.8rem;
+  border: none;
+  outline: none;
+  position: relative;
+  padding-left: 3.5rem;
+  &:before {
+    content: "";
+    background: url(${backArrow});
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 3rem;
+    width: 3rem;
+    opacity: 0.5;
+  }
 `

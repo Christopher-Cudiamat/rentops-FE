@@ -14,9 +14,35 @@ export const drawerLinks = [
   },
   {
     linkName: "RENT",
-    path: "/my-listings",
     icon: keyIcon,
-    altText: "Listing"
+    altText: "Listing",
+    dropDownLinks: [
+      {
+        linkName: "APARTMENTS",
+        path: "/rent",
+        propertyType: "apartment"
+      },
+      {
+        linkName: "CONDO",
+        path: "/rent",
+        propertyType: "condo"
+      },
+      {
+        linkName: "HOUSE",
+        path: "/rent",
+        propertyType: "house"
+      },
+      {
+        linkName: "TOWNHOUSE",
+        path: "/rent",
+        propertyType: "townhouse"
+      },
+      {
+        linkName: "ALL TYPES",
+        path: "/rent",
+        propertyType: "all"
+      }
+    ]
   },
   {
     linkName: "FAVORITES",
@@ -34,7 +60,7 @@ export const drawerLinks = [
     linkName: "ABOUT US",
     path: "/about",
     icon: aboutIcon,
-    altText: "Like"
+    altText: "Like",
   },
   {
     linkName: "CONTACT US",
@@ -50,3 +76,5 @@ export const drawerLinks = [
   },
 
 ]
+
+

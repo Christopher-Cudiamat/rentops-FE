@@ -1,5 +1,12 @@
 import React, { useRef } from 'react';
-import { CardContainer, CardDetails, CardTitle, Slides } from './cardProperty.style';
+import { 
+  CardContainer,
+  CardDetails,
+  CardTitle, 
+  Slides,
+  SlidesContainer,
+  TextNew
+} from './cardProperty.style';
 import { ICardPropertyProps } from './cardProperty.type';
 import CustomNextArrow from './customNextArrow/customNextArrow.component';
 import CustomPrevArrow from './customPrevArrow/customPrevArow.component';
@@ -10,7 +17,10 @@ import Slider from "react-slick";
 const CardProperty: React.FC<ICardPropertyProps> = ({data}) => {
   console.log("CP",data)
 
-  const slider = useRef<Slider>(null)
+  const slider = useRef<Slider>(null);
+  // const secondsCreated = Math.floor(data.personalList.createdAt.getTime() / 1000 / 1000);
+  // console.log(data.personalList.propertyInfo.createdAt && data.personalList.propertyInfo.createdAt);
+
 
   const settings = {
     dots: false,
@@ -27,33 +37,38 @@ const CardProperty: React.FC<ICardPropertyProps> = ({data}) => {
   return (
     <>
         {
-        data.map((el:any) => 
-          <CardContainer key={el.id}>
-            <CardTitle>
-              {`${el.propertyInfo.propertyType} in ${el.propertyInfo.location}`}
-            </CardTitle>
-            <Slider ref={slider} {...settings}>
-              {
-                el.propertyMedia.galleryPhotos.map((el: any, index: number) => (  
-                  <Slides 
-                  key={index}
-                  bgImage={el.dataURL}/>                              
-                ))
-              }
-            </Slider>
-            <CardDetails>
-              <div>
-              <p> ₱{formatAddComa(el.propertyInfo.price)}/monthly</p>
-              <img src={heartIcon} alt="Like icon"/>
-            </div>
-            <div>
-              <p>{el.propertyInfo.furnish}</p>
-              <p>{el.propertyInfo.bed}</p>
-              <p>{el.propertyInfo.bathroom}</p>
-            </div>
-            </CardDetails>
-          </CardContainer>
-        )
+        data.map((el:any) => {
+        
+          return  <CardContainer key={el.id}>
+                    <CardTitle>
+                      {`${el.propertyInfo.propertyType} in ${el.propertyInfo.location}`}
+                    </CardTitle>
+                    <Slider ref={slider} {...settings}>
+                      {
+                        el.propertyMedia.galleryPhotos.map((el: any, index: number) => (  
+                          <SlidesContainer key={index}>
+                            <Slides 
+                            bgImage={el.dataURL}/>   
+    
+                            <TextNew>New</TextNew>    
+                              
+                          </SlidesContainer>            
+                        ))
+                      }
+                    </Slider>
+                    <CardDetails>
+                      <div>
+                      <p> ₱{formatAddComa(el.propertyInfo.price)}/monthly</p>
+                      <img src={heartIcon} alt="Like icon"/>
+                    </div>
+                    <div>
+                      <p>{el.propertyInfo.furnish}</p>
+                      <p>{el.propertyInfo.bed}</p>
+                      <p>{el.propertyInfo.bathroom}</p>
+                    </div>
+                    </CardDetails>
+                  </CardContainer>
+        })
       } 
     </>
   );
