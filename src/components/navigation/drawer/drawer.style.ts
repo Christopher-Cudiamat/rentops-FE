@@ -16,6 +16,7 @@ const drawerSlideOut = keyframes`
  100% { left: -60%;}
 `
 export const DrawerContainer = styled.div<IDrawer>`
+overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

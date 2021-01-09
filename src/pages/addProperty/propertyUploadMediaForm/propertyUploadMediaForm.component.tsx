@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FieldImageUploadGallery from '../../../components/fieldImageUploadGallery/fieldImageUploadGallery.container';
+import FieldImageUploadGallery from '../../../components/addField/fieldImageUploadGallery/fieldImageUploadGallery.container';
 import { Button } from '../../../components/ui/button.style';
 import { addProperty } from '../../../services/propertyController';
 import { IPropertyMediaProps } from './propertyUploadMediaForm.type';

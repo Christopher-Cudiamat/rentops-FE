@@ -5,7 +5,7 @@ import { resetPropertyInfo } from '../../store/propertyInfo/propertyInfo.action'
 import { AddPropertyPage, stepperLabelsArr } from './addProperty.config';
 import { IAddPropertyFormProps } from './addProperty.type';
 import PropertyContactForm from './propertyContactForm/propertyContactForm.container';
-import PropertyInfoForm from './propertyInfoForm/propertyInfoForm.component';
+import PropertyInfoForm from './propertyInfoForm/propertyInfoForm.container';
 import PropertyUploadMediaForm from './propertyUploadMediaForm/propertyUploadMediaForm.container';
 
 const AddProperty: React.FC<IAddPropertyFormProps> = () => {

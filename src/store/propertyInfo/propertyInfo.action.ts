@@ -3,11 +3,12 @@ import {
   REMOVE_FROM_ARRAY,
   RESET_PROPERTY_INFO,
   SET_PROPERTY_INFO,
-  SET_INITIAL_DEFAULT_INFO
+  SET_ADD_PROPERTY_INFO,
+  SET_FILTER_PROPERTY_INFO
 } from "./propertyInfo.type"
 
 
-export const setPropertyInfo = (name: string, value: string | number): any => {
+export const setPropertyInfo = (name: string, value: string | number | any): any => {
   return {
     type: SET_PROPERTY_INFO,
     name,
@@ -31,9 +32,15 @@ export const removeAmenities = (name: string, value: string): any => {
   }
 }
 
-export const setDefaultPropertyInfo = (): any => {
+export const setAddPropertyInfo = (): any => {
   return {
-    type: SET_INITIAL_DEFAULT_INFO
+    type: SET_ADD_PROPERTY_INFO
+  }
+}
+
+export const setFilterPropertyInfo = (): any => {
+  return {
+    type: SET_FILTER_PROPERTY_INFO
   }
 }
 

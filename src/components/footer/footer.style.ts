@@ -12,7 +12,7 @@ export const FooterContainer = styled.div`
 
 export const FooterLinksContainer = styled.ul`
   color: ${({theme}) => theme.color.white};
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 500;
   padding: 0rem 2rem;
   @media ${({theme}) => theme.media.laptop} { 

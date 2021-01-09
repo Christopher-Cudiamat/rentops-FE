@@ -13,8 +13,7 @@ export const SliderStyled = styled(Slider)`
 `
 
 export const CardContainer = styled.div`
-  width: 90%;
-  /* box-shadow: 0px 3px 15px rgba(0,0,0,0.2); */
+  width: 95%;
   border-bottom: 1px solid ${({theme}) => theme.color.grayLight};
   margin: 0rem auto 2rem auto;
   position:relative;

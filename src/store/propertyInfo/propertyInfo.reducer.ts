@@ -2,8 +2,9 @@ import {
   ADD_TO_ARRAY,
   REMOVE_FROM_ARRAY,
   RESET_PROPERTY_INFO,
-  SET_INITIAL_DEFAULT_INFO,
+  SET_ADD_PROPERTY_INFO,
   SET_PROPERTY_INFO,
+  SET_FILTER_PROPERTY_INFO,
   }
 from "./propertyInfo.type";
 
@@ -12,6 +13,7 @@ const initialState: any = {
   location: "",
   price: 0,
   size: 0,
+  propertyType: "",
   contractLength: "",
   furnish: "",
   bed: "",
@@ -32,7 +34,7 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
     case ADD_TO_ARRAY:
     return {
       ...state,
-      [name] : [...state.amenities, value]
+      [name] : [...state[name], value]
     }
     case REMOVE_FROM_ARRAY:
     return {
@@ -44,6 +46,7 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
         location: "",
         price: 0,
         size: 0,
+        propertyType: "",
         contractLength: "",
         furnish: "",
         bed: "",
@@ -51,16 +54,29 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
         developer: "",
         amenities: []
       }
-    case SET_INITIAL_DEFAULT_INFO:
+    case SET_ADD_PROPERTY_INFO:
       return {
         location: "Makati City",
         price: 1000,
         size: 0,
+        propertyType: "Apartment",
         contractLength: "Long-term",
         furnish: "",
         bed: "1",
         bathroom: "1",
         developer: "none",
+        amenities: []
+      }
+    case SET_FILTER_PROPERTY_INFO:
+      return {
+        location: "",
+        propertyType: [],
+        priceRange: {min: "", max: ""},
+        sizeRange: {min: "", max: ""},
+        contractLength: [],
+        furnish: [],
+        bed: "",
+        bathroom: "",
         amenities: []
       }
     default:

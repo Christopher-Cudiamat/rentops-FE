@@ -1,27 +1,32 @@
-import React from 'react';
-import FieldBathroom from '../../../components/fieldBathroom/fieldBathroom.component';
-import FieldBedroom from '../../../components/fieldBedroom/fieldBedroom.component';
-import FieldContractLength from '../../../components/fieldContractLength/fieldContractLength.component';
-import FieldDeveloper from '../../../components/fieldDeveloper/fieldDeveloper.component';
-import FieldLocation from '../../../components/fieldLocation/fieldLocation.component';
-import FieldPrice from '../../../components/fieldPrice/fieldPrice.component';
-import FieldPropertyType from '../../../components/fieldPropertyType/fieldPropertyType.component';
+import React, { useEffect } from 'react';
+import FieldBathroom from '../../../components/addField/fieldBathroom/fieldBathroom.component';
+import FieldBedroom from '../../../components/addField/fieldBedroom/fieldBedroom.component';
+import FieldContractLength from '../../../components/addField/fieldContractLength/fieldContractLength.component';
+import FieldDeveloper from '../../../components/addField/fieldDeveloper/fieldDeveloper.component';
+import FieldLocation from '../../../components/addField/fieldLocation/fieldLocation.component';
+import FieldPrice from '../../../components/addField/fieldPrice/fieldPrice.component';
+import FieldPropertyType from '../../../components/addField/fieldPropertyType/fieldPropertyType.component';
 
-import { Form } from '../../../components/ui/form.style';
-import { Wrapper } from './propertyInfoForm.style';
-import FieldFurnish from '../../../components/fieldFurnish/fieldFurnish.component';
-import FieldSize from '../../../components/fieldSize/fieldSize.component';
-import FieldAmenities from '../../../components/fieldAmenities/fieldAmenities.component';
+import { FormContainer, Wrapper } from './propertyInfoForm.style';
+import FieldFurnish from '../../../components/addField/fieldFurnish/fieldFurnish.component';
+import FieldSize from '../../../components/addField/fieldSize/fieldSize.component';
+import FieldAmenities from '../../../components/addField/fieldAmenities/fieldAmenities.component';
 import { Button } from '../../../components/ui/button.style';
 import { IProperyInfoFormProps } from './propertyInfoForm.type';
 import { AddPropertyPage } from '../addProperty.config';
 
 const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
-  setStep
+  setStep,
+  setAddPropertyInfo,
   }) => {
 
+  useEffect(() => {
+    setAddPropertyInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Form style={{padding: "4rem 2rem 10rem 2rem"}}>
+    <FormContainer>
       <FieldLocation/>
       <FieldPrice/>
       <FieldSize/>
@@ -40,7 +45,7 @@ const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
         style={{marginTop: "3rem"}}>
         Continue
       </Button>
-    </Form>
+    </FormContainer>
   );
 }
 

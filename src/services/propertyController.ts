@@ -25,19 +25,22 @@ export const getAllProperties = async (
   sort:string = "newest",
   propertyInfo: any
   ) => {
-    
+    console.log("PropInfo",propertyInfo)
   let {
-    location = "",
-    propertyType = "",
-    furnish = "",
-    contractLength = "",
-    developer = "",
-    bed = "",
-    bathroom = "",
-    amenities 
+    location,
+    propertyType,
+    furnish,
+    contractLength,
+    bed,
+    bathroom,
+    amenities, 
+    priceRange = {min: "", max: ""},
+    sizeRange = {min: "", max: ""}
   } = propertyInfo;
 
-  let url = `/api/property/get-all-properties?sort=${sort}&location=${location}&propertyType=${propertyType}&furnish=${furnish}&contractLength=${contractLength}&developer=${developer}&bed=${bed}&bathroom=${bathroom}&amenities[]=${amenities}`;
+  console.log("PI",propertyInfo);
+
+  let url = `/api/property/get-all-properties?sort=${sort}&location=${location}&propertyType[]=${propertyType}&furnish[]=${furnish}&contractLength[]=${contractLength}&bed=${bed}&bathroom=${bathroom}&amenities[]=${amenities}&priceMin=${priceRange.min}&priceMax=${priceRange.max}&sizeMin=${sizeRange.min}&sizeMax=${sizeRange.max}`;
 
   let newUrl = url.replace(/[^=&]+=(&|$)/g,"").replace(/&$/,"");
   const res = await instanceGet.get(newUrl);

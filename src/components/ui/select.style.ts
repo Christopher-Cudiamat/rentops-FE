@@ -8,7 +8,7 @@ export const Select= styled.select`
   outline: none;
   font-size:1.8rem;
   padding-left: 1rem;
-  color: ${({theme}) => theme.color.gray};
+  color: ${({theme}) => theme.color.blackLight};
   width: 100%;
   @media ${({theme}) => theme.media.laptop} { 
     width:35%;

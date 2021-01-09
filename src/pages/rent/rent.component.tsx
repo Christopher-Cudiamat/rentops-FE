@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import CardProperty from '../../components/cardProperty/cardProperty.component';
-import FilterPropertyForm from '../../components/filterPropertyForm/fiterPropertyForm.container';
-import SortPropertyForm from '../../components/sortPropertyForm/sortPropertyForm.component';
+import FilterPropertyForm from './filterPropertyForm/filterPropertyForm.container';
+import SortPropertyForm from './sortPropertyForm/sortPropertyForm.component';
 import { getAllProperties } from '../../services/propertyController';
-import { Container, ResultText } from './rent.style';
+import { Container, FilterNav, ResultText } from './rent.style';
 import { IRentProps } from './rent.type';
 
 const Rent: React.FC<IRentProps>= ({
@@ -32,14 +32,16 @@ const Rent: React.FC<IRentProps>= ({
   }, [sort,filter]);
 
   return (
+    <>
+    <FilterNav>
+      <FilterPropertyForm filter={filter} setFilter={setFilter}/>
+      <SortPropertyForm setSort={setSort}/>
+    </FilterNav>
     <Container>
-      <div>
-        <FilterPropertyForm filter={filter} setFilter={setFilter}/>
-        <SortPropertyForm setSort={setSort}/>
-      </div>
       <ResultText>{`${properties.length} Properties Found`}</ResultText>
       <CardProperty data={properties}/>
     </Container>
+    </>
   );
 }
 
