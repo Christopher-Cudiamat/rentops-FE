@@ -37,9 +37,9 @@ const CardProperty: React.FC<ICardPropertyProps> = ({data}) => {
   return (
     <>
         {
-        data.map((el:any) => {
+        data.map((el:any,index: number) => {
         
-          return  <CardContainer key={el.id}>
+          return  <CardContainer key={index}>
                     <CardTitle>
                       {`${el.propertyInfo.propertyType} in ${el.propertyInfo.location}`}
                     </CardTitle>

@@ -91,6 +91,10 @@ textarea {
 	outline: 0 !important;
 }
 
+.input-range{
+	width: 99% !important;
+}
+
 .input-range__slider {
 	width: 2.5rem !important;
 	height: 2.5rem !important;

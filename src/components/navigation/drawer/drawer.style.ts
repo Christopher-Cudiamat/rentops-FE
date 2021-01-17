@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 interface IDrawer {
   showDrawer?: boolean,
   linkColor?: string,
-  showLink?: boolean
+  showLink?: boolean,
+  active?: boolean
 }
 
 const drawerSlideIn = keyframes`
@@ -16,7 +17,7 @@ const drawerSlideOut = keyframes`
  100% { left: -60%;}
 `
 export const DrawerContainer = styled.div<IDrawer>`
-overflow-y: scroll;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,7 +29,9 @@ overflow-y: scroll;
   left: ${({showDrawer}) => showDrawer ? "0%" : "-60%"};
   top: 0%;
   z-index: 999999;
-  animation-name: ${({showDrawer}) => showDrawer ? drawerSlideIn : drawerSlideOut};
+  animation-name: ${
+    ({showDrawer}) => showDrawer ? drawerSlideIn : drawerSlideOut
+  };
   animation-duration: .3s;
   padding: 2rem 0rem;
   @media ${({theme}) => theme.media.tablet} { 
@@ -65,13 +68,17 @@ export const DrawerUnderlay = styled.div<IDrawer>`
   opacity: 0.5;
 `
 export const DrawerList = styled.li<IDrawer>`
-  color: ${({theme}) => theme.color.blackLight}; 
+  & > a {
+    color: ${
+      ({active,theme}) => active ? theme.color.primary : theme.color.blackLight
+    }; 
+  }
   text-transform: capitalize;
   font-weight: 500;
   margin: 2.5rem 0rem;
   font-size: 1.6rem;
   transition: all .3s;
-  display: ${({showLink}) => showLink ? "flex":"flex"};
+  display: ${({showLink}) => showLink ? "none" : "flex"};
   align-items: end;
   flex-wrap: wrap;
   &:hover > a {
@@ -92,7 +99,6 @@ export const DrawerLinkIcon = styled.img`
 export const DrawerLinkText = styled(Link)`
   font-size: 1.6rem;
   margin: 0rem;
-  color: ${({theme}) => theme.color.blackLight}; 
   width: 80%;
 `
 export const DrawerSubLinkText = styled(Link)`

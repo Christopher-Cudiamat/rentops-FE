@@ -35,7 +35,7 @@ export const Title = styled.p<IDiv>`
 
   ${({section}) => section &&
     css`
-    font-size: 3rem;
+    font-size: 2.5rem;
     @media ${({theme}) => theme.media.tablet} { 
       margin-bottom: 4rem;
     }

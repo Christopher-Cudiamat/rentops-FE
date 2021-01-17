@@ -20,15 +20,25 @@ const Drawer: React.FC<DrawerPropTypes> = ({
   showDrawer,
   setShowDrawer,
   isAuthenticated,
-  setLogout
+  setLogout,
+  setPage,
+  activePage
   }) => {
 
   const [selectedLink, setSelectedLink] = useState(-1);
   const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
-      showDrawer ?  
-      document.body.style.overflow = 'hidden' :  document.body.style.overflow = 'unset';
+      if(showDrawer ){
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'unset';
+      } 
+      
+      return () => {
+        setShowDropdown(false);
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showDrawer]);
 
   const handleLogout = () => {
@@ -37,12 +47,18 @@ const Drawer: React.FC<DrawerPropTypes> = ({
   }
 
   const handleClickLink = (obj: any, index: number) => {
+    setPage(obj.value,true);
     if(obj.hasOwnProperty("dropDownLinks")){
       setSelectedLink(index);
       setShowDropdown(!showDropdown);
       return;
     }
     setShowDrawer(false);
+  }
+
+  const handleAuth = (name: string, value: boolean) => {
+    setPage(name,value);
+    setShowDrawer(false)
   }
 
   return (
@@ -53,8 +69,9 @@ const Drawer: React.FC<DrawerPropTypes> = ({
           {
             drawerLinks.map((el:any, index: number) => (
               <DrawerList 
-                showLink={el.linkName === "MY LISTINGS" && isAuthenticated}
                 key={index} 
+                active={el.value === activePage}
+                showLink={el.value === "myAccountPage" && !isAuthenticated}
                 onClick={() => handleClickLink(el,index)}>
                 <DrawerLinkIcon src={el.icon} alt={el.text}/>
                 <DrawerLinkText to={el.path}>
@@ -62,12 +79,11 @@ const Drawer: React.FC<DrawerPropTypes> = ({
                 </DrawerLinkText>
                 { 
                   showDropdown && index === selectedLink ?
-                    <DrawerDropDown 
-                      arr={el.dropDownLinks}
-                      setShowDrawer={setShowDrawer}/> : null
+                  <DrawerDropDown 
+                    arr={el.dropDownLinks}
+                    setShowDrawer={setShowDrawer}/> : null
                 }
               </DrawerList>
-
             ))
           }
         </DrawerListContainer>
@@ -78,13 +94,13 @@ const Drawer: React.FC<DrawerPropTypes> = ({
             <AuthButtonLink 
               primary
               to="/signIn"
-              onClick={() => setShowDrawer(false)}>
+              onClick={() => handleAuth("signInPage", true)}>
               Sign in
             </AuthButtonLink>
             <AuthButtonLink 
               secondary
               to="/signUp"
-              onClick={() => setShowDrawer(false)}>
+              onClick={() => handleAuth("signOutPage", true)}>
               Sign up
             </AuthButtonLink>
           </>

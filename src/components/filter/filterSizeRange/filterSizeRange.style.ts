@@ -10,7 +10,7 @@ export const StyledInputRange = styled(InputRange)`
   
 `
 export const Container = styled.div`
-  margin: 3rem 0rem;
+   margin: 3rem 1rem;
 `
 export const Size = styled.p`
   font-size: 1.6rem;

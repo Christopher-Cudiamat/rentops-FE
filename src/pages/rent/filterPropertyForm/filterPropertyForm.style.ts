@@ -4,7 +4,6 @@ import { Button } from "../../../components/ui/button.style";
 
 export const ButtonStyled = styled.div`
   font-size: 1.4rem;
-  /* border: solid .1rem ${({theme}) => theme.color.grayLight}; */
   padding: 1rem 1rem 1rem 4rem;
   display: inline-block;
   position: relative;

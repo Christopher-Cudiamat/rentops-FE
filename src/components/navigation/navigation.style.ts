@@ -39,34 +39,34 @@ export const Navbar = styled.nav<INavbars>`
 
 export const IconMenu = styled.div`
   cursor: pointer;
-  margin-top: .3rem;
-  margin-right: 1.4rem;
-  &:hover div,
+  margin-top: .1rem;
   &:hover div:nth-child(2){
-    background: ${({theme}) => theme.color.primary};
-    width: 4rem;
+    width: 3rem;
+  }
+  @media ${({theme}) => theme.media.laptop} { 
+    &:hover div,
+    &:hover div:nth-child(2){
+      background: ${({theme}) => theme.color.primary};
+      width: 4rem;
+    }
   }
   
   & div {
     transition: all .3s;
-    height: .5rem;
+    height: .4rem;
     background: ${({theme}) => theme.color.blackLightest};
   }
   & div:first-child {
-    height: .5rem;
-    width: 4rem;
+    width: 3rem;
   }
   & div:nth-child(2) {
-    height: .5rem;
-    width: 3rem;
-    margin-top:.8rem;
+    width: 2.5rem;
+    margin-top: .8rem;
 
   }
   & div:last-child {
-    height: .5rem;
-    width: 4rem;
-    margin-top:.8rem;
-
+    width: 3rem;
+    margin-top: .8rem;
   }
 `;
 
@@ -87,7 +87,7 @@ export const IconSearch = styled(SVG)`
 `;
 
 export const ImageLink = styled(Link)`
-  width: 60%;
+  width: 100%;
   @media ${({theme}) => theme.media.laptop} { 
     width: 65%;
   }

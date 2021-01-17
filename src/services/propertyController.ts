@@ -25,7 +25,7 @@ export const getAllProperties = async (
   sort:string = "newest",
   propertyInfo: any
   ) => {
-    console.log("PropInfo",propertyInfo)
+
   let {
     location,
     propertyType,
@@ -50,10 +50,3 @@ export const getAllProperties = async (
 
 
 
-
-
-export const getLocation = async () => {
-  let url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameterss';
-  const res = await instanceGet.get(url);
-  return res.data;
-};

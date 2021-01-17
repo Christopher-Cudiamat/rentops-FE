@@ -65,14 +65,6 @@ const FilterPropertyForm: React.FC<IFilterPropertyForm> = ({
             <FieldLocation/>
             <FilterPriceRange/>
             <FilterSizeRange/>
-            <FilterBoxes 
-              arr={filterBedConfig.arr}
-              label={filterBedConfig.label}
-              filterName={filterBathConfig.name}/>
-            <FilterBoxes 
-              arr={filterBathConfig.arr}
-              label={filterBathConfig.label}
-              filterName={filterBathConfig.name}/>
           { 
             !showAllFilter 
             ?
@@ -84,6 +76,14 @@ const FilterPropertyForm: React.FC<IFilterPropertyForm> = ({
             </ButtonShowAllFilter>
             :
             <>
+              <FilterBoxes 
+                arr={filterBedConfig.arr}
+                label={filterBedConfig.label}
+                filterName={filterBathConfig.name}/>
+              <FilterBoxes 
+                arr={filterBathConfig.arr}
+                label={filterBathConfig.label}
+                filterName={filterBathConfig.name}/>
               <FilterCheckBox
                 arr={filterPropertyTypeConfig.arr}
                 label={filterPropertyTypeConfig.label}

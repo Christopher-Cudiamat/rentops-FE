@@ -1,9 +1,9 @@
 import styled from "styled-components/macro";
 import sortIcon from "../../../assets/icon/sort.svg";
+import { Modal } from "../../../components/ui/modal.style";
 
 export const ButtonStyled = styled.div`
   font-size: 1.4rem;
-  /* border: solid .1rem ${({theme}) => theme.color.grayLight}; */
   padding: 1rem 1rem 1rem 3.5rem;
   display: inline-block;
   position: relative;
@@ -22,4 +22,20 @@ export const ButtonStyled = styled.div`
     position: absolute;
   }
 
+`
+
+export const SortModal = styled(Modal)`
+  width: 100vw;
+  height: 100vh;
+  padding: 5rem 0rem 0rem 0rem;
+  & button {
+    margin: 0rem 0rem 4rem 2rem;
+  }
+`
+
+export const SortText = styled.p`
+  font-size: 2.5rem;
+  border-bottom: 1px solid #888;
+  margin-bottom: 3rem;
+  padding: 0rem 2rem;
 `

@@ -1,4 +1,4 @@
-import styled, {css}  from "styled-components";
+import styled, {css}  from "styled-components/macro";
 
 interface ICarousel {
   imageWrapper?: boolean,
@@ -21,7 +21,6 @@ export const Div = styled.div<ICarousel>`
 
   ${({carouselContainer}) => carouselContainer &&
     css`
-    margin-top: 63rem;
     & p {
       text-align: center;
     }
@@ -49,11 +48,11 @@ export const P = styled.p<ICarousel>`
   left: 0%;
   bottom: 0%;
   z-index: 999;
-  background: ${({theme}) => theme.color.white};;
-  color: ${({theme}) => theme.color.primary};
+  background: rgba(24,131,191,0.8);
+  color: ${({theme}) => theme.color.white};
   font-weight: bold;
   margin-bottom: -2px;
-  padding: 1rem 6rem 1rem 1.5rem;
+  padding: .5rem 6rem .5rem 1.5rem;
   clip-path: polygon(0 0, 71% 0, 100% 100%, 0% 100%);
 `
 

@@ -6,6 +6,7 @@ import { propertyInfoReducer } from "../store/propertyInfo/propertyInfo.reducer"
 import { propertyContactReducer } from "../store/propertyContact/propertyContact.reducer";
 import { propertyMediaReducer } from "../store/propertyMedia/propertyMedia.reducer";
 import { propertyListReducer } from "../store/propertyList/propertyList.reducer";
+import { pageManagerReducer } from "../store/pageManager/pageManager.reducer";
 
 
 export const history = createBrowserHistory();
@@ -17,6 +18,7 @@ export const appReducer = combineReducers({
   "propertyContact": propertyContactReducer,
   "propertyMedia": propertyMediaReducer,
   "propertyList": propertyListReducer,
+  "pageManager": pageManagerReducer,
 });
 
 

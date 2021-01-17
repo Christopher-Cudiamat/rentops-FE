@@ -9,7 +9,6 @@ interface IStyledSlides {
 }
 
 export const SliderStyled = styled(Slider)`
-
 `
 
 export const CardContainer = styled.div`
@@ -17,7 +16,6 @@ export const CardContainer = styled.div`
   border-bottom: 1px solid ${({theme}) => theme.color.grayLight};
   margin: 0rem auto 2rem auto;
   position:relative;
-  
 `
 export const CardTitle= styled.p`
 

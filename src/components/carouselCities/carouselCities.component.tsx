@@ -34,6 +34,7 @@ const CarouselCities: React.FC<CarouselCitiesPropTypes> = ({
       {
         breakpoint: 600,
         settings: {
+          arrows: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           variableWidth: true,
