@@ -27,10 +27,7 @@ export const ButtonStyled = styled.div`
 export const SortModal = styled(Modal)`
   width: 100vw;
   height: 100vh;
-  padding: 5rem 0rem 0rem 0rem;
-  & button {
-    margin: 0rem 0rem 4rem 2rem;
-  }
+  padding: 0rem;
 `
 
 export const SortText = styled.p`

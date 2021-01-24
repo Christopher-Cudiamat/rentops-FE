@@ -33,14 +33,16 @@ const Rent: React.FC<IRentProps>= ({
 
   return (
     <>
-    <FilterNav>
-      <FilterPropertyForm filter={filter} setFilter={setFilter}/>
-      <SortPropertyForm setSort={setSort}/>
-    </FilterNav>
-    <Container>
-      <ResultText>{`${properties.length} Properties Found`}</ResultText>
-      <CardProperty data={properties}/>
-    </Container>
+      <FilterNav>
+        <FilterPropertyForm 
+          filter={filter} 
+          setFilter={setFilter}/>
+        <SortPropertyForm setSort={setSort}/>
+      </FilterNav>
+      <Container>
+        <ResultText>{`${properties.length} Properties Found`}</ResultText>
+        <CardProperty data={properties}/>
+      </Container>
     </>
   );
 }

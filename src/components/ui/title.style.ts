@@ -14,7 +14,7 @@ interface IDiv {
 
 
 export const Title = styled.p<IDiv>`
-
+  margin-bottom: 0rem;
   ${({primary}) => primary &&
     css`
     color: ${({theme}) => theme.color.primary};
@@ -70,4 +70,10 @@ export const Title = styled.p<IDiv>`
     color: ${({theme}) => theme.color.gray};
     `
   };
+`
+export const TitleBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem 2rem 1rem;
+  align-items: center;
 `

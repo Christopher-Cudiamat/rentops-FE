@@ -1,6 +1,5 @@
 import { 
   IPageManagerActions,
-  IPageManagerState,
   SET_PAGE 
 } from "./pageManager.type";
 

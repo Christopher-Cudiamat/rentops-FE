@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ButtonBack } from '../../../components/ui/button.style';
+import { Title, TitleBar } from '../../../components/ui/title.style';
 import { ISortPropertyForm } from './sertPropertyForm.type';
 import { sortArr } from './sortPropertyForm.config';
 import { ButtonStyled, SortModal, SortText } from './SortPropertyForm.style';
@@ -23,9 +24,15 @@ const SortPropertyForm: React.FC<ISortPropertyForm> = ({
       {
         show &&
         <SortModal>
-          <ButtonBack onClick={() => setShow(false)}>
-            Back
-          </ButtonBack>
+           <TitleBar>
+              <Title sub bold black>
+                Sort
+              </Title>
+              <ButtonBack onClick={() => setShow(false)}>
+                Back
+              </ButtonBack>
+           </TitleBar>
+          
           {
             sortArr.map((el:any, index: number) => 
               <SortText 

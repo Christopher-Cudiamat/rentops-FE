@@ -21,7 +21,7 @@ export const drawerLinks = [
         linkName: "FAVOURITES",
         path: "./",
         propertyType: "condo"
-      }
+      } 
     ]
   },
   {
@@ -31,30 +31,30 @@ export const drawerLinks = [
     value: "rentPage",
     dropDownLinks: [
       {
+        linkName: "ALL",
+        path: "/rent",
+        propertyType: ""
+      },
+      {
         linkName: "APARTMENTS",
         path: "/rent",
-        propertyType: "apartment"
+        propertyType: "Apartment"
       },
       {
         linkName: "CONDO",
         path: "/rent",
-        propertyType: "condo"
+        propertyType: "Condo"
       },
       {
         linkName: "HOUSE",
         path: "/rent",
-        propertyType: "house"
+        propertyType: "House"
       },
       {
         linkName: "TOWNHOUSE",
         path: "/rent",
-        propertyType: "townhouse"
+        propertyType: "Townhouse"
       },
-      {
-        linkName: "ALL TYPES",
-        path: "/rent",
-        propertyType: "all"
-      }
     ]
   },
   {

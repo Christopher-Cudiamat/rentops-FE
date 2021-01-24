@@ -8,6 +8,7 @@ import Contact from './contact/contact.component';
 import Listings from './listings/listings.container';
 import AddProperty from './addProperty/addProperty.component';
 import Rent from './rent/rent.container';
+import Property from './property/property.component';
 
 function Pages(){
     return(
@@ -33,6 +34,9 @@ function Pages(){
                 </Route>
                 <Route exact path="/my-listings">
                     <Listings />
+                </Route>
+                <Route exact path="/property">
+                    <Property />
                 </Route>
                 <Route exact path="/add-property">
                     <AddProperty />

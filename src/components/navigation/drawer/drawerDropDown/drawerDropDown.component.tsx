@@ -4,22 +4,19 @@ import {
   DrawerSubList,
   DrawerSubListContainer
 } from '../drawer.style';
+import { IDrawerDropDownProps } from './drawerDropDown.type';
 
-interface IDrawerDropDown {
-  linkName?: string,
-  pathName?: string,
-  propertyType?: string
-}
-
-interface IDrawerDropDownProps {
-  arr?: IDrawerDropDown[],
-  setShowDrawer: React.Dispatch<React.SetStateAction<boolean>>
-}
 
 const DrawerDropDown: React.FC<IDrawerDropDownProps> = ({
   arr,
-  setShowDrawer
+  setShowDrawer,
+  setPropertyInfo
   }) => {
+
+  const handleOnclick = (el: any) => {
+    setPropertyInfo("propertyType", el.propertyType);
+    setShowDrawer(false);
+  }
 
   return (
     <DrawerSubListContainer>
@@ -27,9 +24,10 @@ const DrawerDropDown: React.FC<IDrawerDropDownProps> = ({
         arr!.map((el:any, index: number) => (
           < DrawerSubList 
             key={index} 
-            onClick={() => setShowDrawer(false)}
+            onClick={() => handleOnclick(el)}
             >
-            <DrawerSubLinkText to={el.path}>
+            <DrawerSubLinkText
+              to={el.path}>
               {el.linkName}
             </DrawerSubLinkText>
           </ DrawerSubList>

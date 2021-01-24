@@ -18,11 +18,12 @@ import DrawerDropDown from './drawerDropDown/drawerDropDown.component';
 
 const Drawer: React.FC<DrawerPropTypes> = ({
   showDrawer,
-  setShowDrawer,
   isAuthenticated,
+  activePage,
+  setShowDrawer,
   setLogout,
   setPage,
-  activePage
+  setPropertyInfo
   }) => {
 
   const [selectedLink, setSelectedLink] = useState(-1);
@@ -79,7 +80,8 @@ const Drawer: React.FC<DrawerPropTypes> = ({
                 </DrawerLinkText>
                 { 
                   showDropdown && index === selectedLink ?
-                  <DrawerDropDown 
+                  <DrawerDropDown
+                    setPropertyInfo={setPropertyInfo} 
                     arr={el.dropDownLinks}
                     setShowDrawer={setShowDrawer}/> : null
                 }

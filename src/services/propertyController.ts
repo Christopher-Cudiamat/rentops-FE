@@ -38,14 +38,20 @@ export const getAllProperties = async (
     sizeRange = {min: "", max: ""}
   } = propertyInfo;
 
-  console.log("PI",propertyInfo);
-
   let url = `/api/property/get-all-properties?sort=${sort}&location=${location}&propertyType[]=${propertyType}&furnish[]=${furnish}&contractLength[]=${contractLength}&bed=${bed}&bathroom=${bathroom}&amenities[]=${amenities}&priceMin=${priceRange.min}&priceMax=${priceRange.max}&sizeMin=${sizeRange.min}&sizeMax=${sizeRange.max}`;
 
   let newUrl = url.replace(/[^=&]+=(&|$)/g,"").replace(/&$/,"");
   const res = await instanceGet.get(newUrl);
   return res.data;
 };
+
+
+export const getProperty = async (propertyId: string) => {
+  let url = `/api/property/get-property?propertyId=${propertyId}`;
+  const res = await instanceGet.get(url);
+  return res.data;
+};
+
 
 
 

@@ -6,6 +6,7 @@ import { Dispatch } from 'redux';
 import { setLogout } from '../../../store/userAuth/userAuth.action';
 import { setPage } from '../../../store/pageManager/pageManager.action';
 import { selectorsPageManager } from '../../../store/pageManager/pageManager.selector';
+import { setPropertyInfo } from '../../../store/propertyInfo/propertyInfo.action';
 
 
 const mapStateToProps = (state:AppState) => {
@@ -17,6 +18,7 @@ const mapStateToProps = (state:AppState) => {
 
 const mapStateToDispatch = (dispatch: Dispatch) => {
   return {
+    setPropertyInfo: (name:string, value: string) => dispatch(setPropertyInfo(name,value)),
     setLogout: () => dispatch(setLogout()), 
     setPage: (name:string, value:boolean) => dispatch(setPage(name,value))
   }
