@@ -14,6 +14,7 @@ import FieldAmenities from '../../../components/addField/fieldAmenities/fieldAme
 import { Button } from '../../../components/ui/button.style';
 import { IProperyInfoFormProps } from './propertyInfoForm.type';
 import { AddPropertyPage } from '../addProperty.config';
+import FieldDescription from '../../../components/addField/fieldDesciption/fieldDescription.component';
 
 const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
   setStep,
@@ -31,6 +32,7 @@ const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
       <FieldPrice/>
       <FieldSize/>
       <FieldPropertyType/>
+      <FieldDescription/>
       <FieldContractLength/>
       <FieldDeveloper/>
       <Wrapper>

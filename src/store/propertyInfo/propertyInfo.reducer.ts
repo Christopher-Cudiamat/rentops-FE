@@ -11,6 +11,7 @@ from "./propertyInfo.type";
 
 const initialState: any = {
   location: "",
+  description: "",
   price: 0,
   size: 0,
   propertyType: "",
@@ -44,6 +45,7 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
     case RESET_PROPERTY_INFO:
       return {
         location: "",
+        description: "",
         price: 0,
         size: 0,
         propertyType: "",
@@ -57,6 +59,7 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
     case SET_ADD_PROPERTY_INFO:
       return {
         location: "Makati City",
+        description: "",
         price: 1000,
         size: 0,
         propertyType: "Apartment",
@@ -70,6 +73,7 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
     case SET_FILTER_PROPERTY_INFO:
       return {
         location: "",
+        description: "",
         propertyType: [],
         priceRange: {min: "", max: ""},
         sizeRange: {min: "", max: ""},

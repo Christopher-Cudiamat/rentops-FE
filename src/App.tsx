@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Loader/>
+      {/* <Loader/> */}
       <Router>
         <Navigation />
         <Pages/>

@@ -13,6 +13,15 @@ export const addProperty = async (data: any) => {
   return res.data;
 };
 
+export const favoriteProperty = async (propertyId: string, userId: string) => {
+  let url = '/api/property/favorite-property';
+  let body = {
+    propertyId,
+    userId
+  };
+  const res = await instancePost.post(url,body);
+  return res.data;
+};
 
 export const getAddedProperties = async () => {
   let url = '/api/property/get-added-properties';
