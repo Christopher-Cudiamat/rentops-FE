@@ -1,30 +1,26 @@
 import React from 'react';
-import { LoaderUnderlay } from './loader.style';
-import loader from '../../assets/gifs/reload.gif';
-const Loader = () => {
+import { LoaderStyled, LoaderUnderlay } from './loader.style';
+import loader from '../../assets/gifs/spin.gif';
+import { ILoaderProps } from './loader.type';
+
+
+const Loader: React.FC<ILoaderProps> = ({
+  isLoading
+}) => {
+
+
   return (
     <>
-     {/* { loader ? */}
-
-          {/* <img 
+      { isLoading ? 
+        <>
+          <LoaderStyled 
             src={loader}
             alt="loader"
-            style={{
-            width: "8rem",
-            height: "8rem",
-            position: "absolute",
-            zIndex: 9999,  
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)"}}/>  */}
-          
-       
-        {/* : null
-      } */}
- 
-    <LoaderUnderlay>
-      
-    </LoaderUnderlay>
+          />  
+          <LoaderUnderlay/>
+        </>
+        : null
+      } 
     </>
   );
 }

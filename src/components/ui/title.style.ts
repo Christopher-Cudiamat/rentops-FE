@@ -10,11 +10,13 @@ interface IDiv {
   white?: boolean,
   gray?: boolean,
   section?: boolean,
+  header?: boolean,
+  headerSub?: boolean,
 }
 
 
 export const Title = styled.p<IDiv>`
-  margin-bottom: 0rem;
+  margin-bottom: 2rem;
   ${({primary}) => primary &&
     css`
     color: ${({theme}) => theme.color.primary};
@@ -24,6 +26,30 @@ export const Title = styled.p<IDiv>`
   ${({secondary}) => secondary &&
     css`
     color: ${({theme}) => theme.color.secondary};
+    `
+  };
+
+  ${({header}) => header &&
+    css`
+    font-size: 3rem;
+    @media ${({theme}) => theme.media.tablet} { 
+      font-size: 5rem;
+    }
+    @media ${({theme}) => theme.media.laptop} { 
+      font-size: 5rem;
+    }
+    `
+  };
+
+  ${({headerSub}) => headerSub &&
+    css`
+    font-size: 2rem;
+    @media ${({theme}) => theme.media.tablet} { 
+      font-size: 3.5rem;
+    }
+    @media ${({theme}) => theme.media.laptop} { 
+      font-size: 2.5rem;
+    }
     `
   };
 

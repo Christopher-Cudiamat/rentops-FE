@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import EmailVerificationForm from './emailVerificationForm/emailVerification.contianer';
-import SignupForm from './signupForm/signupForm.component';
+import SignupForm from './signupForm/signupForm.container';
 
 const Signup: React.FC = () => {
 

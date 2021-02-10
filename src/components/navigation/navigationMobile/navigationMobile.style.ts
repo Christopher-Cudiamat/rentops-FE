@@ -35,11 +35,12 @@ export const DrawerContainer = styled.div<IDrawer>`
   animation-duration: .3s;
   padding: 2rem 0rem;
   @media ${({theme}) => theme.media.tablet} { 
-    width: 50%;
+    width: 30%;
   }
   @media ${({theme}) => theme.media.laptop} { 
     width: 20%;
     padding: 2rem 2rem 3rem -1rem;
+    overflow-y: hidden;
   }
 `
 

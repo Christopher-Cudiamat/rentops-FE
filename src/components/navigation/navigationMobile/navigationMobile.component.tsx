@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { drawerLinks } from './drawer.config';
+import { navMobileLinks } from './navigationMobile.config';
 import { 
   DrawerButtonsContainer,
   DrawerClose,
@@ -9,11 +9,17 @@ import {
   DrawerList, 
   DrawerListContainer, 
   DrawerUnderlay 
-} from './drawer.style';
-import { DrawerPropTypes } from './drawer.type';
+} from './navigationMobile.style';
+import { 
+  DrawerPropTypes,
+  INavMobile 
+} from './navigationMobile.type';
 import closeIcon from '../../../assets/icon/close.svg';
 import { AuthButtonLink } from '../../ui/buttonLink.style';
 import DrawerDropDown from './drawerDropDown/drawerDropDown.component';
+import { scrollStop } from '../../../utils/scrollManager';
+import { useHistory } from 'react-router-dom';
+import { nanoid } from 'nanoid'
 
 
 const Drawer: React.FC<DrawerPropTypes> = ({
@@ -28,14 +34,10 @@ const Drawer: React.FC<DrawerPropTypes> = ({
 
   const [selectedLink, setSelectedLink] = useState(-1);
   const [showDropdown, setShowDropdown] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
-      if(showDrawer ){
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'unset';
-      } 
-      
+      scrollStop(showDrawer); 
       return () => {
         setShowDropdown(false);
       }
@@ -47,8 +49,11 @@ const Drawer: React.FC<DrawerPropTypes> = ({
     setLogout();
   }
 
-  const handleClickLink = (obj: any, index: number) => {
+  const handleClickLink = (obj: INavMobile, index: number) => {
     setPage(obj.value,true);
+    if(obj.value === "addPropertiesPage"){
+      handlePrivateLinks(obj.value);
+    }
     if(obj.hasOwnProperty("dropDownLinks")){
       setSelectedLink(index);
       setShowDropdown(!showDropdown);
@@ -62,20 +67,34 @@ const Drawer: React.FC<DrawerPropTypes> = ({
     setShowDrawer(false)
   }
 
+  const handlePrivateLinks = (value: string) => {
+    if(value === "addPropertiesPage" && isAuthenticated){
+      history.push("./add-property");
+      setPage(value,true);
+    } else {
+      history.push("./signIn");
+      setPage("signInPage",true);
+    }
+  }
+
   return (
     <>
       <DrawerContainer showDrawer={showDrawer}>
         <DrawerListContainer>
-          <DrawerClose src={closeIcon} alt="Close" onClick={() => setShowDrawer(false)}/>
+          <DrawerClose 
+            src={closeIcon} 
+            alt="Close" 
+            onClick={() => setShowDrawer(false)}
+          />
           {
-            drawerLinks.map((el:any, index: number) => (
+            navMobileLinks.map((el: INavMobile, index: number) => (
               <DrawerList 
-                key={index} 
+                key={nanoid()} 
                 active={el.value === activePage}
                 showLink={el.value === "myAccountPage" && !isAuthenticated}
                 onClick={() => handleClickLink(el,index)}>
-                <DrawerLinkIcon src={el.icon} alt={el.text}/>
-                <DrawerLinkText to={el.path}>
+                <DrawerLinkIcon src={el.icon} alt={el.altText}/>
+                <DrawerLinkText to={el.path!}>
                   {el.linkName}
                 </DrawerLinkText>
                 { 
@@ -97,13 +116,13 @@ const Drawer: React.FC<DrawerPropTypes> = ({
               primary
               to="/signIn"
               onClick={() => handleAuth("signInPage", true)}>
-              Sign in
+              SIGN IN
             </AuthButtonLink>
             <AuthButtonLink 
               secondary
               to="/signUp"
               onClick={() => handleAuth("signOutPage", true)}>
-              Sign up
+              SIGN UP
             </AuthButtonLink>
           </>
           :
@@ -111,7 +130,7 @@ const Drawer: React.FC<DrawerPropTypes> = ({
             tertiary
             to="./"
             onClick={() => handleLogout()}>
-            Logout
+            LOGOUT
           </AuthButtonLink>
           }
         </DrawerButtonsContainer>

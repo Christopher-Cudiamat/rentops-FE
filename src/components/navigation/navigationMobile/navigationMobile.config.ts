@@ -5,24 +5,13 @@ import houseIcon from '../../../assets/icon/nav/house.svg';
 import helpIcon from '../../../assets/icon/nav/help.svg';
 import account from '../../../assets/icon/nav/listings.svg';
 
-export const drawerLinks = [
+export const navMobileLinks = [
   {
     linkName: "MY ACCOUNT",
+    path: "my-account",
     icon: account,
     altText: "Account Icon",
     value: "myAccountPage",
-    dropDownLinks: [
-      {
-        linkName: "LISTINGS",
-        path: "/listings",
-        propertyType: "apartment"
-      },
-      {
-        linkName: "FAVOURITES",
-        path: "./",
-        propertyType: "condo"
-      } 
-    ]
   },
   {
     linkName: "RENT",

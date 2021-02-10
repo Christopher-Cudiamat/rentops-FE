@@ -5,6 +5,7 @@ interface IButtonLink {
   primary?: boolean,
   secondary?: boolean,
   tertiary?: boolean,
+  transparent?: boolean,
   width?: string,
   widthMobile?: string,
   widthTablet?: string,
@@ -55,73 +56,65 @@ export const ButtonLink = styled(Link)<IButtonLink>`
     }
     `
   };
+
+  ${({transparent}) => transparent &&
+    css`
+      background: transparent;
+      width: 100%;
+      color: ${({theme}) => theme.color.blackLight};
+      font-weight: 500;
+
+      @media ${({theme}) => theme.media.tablet} { 
+        width: 100%;
+      }
+
+      &:hover {
+        color: ${({theme}) => theme.color.primary};
+      }
+    `
+  };
   
 `
 
 
 export const AuthButtonLink = styled(Link)<IButtonLink>`
-  width: ${({width,widthMobile}) => width ||  widthMobile ? width || widthMobile : "100%"};
+  width: 100%;
   color: ${({color,theme}) => color ||  color ? color : theme.color.white};
   height: 5rem;
   padding: 1rem 2rem;
   border-radius: 1rem;
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
+  font-weight: 500;
   border: none;
   outline: none;
-  min-width: 5%;
   text-decoration: none !important;
-  transition: all .7s;
   margin: 1rem 0rem;
   height: 4rem;
-  font-size: 1.6rem;
   display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
-    color: ${({theme}) => theme.color.primary}; 
-  }
-
-  @media ${({theme}) => theme.media.tablet} { 
-    font-size: 1.8rem;
-    display: inline;
-    margin: 1rem 1rem 1rem 0rem;
-    width: 40%;
-  }
-
-  @media ${props => props.theme.media.laptop} { 
-    width: 100%;
-    display: block;
+    color: ${({theme}) => theme.color.white};
+    cursor: pointer; 
   }
   
   ${({primary}) => primary &&
     css`
     background: ${({theme}) => theme.color.primary};
-    &:hover {
-      color: ${({theme}) => theme.color.primary}; 
-      background: ${({theme}) => theme.color.white};
-      border: 2px solid ${({theme}) => theme.color.primary};
-    }
     `
   };
 
   ${({secondary}) => secondary &&
     css`
      background: ${({theme}) => theme.color.secondary};
-    &:hover {
-      color: ${({theme}) => theme.color.primary}; 
-      background: ${({theme}) => theme.color.white};
-      border: 2px solid ${({theme}) => theme.color.primary};
-    }
     `
   };
 
   ${({tertiary}) => tertiary &&
     css`
     background: ${({theme}) => theme.color.tertiary};
-    &:hover {
-      color: ${({theme}) => theme.color.tertiary}; 
-      background: ${({theme}) => theme.color.white};
-      border: 2px solid ${({theme}) => theme.color.tertiary};
-    }
     `
   };
 `

@@ -11,7 +11,6 @@ const initialState: IUserAuthState = {
   token: localStorage.getItem('token'),
   isAuthenticated: false,
   email: "",
-  // phoneNumber: 0,
   lastName: "",
   firstName: ""
 } 

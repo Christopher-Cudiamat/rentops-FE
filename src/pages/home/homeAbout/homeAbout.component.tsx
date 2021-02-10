@@ -3,6 +3,7 @@ import { Title } from '../../../components/ui/title.style';
 import { Div } from './homeAbout.style';
 import { offersArr } from './homeAbout.config';
 import { IOffers } from './homeAbout.type';
+import {nanoid} from 'nanoid';
 
 const HomeAbout: React.FC = () => {
   return (
@@ -11,8 +12,8 @@ const HomeAbout: React.FC = () => {
       <p>You are about to explore an inventory of over 700,000 active rental listings, so you can bet that wherever you want to live, we can find a place for you.</p>
       <Div offersContainer>
         {
-          offersArr.map((el: IOffers,index: number) =>
-            <Div offers key={index}>
+          offersArr.map((el: IOffers) =>
+            <Div offers key={nanoid()}>
               <Title sub primary bold>{el.title}</Title>
               <img src={el.icon} alt={el.altText}/>
             </Div>

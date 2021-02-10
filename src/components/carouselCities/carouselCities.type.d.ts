@@ -1,5 +1,6 @@
 export interface CarouselCitiesPropTypes {
   sliderArr: sliderList[],
+  setPropertyInfo: (name:string, value: string) => void,
 }
 
 export interface sliderList {

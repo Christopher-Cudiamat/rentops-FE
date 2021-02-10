@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input, InputControl, InputError } from '../../../components/ui/input.style';
 import { Title } from '../../../components/ui/title.style';
 import { emailVerification } from '../../../services/signupController';
-import { IEmailVerificationFormProps } from './emailVerification.type';
+import { IData, IEmailVerificationFormProps } from './emailVerification.type';
 import { Text, FormControl } from './emailVerificationForm.style';
 import { useHistory } from 'react-router-dom';
 import AuthButton from '../../../components/authButton/authButton.container';
@@ -12,12 +12,14 @@ const EmailVerificationForm: React.FC<IEmailVerificationFormProps> = ({
 		userData,
 		setUserAuth
     }) => {
+		console.log(userData.token);
 			
 		const { register, handleSubmit, errors } = useForm();
     const [error,setError] = useState("");
     const history = useHistory();
 	
-		const onSubmit = (data:any) => {
+		const onSubmit = (data:IData) => {
+			console.log(userData.token);
 			emailVerification(userData.token,data.verificationCode)
 				.then((res) => {
 					setUserAuth(res);

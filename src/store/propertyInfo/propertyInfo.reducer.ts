@@ -45,6 +45,8 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
     case RESET_PROPERTY_INFO:
       return {
         location: "",
+        latitude: "",
+        longitude: "",
         description: "",
         price: 0,
         size: 0,
@@ -58,7 +60,9 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
       }
     case SET_ADD_PROPERTY_INFO:
       return {
-        location: "Makati City",
+        location: "",
+        latitude: "",
+        longitude: "",
         description: "",
         price: 1000,
         size: 0,
@@ -73,6 +77,8 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
     case SET_FILTER_PROPERTY_INFO:
       return {
         location: "",
+        latitude: "",
+        longitude: "",
         description: "",
         propertyType: [],
         priceRange: {min: "", max: ""},

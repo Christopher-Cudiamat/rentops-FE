@@ -18,8 +18,8 @@ export const Input = styled.input<IInput>`
   border-radius: .5rem;
   border: 1px solid ${({theme}) => theme.color.gray};
   &::placeholder { 
-  color: ${({theme}) => theme.color.grayLight};
-}
+    color: ${({theme}) => theme.color.grayLight};
+  }
 `
 
 export const InputLabel = styled.label<IInput>`

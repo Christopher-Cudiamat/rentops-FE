@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Drawer from "./drawer.component";
+import NavigationMobile from "./navigationMobile.component";
 import { selectorsUserAuth } from '../../../store/userAuth/userAuth.selector';
 import { AppState } from '../../../configs/redux.config';
 import { Dispatch } from 'redux';
@@ -25,5 +25,5 @@ const mapStateToDispatch = (dispatch: Dispatch) => {
 }
 
 
-const DrawerContainer = connect(mapStateToProps,mapStateToDispatch)(Drawer);
-export default DrawerContainer;
+const NavigationMobileContainer = connect(mapStateToProps,mapStateToDispatch)(NavigationMobile);
+export default NavigationMobileContainer;

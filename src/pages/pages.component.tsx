@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import SignIn from './signIn/signIn.component';
 import Signup from './signup/signup.component';
@@ -9,8 +9,20 @@ import Listings from './listings/listings.container';
 import AddProperty from './addProperty/addProperty.component';
 import Rent from './rent/rent.container';
 import Property from './property/property.component';
+import { scrollToTop } from '../utils/scrollManager';
+import { IPagesProps } from './pages.type';
 
-function Pages(){
+const Pages: React.FC<IPagesProps> = ({
+    //to be used for private routings.
+    isAuthenticated,
+    activePage
+}) => {
+
+    useEffect(() => {
+        scrollToTop();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activePage]);
+    
     return(
         <div>
             <Switch>

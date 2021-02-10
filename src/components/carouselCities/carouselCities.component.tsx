@@ -6,12 +6,15 @@ import CustomNextArrow from './customNextArrow/customNextArrow.component';
 import { Div, P } from './carouselCities.style';
 import './carouselCities.css'
 import { Title } from '../ui/title.style';
+import { useHistory } from 'react-router-dom';
 
 const CarouselCities: React.FC<CarouselCitiesPropTypes> = ({
-  sliderArr
-  }) => {
+  sliderArr,
+  setPropertyInfo
+}) => {
 
-  const slider = useRef<Slider>(null)
+  const slider = useRef<Slider>(null);
+  const history = useHistory();
 
   const settings = {
     dots: false,
@@ -45,6 +48,10 @@ const CarouselCities: React.FC<CarouselCitiesPropTypes> = ({
     ]
   };
 
+  const handleSearchCityProperties = (city: string) => {
+    setPropertyInfo("location",city)
+    history.push('./rent');
+  }
 
   return (
     <Div carouselContainer>
@@ -52,9 +59,15 @@ const CarouselCities: React.FC<CarouselCitiesPropTypes> = ({
         <Slider ref={slider} {...settings}>
           {
             sliderArr.map((el:sliderList, index: number) => (
-              <Div container key={index}>
+              <Div 
+              container 
+              key={index}
+              onClick={() => handleSearchCityProperties(el.cityName)}>
                 <Div imageWrapper>
-                  <img src={el.cityImage} alt={el.cityAltText}/>
+                  <img 
+                    src={el.cityImage} 
+                    alt={el.cityAltText}
+                  />
                   <P>{el.cityName}</P>
                 </Div>
               </Div>

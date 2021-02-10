@@ -20,18 +20,26 @@ import ShowPasswordIcon from '../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
 import { FormControl } from './signupForm.style';
 import { signup } from '../../../services/signupController';
-import { ISignupFormProps, ISignupObj } from './signupForm.type';
+import { ISignupData, ISignupFormProps, ISignupObj } from './signupForm.type';
 import AuthButton from '../../../components/authButton/authButton.container';
+import { Paragraph } from '../../../components/ui/p.style';
+import { useHistory } from 'react-router-dom';
 
 
-const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
+const SignupForm: React.FC<ISignupFormProps> = ({
+	setForm,
+	setUserData,
+	setPage
+}) => {
 
 	const { register, handleSubmit, errors } = useForm();
 	const [showPassword,setShowPassword] = useState(false);
 	const [error, setError] = useState("");
 	const [errorStatus, setErrorStatus] = useState(422);
+	const history = useHistory();
 	
-	const onSubmit = (data:any) => {
+	const onSubmit = (data:ISignupData) => {
+		console.log(data)
 		signup(data)
 		.then((res) =>{
 			setForm("email-verification");
@@ -42,10 +50,21 @@ const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
 			setError(err.response.data.error);
 		});
 	}
+
+	const handleGotoSignIn = () => {
+    history.push("./signIn");
+    setPage("signInPage", true);
+  }
+  
 	
 	return(
 		<FormControl  onSubmit={handleSubmit(onSubmit)}>
-			<Title main bold gray>Registration</Title>
+			<Title 
+				main 
+				bold 
+			gray>
+				Sign up
+			</Title>
 			{
 				signupFormArr.map((el: ISignupObj,index: number) => 
 					<InputControl key={index}>
@@ -92,7 +111,14 @@ const SignupForm: React.FC<ISignupFormProps> = ({setForm,setUserData}) => {
 			</CheckboxControl>
 			<AuthButton error={errorStatus === 500 ? error : ""}>
 				Sign Up
-			</AuthButton>	
+			</AuthButton>
+			<Paragraph bold>
+				Already have an account? 
+				<span
+					onClick={handleGotoSignIn}>
+					 Sign In
+				</span>	
+			</Paragraph>	
 		</FormControl>
 	)
 };

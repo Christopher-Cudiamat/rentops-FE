@@ -5,6 +5,10 @@ import { getProperty } from '../../services/propertyController';
 import { formatAddComa } from '../../utils/formatNumbers';
 import { ImageBanner,Container, Details, ButtonViewPhotos } from './property.style';
 import PropertyPhotos from './propertyPhotos/propertyPhotos.component';
+import ReactMapGL, { Marker } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import locationPin from '../../assets/icon/location.svg'
+
 
 
 const Property = () => {
@@ -12,16 +16,37 @@ const Property = () => {
   const [data, setData] = useState<any>();
   const location = useLocation<{id:string}>();
   const [openModal, setOpenModal] = useState(false);
-  
-  console.log(data);
+  let  [viewport, setViewport] = useState<any|undefined>();
+  console.log(viewport)
+
 
   useEffect(() => {
     getProperty(location.state!.id)
       .then(res => {
-        setData(res);
+        if(res){
+          setData(res);
+          setViewport({
+            width: 400,
+            height: 400,
+            latitude: +res.propertyInfo.latitude,
+            longitude: +res.propertyInfo.longitude,
+            zoom: 15
+          })
+        }
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // useEffect(() => {
+  //   if(data){
+  //     setViewport({
+  //       ...viewport,
+  //       latitude: +data.propertyInfo.latitude,
+  //       longitude: +data.propertyInfo.longitude,
+  //     })
+  //   }
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     <div>
@@ -59,6 +84,27 @@ const Property = () => {
               }
             </div>
           </Details>
+          { viewport !== undefined &&
+            <ReactMapGL
+              {...viewport}
+              // mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+              mapboxApiAccessToken="pk.eyJ1IjoiY3Jpc3RvcHMxMyIsImEiOiJja2tsYXZqbDQwOTU0Mnhsb2g0OWszNmRvIn0.BZPjU2rnwZKo_hNBfhsjmg"
+              mapStyle="mapbox://styles/cristops13/ckklclyxe3nnp17tc2d1p36tt"
+              onViewportChange={(nextViewport: any) => setViewport(nextViewport)}
+            >
+              <Marker 
+                latitude={+data.propertyInfo.latitude} 
+                longitude={+data.propertyInfo.longitude} 
+                offsetLeft={-20} 
+                offsetTop={-10}>
+                <img 
+                src={locationPin}  
+                alt="location"
+                style={{height:"3rem", width: "3rem"}}/>
+              </Marker>
+            </ReactMapGL>
+          }
+          
           {
             openModal &&
               <PropertyPhotos 

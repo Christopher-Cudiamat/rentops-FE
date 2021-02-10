@@ -3,7 +3,7 @@ import {
   DrawerSubLinkText,
   DrawerSubList,
   DrawerSubListContainer
-} from '../drawer.style';
+} from '../navigationMobile.style';
 import { IDrawerDropDownProps } from './drawerDropDown.type';
 
 
@@ -25,7 +25,7 @@ const DrawerDropDown: React.FC<IDrawerDropDownProps> = ({
           < DrawerSubList 
             key={index} 
             onClick={() => handleOnclick(el)}
-            >
+          >
             <DrawerSubLinkText
               to={el.path}>
               {el.linkName}

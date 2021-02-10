@@ -9,13 +9,14 @@ interface IHeaderForm {
 export const Container = styled.div<IHeaderForm>`
   text-align: center;
   padding: 3rem 0rem 5rem 0rem;
-  & > p:first-child {
-    font-size: 3.5rem;
-    margin: 0rem 0rem 0rem 0rem;
+  @media ${({theme}) => theme.media.laptop} { 
+    display: inline-block;
+    width: 40%;
+    margin-top: 8rem;
+    text-align: left;
   }
-  & > p:nth-child(2) {
-    font-size: 2rem;
-    /* margin-bottom: 5rem; */
+  & > p:first-child {
+    margin: 0rem 0rem 0rem 0rem;
   }
   & > div {
     text-align: left;
@@ -38,9 +39,30 @@ export const Container = styled.div<IHeaderForm>`
   }
 `;
 
-export const HeroImage = styled.img<IHeaderForm>`
+export const MainContainer = styled.div<IHeaderForm>`
+  @media ${({theme}) => theme.media.laptop} { 
+    display: flex;
+    justify-content: space-evenly;
+  }
+`;
+export const HeroImageDesktop = styled.img<IHeaderForm>`
+  display: none;
+
+  @media ${({theme}) => theme.media.laptop} { 
+    display: inline-block;
+    width: 42%;
+  }
+`;
+
+export const HeroImageMobile = styled.img<IHeaderForm>`
   width: 100%;
   height: auto;
+  @media ${({theme}) => theme.media.tablet} { 
+    width: 80%;
+  }
+  @media ${({theme}) => theme.media.laptop} { 
+    display: none;
+  }
 `;
 
 export const SearchInput = styled.div<IHeaderForm>`
@@ -48,12 +70,13 @@ export const SearchInput = styled.div<IHeaderForm>`
   position: relative;
   width: 95%;
   margin: auto;
-  /* background: ${({theme}) => theme.color.primary}; */
   border-radius: .5rem;
   background: rgb(255,255,255);
   background: rgb(255,255,255);
-background: linear-gradient(137deg, rgba(255,255,255,1) 0%, rgba(24,131,191,1) 0%, rgba(77,173,227,1) 50%);
-
+  background: linear-gradient(137deg, rgba(255,255,255,1) 0%, rgba(24,131,191,1) 0%, rgba(77,173,227,1) 50%);
+  @media ${({theme}) => theme.media.laptop} { 
+    width: 100%;
+  }
   
 `;
 
@@ -66,20 +89,4 @@ export const SearchIcon = styled.img<IHeaderForm>`
   right: 2rem;
   border-bottom-right-radius: .5rem;
   border-top-right-radius: .5rem;
-`;
-
-export const SearchFilterModal = styled(Modal)`
-  height: 100vh;
-  width: 100vw;
-  text-align: center;
-  & button:first-child {
-    margin-bottom: 2rem;
-  }
-  & div:nth-child(2),
-  & div:nth-child(3) {
-    padding: 0rem;
-    margin-bottom: 6rem;
-    text-align: center;
-  }
-  
 `;

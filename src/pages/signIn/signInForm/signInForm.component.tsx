@@ -17,10 +17,13 @@ import { signin } from '../../../services/signinController';
 import { signInPages } from '../signIn.config';
 import AuthButton from '../../../components/authButton/authButton.container';
 import { useHistory } from 'react-router-dom';
+import { Paragraph } from '../../../components/ui/p.style';
+
 
 const SignInForm: React.FC<ISignInFormProps> = ({
   setForm,
-  login
+  login,
+  setPage
   }) => {
   
   const { register, handleSubmit, errors } = useForm();
@@ -35,6 +38,11 @@ const SignInForm: React.FC<ISignInFormProps> = ({
         history.push('./');
       })
       .catch(err => setError(err.response.data.error))
+  }
+
+  const handleGotoSignUp = () => {
+    history.push("./signUp");
+    setPage("signUpPage", true);
   }
   
     
@@ -76,6 +84,13 @@ const SignInForm: React.FC<ISignInFormProps> = ({
         <Text onClick={() => setForm(signInPages.recoverPassword)}>
           Forgot password?
         </Text>	
+        <Paragraph bold>
+				  Don't have an account? 
+          <span
+            onClick={handleGotoSignUp}>
+            Sign up
+          </span>	
+			  </Paragraph>	
       </FormControl>
     </div>
   );

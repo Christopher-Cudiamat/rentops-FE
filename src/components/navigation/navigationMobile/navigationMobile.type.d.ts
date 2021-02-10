@@ -1,3 +1,19 @@
+export interface INavMobile {
+  linkName: string;
+  path?: string;
+  icon: string;
+  altText: string;
+  value: string;
+  dropDownLinks?: IDropDownLink[];
+}
+
+interface IDropDownLink {
+  linkName: string;
+  path: string;
+  propertyType: string;
+}
+
+
 export interface DrawerPropTypes {
   showDrawer: boolean,
   setShowDrawer: React.Dispatch<React.SetStateAction<boolean>>,

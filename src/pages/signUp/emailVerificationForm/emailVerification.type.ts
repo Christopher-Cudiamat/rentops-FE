@@ -9,3 +9,7 @@ interface IUserData {
   token: string,
   message: string,
 }
+
+export interface IData {
+  verificationCode: string
+}
