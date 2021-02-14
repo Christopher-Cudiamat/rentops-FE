@@ -6,7 +6,6 @@ import FieldDeveloper from '../../../components/addField/fieldDeveloper/fieldDev
 import FieldLocation from '../../../components/addField/fieldLocation/fieldLocation.component';
 import FieldPrice from '../../../components/addField/fieldPrice/fieldPrice.component';
 import FieldPropertyType from '../../../components/addField/fieldPropertyType/fieldPropertyType.component';
-
 import { FormContainer, Wrapper } from './propertyInfoForm.style';
 import FieldFurnish from '../../../components/addField/fieldFurnish/fieldFurnish.component';
 import FieldSize from '../../../components/addField/fieldSize/fieldSize.component';
@@ -26,8 +25,12 @@ const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleSubmit = () => {
+    setStep(AddPropertyPage.contact)
+  }
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit}>
       <FieldLocation/>
       <FieldPrice/>
       <FieldSize/>
@@ -42,8 +45,7 @@ const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
       </Wrapper>
       <FieldAmenities/>
       <Button 
-        primary
-        onClick={() =>  setStep(AddPropertyPage.contact)} 
+        primary 
         style={{marginTop: "3rem"}}>
         Continue
       </Button>

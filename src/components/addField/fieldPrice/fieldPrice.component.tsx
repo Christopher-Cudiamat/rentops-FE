@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPropertyInfo } from '../../../store/propertyInfo/propertyInfo.action';
 import { formatToThousand } from '../../../utils/formatNumbers';
-import { Paragraph } from '../../ui/p.style';
 import { Container, Price, StyledInputRange } from './fieldPrice.style';
 
 

@@ -12,6 +12,7 @@ interface IDiv {
   section?: boolean,
   header?: boolean,
   headerSub?: boolean,
+  page?: boolean
 }
 
 
@@ -94,6 +95,24 @@ export const Title = styled.p<IDiv>`
   ${({gray}) => gray &&
     css`
     color: ${({theme}) => theme.color.gray};
+    `
+  };
+
+  ${({page}) => page &&
+    css`
+    margin-top: 1rem;
+    padding: 1rem;
+    background: ${({theme}) => theme.color.secondary};
+    color: ${({theme}) => theme.color.white};
+    font-size: 2.2rem;
+    @media ${({theme}) => theme.media.tablet} { 
+      font-size: 2.8rem;
+      padding: 1rem 2rem;
+    }
+    @media ${({theme}) => theme.media.laptop} { 
+      font-size: 3rem;
+      padding: 1rem 4rem;
+    }
     `
   };
 `

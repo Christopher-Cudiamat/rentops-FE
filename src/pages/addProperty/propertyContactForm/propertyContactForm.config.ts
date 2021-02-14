@@ -1,4 +1,8 @@
-import { regexEmail, regexLetters, regexNumbers } from "../../../utils/validation";
+import {
+  regexEmail,
+  regexLetters,
+  regexNumbers 
+} from "../../../utils/validation";
 
 export const contactFormArr = [
   {
@@ -8,6 +12,7 @@ export const contactFormArr = [
     defaultValue: "",
     required: true,
     pattern: regexLetters,
+    minLength: 1,
     errorMessage: {
       required: "First Name is required",
       pattern:"First Name should only be letters"
@@ -19,6 +24,7 @@ export const contactFormArr = [
     placeholder: "Last Name",
     defaultValue: "",
     required: true,
+    minLength: 1,
     pattern: regexLetters,
     errorMessage: {
       required: "Last Name is required",
@@ -32,12 +38,11 @@ export const contactFormArr = [
     defaultValue: "",
     required: true,
     pattern: regexEmail,
+    minLength: 1,
     errorMessage: {
       required: "Email is required",
       pattern: "Email is not acceptable",
-      validate: "Email already Exist"
     },
-    type: "checkbox"
   },
   {
     label:"Phone Number (Minumum 10 character)",
@@ -45,12 +50,12 @@ export const contactFormArr = [
     placeholder: "Phone Number",
     defaultValue: "",
     required: true,
+    pattern: regexNumbers,
     minLength: 10,
-    // pattern: regexNumbers,
     errorMessage: {
       required: "Phone number is required",
       minLength: "Phone number should be minimum of 10 digits",
-      // pattern: "Phone number should not container letters or special characters"
+      pattern: "Phone number should only contain numbers",
     },
   }
 ]

@@ -49,8 +49,12 @@ const SignInForm: React.FC<ISignInFormProps> = ({
   return (
     <div>
       <FormControl  onSubmit={handleSubmit(onSubmit)}>
-		
-        <Title main bold gray>Sign In</Title>
+        <Title 
+          main 
+          bold 
+        gray>
+          Sign In
+        </Title>
         {
           signInFormArr.map((el: any,index: number) => 
             <InputControl key={index}>

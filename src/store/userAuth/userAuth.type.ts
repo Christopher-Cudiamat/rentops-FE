@@ -6,7 +6,6 @@ export interface IUserAuthState {
   token: string | null,
   isAuthenticated: boolean,
   email:string,
-  // phoneNumber: number,
   firstName: string,
   lastName: string
 }

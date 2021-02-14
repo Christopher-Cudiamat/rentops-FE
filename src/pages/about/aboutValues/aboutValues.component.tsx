@@ -5,7 +5,7 @@ import aboutValues from "../../../assets/images/about-values.png"
 import { Paragraph } from '../../../components/ui/p.style';
 import { aboutValuesArr } from './aboutValues.config';
 
-const AboutValues = () => {
+const AboutValues: React.FC = () => {
   return (
     <Container>
       <div>

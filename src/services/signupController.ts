@@ -1,4 +1,4 @@
-import { instancePost } from "../configs/axios.config";
+import { instancePostButton } from "../configs/axios.config";
 
 interface ISignup {
   firstName: string,
@@ -8,18 +8,11 @@ interface ISignup {
   termsAndConditions: boolean
 }
 
-interface IEmailVerification {
-  firstName: string,
-  lastName: string,
-  email: string,
-  password: string,
-  termsAndConditions: boolean
-}
 
 export const signup = async (data: ISignup) => {
   let url = '/api/user/sign-up';
   let body = data;
-  const res = await instancePost.post(url,body);
+  const res = await instancePostButton.post(url,body);
   return res.data;
 };
 
@@ -30,6 +23,6 @@ export const emailVerification = async (
 
   let url = '/api/user/email-verification';
   let body = {token,insertedVerificationCode};
-  const res = await instancePost.post(url,body);
+  const res = await instancePostButton.post(url,body);
   return res.data;
 };

@@ -17,12 +17,13 @@ import {nanoid} from 'nanoid';
 import { useHistory } from 'react-router';
 
 
+
 const NavigationDesktop: React.FC<INavigationDesktopProps> = ({
   setPage,
   activePage,
   isAuthenticated,
   setLogout
-  }) => {
+}) => {
 
   const history = useHistory();
 
@@ -42,20 +43,20 @@ const NavigationDesktop: React.FC<INavigationDesktopProps> = ({
     <Ul>
       {
         navLinksDesktopArr.map((el: INavigationDesktop) => 
-          <>
-            <NavList
-              key={nanoid()}
-              active={el.value === activePage}
-              onClick={() => handleClickLink(el.value)}
-              isNotVisible={
-                (isAuthenticated && el.linkName === "SIGN IN") ||
-                (!isAuthenticated && el.linkName === "SIGN OUT")
-                }>
-              <NavDeskLink to={el.path!}>
-                {el.linkName}
-              </NavDeskLink>
-              { 
-              el.dropDownLinks &&
+          <NavList
+            key={nanoid()}
+            active={el.value === activePage}
+            onClick={() => handleClickLink(el.value)}
+            isNotVisible={
+              (isAuthenticated && el.linkName === "SIGN IN") ||
+              (!isAuthenticated && el.linkName === "SIGN OUT")
+            }
+          >
+            <NavDeskLink to={el.path!}>
+              {el.linkName}
+            </NavDeskLink>
+            { 
+            el.dropDownLinks &&
               <DropdownContainer>
                 {
                   el.dropDownLinks.map((el: IDropDownLink) => 
@@ -70,9 +71,7 @@ const NavigationDesktop: React.FC<INavigationDesktopProps> = ({
                 }
               </DropdownContainer>
             }
-            </NavList>
-            
-          </>
+          </NavList>
         )
       }
     </Ul>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const Select= styled.select`
   height: 5rem;
@@ -10,7 +10,4 @@ export const Select= styled.select`
   padding-left: 1rem;
   color: ${({theme}) => theme.color.blackLight};
   width: 100%;
-  @media ${({theme}) => theme.media.laptop} { 
-    width:35%;
-  }
 `

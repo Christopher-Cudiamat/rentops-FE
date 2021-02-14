@@ -49,3 +49,5 @@ export const resetPropertyInfo = (): any => {
     type: RESET_PROPERTY_INFO
   }
 }
+
+

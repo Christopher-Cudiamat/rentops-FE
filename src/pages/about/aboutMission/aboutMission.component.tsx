@@ -3,7 +3,7 @@ import { Title } from '../../../components/ui/title.style';
 import { Container } from './aboutMission.style';
 import aboutMission from "../../../assets/images/about-mission.png";
 
-const AboutMission = () => {
+const AboutMission: React.FC = () => {
   return (
     <Container>
       <div>

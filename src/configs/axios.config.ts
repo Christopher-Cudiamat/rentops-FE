@@ -4,6 +4,7 @@ import {
   setIsLoadingPage 
 } from '../store/loader/loader.action';
 import store from './store.config';
+
 const token = localStorage.getItem('token');
 
 
@@ -25,26 +26,50 @@ export const instancePost = axios.create({
   }
 });
 
+export const instancePostButton = axios.create({
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": token,
+  }
+});
 
-instancePost.interceptors.request.use(async (config) => {
+
+instancePostButton.interceptors.request.use(
+  async (config) => {
     store.dispatch(setIsLoadingButton(true));
     return config;
-});
+  }
+);
 
-instancePost.interceptors.response.use(async (config) => {
+
+instancePostButton.interceptors.response.use(
+  async (config) => {
     store.dispatch(setIsLoadingButton(false));
     return config;
-});
+  },
+  (error) => {
+    store.dispatch(setIsLoadingButton(false));
+    return Promise.reject(error);
+  }
+);
+
 
 instancePost.interceptors.request.use(async (config) => {
   store.dispatch(setIsLoadingPage(true));
   return config;
 });
 
-instancePost.interceptors.response.use(async (config) => {
-  store.dispatch(setIsLoadingPage(false));
-  return config;
-});
+
+instancePost.interceptors.response.use(
+  async (config) => {
+    store.dispatch(setIsLoadingPage(false));
+    return config;
+  },
+  (error) => {
+    store.dispatch(setIsLoadingPage(false));
+    return Promise.reject(error);
+  }
+);
 
 
 instanceGet.interceptors.request.use(async (config) => {
@@ -52,10 +77,17 @@ instanceGet.interceptors.request.use(async (config) => {
   return config;
 });
 
-instanceGet.interceptors.response.use(async (config) => {
-  store.dispatch(setIsLoadingPage(false));
-  return config;
-});
+
+instanceGet.interceptors.response.use(
+  async (config) => {
+    store.dispatch(setIsLoadingPage(false));
+    return config;
+  },
+  (error) => {
+    store.dispatch(setIsLoadingPage(false));
+    return Promise.reject(error);
+  }
+);
 
 
 

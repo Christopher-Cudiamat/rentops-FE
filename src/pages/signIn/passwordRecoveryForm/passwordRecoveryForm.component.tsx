@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { StepperStyled } from '../../../components/stepper/stepperStyled.style';
+import { Title } from '../../../components/ui/title.style';
 import ChangePasswordForm from './changePasswordForm/changePasswordForm.component';
 import IdentificationForm from './identificationForm/identificationForm.component';
 import OtpForm from './otpForm/otpForm.component';
-import { recoverPasswordSteps, stepperLabelsArr } from './passwordRecoveryForm.config';
+import { 
+  recoverPasswordSteps,
+  stepperLabelsArr } from './passwordRecoveryForm.config';
 import { IPasswordRecoveryFormProps } from './passwordRecoveryForm.type';
+
 
 const PasswordRecoveryForm: React.FC<IPasswordRecoveryFormProps> = ({
   setForm
-  }) => {
+}) => {
 
   const [step,setStep] = useState(recoverPasswordSteps.identification);
   const [generatedOtp, setGeneratedOtp] = useState("");
@@ -34,6 +38,12 @@ const PasswordRecoveryForm: React.FC<IPasswordRecoveryFormProps> = ({
 
   return (
     <>
+      <Title 
+        page
+        bold
+      >
+        Recover password
+      </Title>
       <StepperStyled
         steps={stepperLabelsArr}
         activeStep={step - 1}

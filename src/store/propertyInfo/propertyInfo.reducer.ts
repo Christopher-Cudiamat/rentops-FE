@@ -11,6 +11,8 @@ from "./propertyInfo.type";
 
 const initialState: any = {
   location: "",
+  latitude: "",
+  longitude: "",
   description: "",
   price: 0,
   size: 0,
@@ -55,7 +57,7 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
         furnish: "",
         bed: "",
         bathroom: "",
-        developer: "",
+        developer: "", 
         amenities: []
       }
     case SET_ADD_PROPERTY_INFO:

@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { 
   Input, 
   InputControl,
-  InputError, 
-  InputIcon, 
+  InputError,  
   InputLabel 
 } from '../../../components/ui/input.style';
-import { Title } from '../../../components/ui/title.style';
-import ShowPasswordIcon from '../../../assets/icon/show-password.svg';
-import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
 import { Button } from '../../../components/ui/button.style';
 import { contactFormArr } from './propertyContactForm.config';
-import { Form } from '../../../components/ui/form.style';
-import { IPropertyContactFormProps } from './propertyContactForm.type';
+import { 
+  IContactFormArr,
+  IPropertyContactData,
+  IPropertyContactFormProps 
+} from './propertyContactForm.type';
 import { AddPropertyPage } from '../addProperty.config';
+import { FormContact } from './propertyContactForm.style';
+
 
 
 const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
@@ -22,23 +23,22 @@ const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
   setContactInfo,
   setStep
   }) => {
+    console.log(UserAuth)
+  const { 
+    register,
+    handleSubmit,
+    errors 
+  } = useForm();
 
-  const { register, handleSubmit, errors } = useForm();
-  const [showPassword,setShowPassword] = useState(false);
-
-	const onSubmit = (data:any) => {
+	const onSubmit = (data: IPropertyContactData) => {
     setContactInfo(data);
     setStep(AddPropertyPage.media);
   }
   
-    
   return (
-    <div>
-      <Form  onSubmit={handleSubmit(onSubmit)}>
-		
-        <Title main bold gray>Sign In</Title>
+      <FormContact onSubmit={handleSubmit(onSubmit)}>
         {
-          contactFormArr.map((el: any,index: number) => 
+          contactFormArr.map((el: IContactFormArr,index: number) => 
             <InputControl key={index}>
               <InputLabel>{el.label}</InputLabel>
               <Input
@@ -49,22 +49,22 @@ const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
                   required: el.required,
                   pattern: el.pattern,
                   minLength: el.minLength
-                })}/>
-              <InputIcon 
-                onClick={() => {setShowPassword(!showPassword)}}
-                src={showPassword ? HidePasswordIcon : ShowPasswordIcon} 
-                alt="Password"/>
+                })}
+              />
               <InputError visibility={errors[el.name]?.type}>
                 {el.errorMessage[errors[el.name]?.type]}
               </InputError>
             </InputControl>
           )
         }
-        <Button primary>
+        <Button 
+          primary
+          style={{marginTop: "3rem"}}
+        >
 					Continue
 				</Button>
-      </Form>
-    </div>
+      </FormContact>
+ 
   );
 }
 

@@ -4,7 +4,7 @@ import { Paragraph } from '../../../components/ui/p.style';
 import { Title } from '../../../components/ui/title.style';
 import { Container } from './aboutCareer.style';
 
-const AboutCareer = () => {
+const AboutCareer: React.FC = () => {
   return (
     <Container>
         <Title bold>

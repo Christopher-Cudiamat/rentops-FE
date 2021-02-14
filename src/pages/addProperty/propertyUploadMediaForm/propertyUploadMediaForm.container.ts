@@ -4,6 +4,8 @@ import {AppState} from "../../../configs/redux.config";
 import { selectorsPropertyInfo } from '../../../store/propertyInfo/propertyInfo.selector';
 import { selectorsPropertyContact } from '../../../store/propertyContact/propertyContact.selector';
 import { selectorsPropertyMedia } from '../../../store/propertyMedia/propertyMedia.selector';
+import { Dispatch } from 'redux';
+import { resetPropertyMedia } from '../../../store/propertyMedia/propertyMedia.action';
 
 
 
@@ -16,5 +18,12 @@ const mapStateToProps = (state:AppState) => {
   }
 }
 
-const PropertyUploadMediaFormContainer = connect(mapStateToProps)(PropertyUploadMediaForm);
+
+const mapStateToDispatch = (dispatch: Dispatch) => {
+  return { 
+    resetPropertyMedia: () => dispatch(resetPropertyMedia())
+  }
+}
+
+const PropertyUploadMediaFormContainer = connect(mapStateToProps,mapStateToDispatch)(PropertyUploadMediaForm);
 export default PropertyUploadMediaFormContainer;

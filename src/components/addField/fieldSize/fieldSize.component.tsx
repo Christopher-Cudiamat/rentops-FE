@@ -11,20 +11,25 @@ const FieldSize = () => {
   const [value,setValue] = useState(1);
   const dispatch = useDispatch();
 
-  const handleSize = (e: any) => {
+  const handleSize = (e: number) => {
     setValue(e);
     dispatch(setPropertyInfo("size",e))
   }
 
   return (
     <div style={{margin: "1rem 0rem 4rem 0rem"}}>
-    <Paragraph style={{fontSize: "2.2rem", marginBottom: "2rem"}}>Size: {value}sqm </Paragraph>
+    <Paragraph 
+      style={{fontSize: "2.2rem", marginBottom: "2rem"}}
+    >
+      Size: {value} square meters 
+    </Paragraph>
     <InputRange
-        maxValue={300}
-        minValue={1}
-        step={1}
-        value={value}
-        onChange={(value:any) => handleSize(value)}/>
+      maxValue={300}
+      minValue={1}
+      step={1}
+      value={value}
+      onChange={(value:any) => handleSize(value)}
+    />
     </div>
   );
 }

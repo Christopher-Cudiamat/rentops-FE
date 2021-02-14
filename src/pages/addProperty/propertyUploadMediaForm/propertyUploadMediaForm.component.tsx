@@ -1,46 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import FieldImageUploadGallery from '../../../components/addField/fieldImageUploadGallery/fieldImageUploadGallery.container';
 import { Button } from '../../../components/ui/button.style';
 import { addProperty } from '../../../services/propertyController';
+import { FormContainer } from './propertyUplaodMediaForm.style';
 import { IPropertyMediaProps } from './propertyUploadMediaForm.type';
+
 
 
 const ProperUploadMediaForm: React.FC<IPropertyMediaProps> = ({
   propertyInfo,
   propertyContact,
-  propertyMedia
-  }) => {
+  propertyMedia,
+  resetPropertyMedia
+}) => {
 
-
-  const [images,setImages] = useState<any[]>([])
+  const history = useHistory();
 
   const handleSubmitProperty = () => {
     addProperty({
     propertyInfo,
     propertyContact,
-    propertyMedia
+    propertyMedia,
     })
-    .then((res) => {
-      setImages(res.propertyMedia.galleryPhotos)
+      .then(() => {
+        resetPropertyMedia();
+        history.push('./');
     })
   }
 
+
   return (
-    <div style={{padding: "2rem 2rem 5rem 2rem"}}>
-      {images.length !== 0 &&
-        images.map((el:any,index:number) => 
-          <img src={el.dataURL} key={index} alt="test"/>
-        )
-      }
-      <FieldImageUploadGallery
-        label={"Click here to add listing Photo"}
-        text={"Listing Photo:"}
-        multiple={false}
-        previewWidth={"100%"}/>
+    <FormContainer>
       <FieldImageUploadGallery 
         label={"Click here to add gallery photos"}
         text={"Gallery Photos:"}
-        multiple={true}
         previewWidth={"100"}
       />
       <Button 
@@ -49,8 +43,9 @@ const ProperUploadMediaForm: React.FC<IPropertyMediaProps> = ({
         onClick={handleSubmitProperty}>
         Add Property
       </Button>
-    </div>
+    </FormContainer>
   );
 }
 
 export default ProperUploadMediaForm;
+

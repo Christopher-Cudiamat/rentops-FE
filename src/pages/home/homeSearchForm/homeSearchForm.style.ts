@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { Modal } from "../../../components/ui/modal.style";
+import styled from "styled-components/macro";
 
 interface IHeaderForm {
   banner?:boolean,

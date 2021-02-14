@@ -14,8 +14,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Loader/> 
       <Router>
+        <Loader/> 
         <Navigation />
         <Pages/>
         <Footer />

@@ -12,7 +12,6 @@ const EmailVerificationForm: React.FC<IEmailVerificationFormProps> = ({
 		userData,
 		setUserAuth
     }) => {
-		console.log(userData.token);
 			
 		const { register, handleSubmit, errors } = useForm();
     const [error,setError] = useState("");

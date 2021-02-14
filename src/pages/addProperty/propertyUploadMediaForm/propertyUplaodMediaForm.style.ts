@@ -1,6 +1,7 @@
-import styled  from "styled-components";
+import styled from "styled-components/macro";
 
-export const Form = styled.form`
+export const FormContainer = styled.div`
+  padding: 4rem 2rem 10rem 2rem;
   margin: auto;
   width: 100%;
   @media ${({theme}) => theme.media.tablet} { 
@@ -9,5 +10,4 @@ export const Form = styled.form`
   @media ${({theme}) => theme.media.laptop} { 
     width:35%;
   }
-  
 `

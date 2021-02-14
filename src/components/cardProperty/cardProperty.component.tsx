@@ -62,7 +62,7 @@ const CardProperty: React.FC<ICardPropertyProps> = ({data}) => {
               {
                 el.propertyMedia.galleryPhotos.map((el: any, index: number) => (  
                   <SlidesContainer key={index}>
-                    <Slides bgImage={el.dataURL}/>   
+                    <Slides bgImage={el}/>   
                     <TextNew>New</TextNew>     
                   </SlidesContainer>            
                 ))

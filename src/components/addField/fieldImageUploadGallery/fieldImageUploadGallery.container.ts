@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import FieldImageUploadGallery from "./fieldImageUploadGalley.component";
 import { Dispatch } from 'redux';
-import {setPropertyImage } from '../../../store/propertyMedia/propertyMedia.action';
+import { setPropertyImage } from '../../../store/propertyMedia/propertyMedia.action';
 
 
 

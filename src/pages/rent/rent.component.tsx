@@ -5,6 +5,7 @@ import SortPropertyForm from './sortPropertyForm/sortPropertyForm.component';
 import { getAllProperties } from '../../services/propertyController';
 import { Container, FilterNav, ResultText } from './rent.style';
 import { IRentProps } from './rent.type';
+import { IPropertyInfoState } from '../../store/propertyInfo/propertyInfo.type';
 
 const Rent: React.FC<IRentProps>= ({
   properties,
@@ -16,7 +17,7 @@ const Rent: React.FC<IRentProps>= ({
   const [sort,setSort] = useState("newest");
   const [filter,setFilter] = useState(false);
 
-  const handlePropertyList = (sort: string, propertyInfo:any) => {
+  const handlePropertyList = (sort: string, propertyInfo: IPropertyInfoState) => {
     getAllProperties(sort,propertyInfo)
       .then(res => {
         setPropertyList(res);
@@ -40,7 +41,9 @@ const Rent: React.FC<IRentProps>= ({
         <SortPropertyForm setSort={setSort}/>
       </FilterNav>
       <Container>
-        <ResultText>{`${properties.length} Properties Found`}</ResultText>
+        <ResultText>
+          {`${properties.length} Properties Found`}
+        </ResultText>
         <CardProperty data={properties}/>
       </Container>
     </>

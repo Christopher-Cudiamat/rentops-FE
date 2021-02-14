@@ -1,5 +1,3 @@
-
-
 export const changePasswordFormArr = [
   {
     label:"New Password (Minumum 8 character)",
@@ -22,6 +20,8 @@ export const changePasswordFormArr = [
     placeholder: "Condirm New Password",
     defaultValue: "",
     required: true,
+    pattern: "",
+    minLength: 8,
     errorMessage: {
       required: "Confirm new password is required",
       validate: "Password did not match",

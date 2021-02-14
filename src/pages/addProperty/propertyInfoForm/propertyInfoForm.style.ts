@@ -1,7 +1,8 @@
 import styled from "styled-components/macro";
+import { Form } from "../../../components/ui/form.style";
 
 
-export const FormContainer = styled.form`
+export const FormContainer = styled(Form)`
   padding: 4rem 2rem 10rem 2rem;
 `
 

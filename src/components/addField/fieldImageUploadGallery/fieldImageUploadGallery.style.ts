@@ -1,17 +1,15 @@
 import styled from "styled-components/macro";
 import { Button } from "../../ui/button.style";
-import uploadImgSingle from "../../../assets/icon/upload-image-single.svg";
 import uploadImgMultiple from "../../../assets/icon/upload-image-multiple.svg";
 
 interface IImageUploader {
-  isMultiple?: boolean,
+
 }
 
 
 export const UploadsImageContainer= styled.div`
   width: 100%;
   margin: auto;
-  padding: 0rem 2rem;
 `
 
 export const UploadImageButton = styled(Button)<IImageUploader>`
@@ -24,6 +22,7 @@ export const UploadImageButton = styled(Button)<IImageUploader>`
   padding:1rem .5rem;
   position: relative;
   height: 10rem;
+  width: 100%;
 
   &:hover {
     background:  transparent;
@@ -31,16 +30,19 @@ export const UploadImageButton = styled(Button)<IImageUploader>`
   }
   &:after {
     content: "";
-    background: ${({isMultiple}) => isMultiple ? `url(${uploadImgMultiple})` : `url(${uploadImgSingle})`};
+    background: url(${uploadImgMultiple});
     background-repeat: no-repeat;
-    opacity: 0.1;
+    opacity: 0.2;
     top: 0;
     left: 2%;
     bottom: 0;
     right: 0;
     background-size: contain;
     position: absolute;
-    z-index: -1;   
+    z-index: -1;  
+    @media ${({theme}) => theme.media.laptop} { 
+      opacity: 0.7;
+    } 
   }
 `
 
@@ -60,9 +62,9 @@ export const UpdateButton = styled.button`
 `
 
 export const UploadedImageWrapper = styled.div<IImageUploader>`
-  display: ${({isMultiple}) => isMultiple ? "flex" : "block"};
-  margin-bottom: ${({isMultiple}) => isMultiple ? "0rem" : "3rem"};
-  background: ${({isMultiple, theme}) => isMultiple ? `${theme.color.white}` : `${theme.color.grayLightest}`};
+  display: flex;
+  margin-bottom: 0rem;
+  background: ${({theme}) => theme.color.white};
   padding: 1rem;
-  border-bottom:  ${({isMultiple,theme}) => isMultiple ? `solid 1px ${theme.color.gray}` : "none"};
+  border-bottom:  ${({theme}) =>  `solid 1px ${theme.color.gray}`};
 `

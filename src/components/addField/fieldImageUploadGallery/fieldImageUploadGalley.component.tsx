@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ImageUploading, { ImageListType } from "react-images-uploading";
 import { 
   RemoveButton,
@@ -7,27 +7,32 @@ import {
   UploadImageButton,
   UploadsImageContainer
 } from "./fieldImageUploadGallery.style";
+import { IPhotoGalleryProps } from "./fieldImageUploadGallery.type";
+import {nanoid} from 'nanoid';
 
 
-const FieldImageUploadGallery = (props:any) => {
+const FieldImageUploadGallery: React.FC<IPhotoGalleryProps> = ({
+  setPropertyImage,
+  label,
+  text,
+  previewWidth,
+}) => {
 
   
-  const [images, setImages] = React.useState([]);
+  const [images, setImages] = useState([]);
   const maxNumber = 5;
 
-  const handleListingPhoto = (
-    imageList: ImageListType,
-    addUpdateIndex: number[] | undefined
-  ) => {
+  
+  const handleListingPhoto = (imageList: ImageListType) => {
     setImages(imageList as never[]);
-    props.setPropertyImage(props.multiple ? "galleryPhotos" : "propertyPhoto", imageList);
-  };
+    setPropertyImage("galleryPhotos", imageList);
+  }
 
   return (
     <UploadsImageContainer>
       <ImageUploading
         resolutionType={'less'}
-        multiple={props.multiple}
+        multiple={true}
         value={images}
         onChange={handleListingPhoto}
         maxNumber={maxNumber}>
@@ -42,34 +47,37 @@ const FieldImageUploadGallery = (props:any) => {
           <div>
             <UploadImageButton 
               primary
-              isMultiple={props.multiple}
               style={isDragging ? { color: "blue" } : undefined}
               onClick={onImageUpload}
-              {...dragProps}>
-              {props.label}
+              {...dragProps}
+            >
+              {label}
             </UploadImageButton>
-            {imageList.length > 0 && 
+            {
+              imageList.length > 0 && 
               <p style={{fontSize: "1.4rem"}}>
-                {props.text}
+                {text}
               </p>}
             {
               imageList.map((image, index) => {
-              return <UploadedImageWrapper isMultiple={props.multiple}>
-                <img 
-                  src={image.dataURL} 
-                  alt="Preview" 
-                  width={props.previewWidth} />
-                <div>
-                  <UpdateButton 
-                    onClick={() => onImageUpdate(index)}>
-                    Update
-                  </UpdateButton>
-                  <RemoveButton 
-                    onClick={() => onImageRemove(index)}>
-                    Remove
-                  </RemoveButton>
-                </div>
-              </UploadedImageWrapper>
+              return  <UploadedImageWrapper key={nanoid()}>
+                        <img 
+                          src={image.dataURL} 
+                          alt="Preview" 
+                          width={previewWidth} />
+                        <div>
+                          <UpdateButton 
+                            onClick={() => onImageUpdate(index)}>
+                            Update
+                          </UpdateButton>
+                          <RemoveButton 
+                            onClick={() => {
+                              onImageRemove(index);
+                            }}>
+                            Remove
+                          </RemoveButton>
+                        </div>
+                      </UploadedImageWrapper>
             })}
           </div>
         )}

@@ -8,30 +8,42 @@ import {
 	InputIcon,
 	InputLabel, 
 } from '../../../../components/ui/input.style';
-import { FormControl} from '../passwordRecoveryForm.style';
+import { FormControl } from '../passwordRecoveryForm.style';
 import ShowPasswordIcon from '../../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../../assets/icon/hide-password.svg';
 import { changePassword } from '../../../../services/signinController';
-import { IChangePasswordProps } from './changePassword.type';
+import { 
+  IChangePasswordArr,
+  IChangePasswordData,
+  IChangePasswordProps 
+} from './changePassword.type';
 import { signInPages } from '../../signIn.config';
 import AuthButton from '../../../../components/authButton/authButton.container';
+
+
 
 const ChangePasswordForm: React.FC<IChangePasswordProps> = ({
   email,
   setForm
-  }) => {
+}) => {
 
-  const { register, handleSubmit, errors, watch } = useForm({
+  const { 
+    register,
+    handleSubmit,
+    errors,
+    watch 
+  } = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
   });
+  
   const [showPassword,setShowPassword] = useState(false);
   const [newPassword,setNewPassword] = useState("");
   const [error,setError] = useState("");
   const password = useRef({});
   password.current = watch("newPassword", "");
 
-  const onSubmit = (data:any) => {
+  const onSubmit = (data: IChangePasswordData) => {
     changePassword(email,data.newPassword)
       .then(() => setForm(signInPages.signIn))
       .catch(err => setError(err.response.data.error))
@@ -40,7 +52,7 @@ const ChangePasswordForm: React.FC<IChangePasswordProps> = ({
   return (
     <FormControl  onSubmit={handleSubmit(onSubmit)}>
      	{
-				changePasswordFormArr.map((el: any,index: number) => 
+				changePasswordFormArr.map((el: IChangePasswordArr,index: number) => 
 					<InputControl key={index}>
 						<InputLabel>{el.label}</InputLabel>
             { 
@@ -55,7 +67,8 @@ const ChangePasswordForm: React.FC<IChangePasswordProps> = ({
                   required: el.required,
                   pattern: el.pattern,
                   minLength: el.minLength
-              })}/>
+                })}
+              />
               :
               <Input
                 disabled={newPassword.length < 8}
@@ -66,7 +79,7 @@ const ChangePasswordForm: React.FC<IChangePasswordProps> = ({
                 ref={register({
                   required: el.required,
                   validate: value => value === password.current || ""
-              })}
+                })}
               />
             }
 						{
@@ -74,7 +87,8 @@ const ChangePasswordForm: React.FC<IChangePasswordProps> = ({
 							<InputIcon 
 								onClick={() => {setShowPassword(!showPassword)}}
 								src={showPassword ? HidePasswordIcon : ShowPasswordIcon} 
-								alt="Password"/>
+								alt="Password"
+                />
 						}
 					
             <InputError visibility={errors[el.name]?.type}>

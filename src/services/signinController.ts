@@ -1,4 +1,4 @@
-import { instancePost } from "../configs/axios.config";
+import { instancePostButton } from "../configs/axios.config";
 
 interface ISignin {
   email: string,
@@ -14,14 +14,14 @@ interface ISendOtp {
 export const signin = async (data: ISignin) => {
   let url = '/api/user/sign-in';
   let body = data;
-  const res = await instancePost.post(url,body);
+  const res = await instancePostButton.post(url,body);
   return res.data;
 };
 
 export const sendOtp = async (data: ISendOtp) => {
   let url = '/api/user/send-otp';
   let body = data;
-  const res = await instancePost.post(url,body);
+  const res = await instancePostButton.post(url,body);
   return res.data;
 };
 
@@ -31,7 +31,7 @@ export const otpVerification = async (generatedOtp: string,userOtp: string) => {
     generatedOtp: generatedOtp,
     userOtp: userOtp
   };
-  const res = await instancePost.post(url,body);
+  const res = await instancePostButton.post(url,body);
   return res.data;
 };
 
@@ -41,7 +41,7 @@ export const changePassword = async (email: string,newPassword: string) => {
     email,
     newPassword
   };
-  const res = await instancePost.post(url,body);
+  const res = await instancePostButton.post(url,body);
   return res.data;
 };
 

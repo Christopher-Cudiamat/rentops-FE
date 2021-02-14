@@ -8,6 +8,7 @@ export const setPropertyImage = (name: string, value: any[]): any => {
     value
   }
 }
+
 export const resetPropertyMedia = (): any => {
   return {
     type: RESET_PROPERTY_MEDIA
