@@ -9,8 +9,22 @@ export const Container = styled(Modal)`
   padding: 0rem 0rem 4rem 0rem;
 `
 
+
+export const GalleryPhotoContainer = styled.div`
+
+  @media ${({theme}) => theme.media.laptop} { 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+`
+
 export const GalleryPhoto = styled.img`
   width: 100%;
   height: auto;
   margin-bottom: 2rem;
+  @media ${({theme}) => theme.media.laptop} { 
+    width: 30%;
+    margin: 1rem;
+  }
 `

@@ -18,7 +18,7 @@ export const Navbar = styled.nav<INavbars>`
   padding-right: 1rem;
   display: flex;
   align-items: center;
-  z-index: 100;
+  z-index: 7;
   height: 5rem;
   align-items: center;
   color: ${({theme}) => theme.color.white};

@@ -6,7 +6,7 @@ import {
   InputError,  
   InputLabel 
 } from '../../../components/ui/input.style';
-import { Button } from '../../../components/ui/button.style';
+import { Button, ButtonContainer } from '../../../components/ui/button.style';
 import { contactFormArr } from './propertyContactForm.config';
 import { 
   IContactFormArr,
@@ -57,12 +57,14 @@ const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
             </InputControl>
           )
         }
-        <Button 
-          primary
-          style={{marginTop: "3rem"}}
-        >
-					Continue
-				</Button>
+        <ButtonContainer align="center">
+          <Button 
+            primary
+            style={{marginTop: "3rem"}}
+          >
+            Continue
+          </Button>
+        </ButtonContainer>
       </FormContact>
  
   );

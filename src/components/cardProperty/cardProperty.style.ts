@@ -10,12 +10,27 @@ interface IStyledSlides {
 
 export const SliderStyled = styled(Slider)`
 `
+export const Container = styled.div`
+  @media ${({theme}) => theme.media.tablet} { 
+    display: flex;
+    flex-wrap: wrap;
+  }
+`
 
 export const CardContainer = styled.div`
   width: 95%;
   border-bottom: 1px solid ${({theme}) => theme.color.grayLight};
   margin: 0rem auto 2rem auto;
   position:relative;
+  @media ${({theme}) => theme.media.tablet} { 
+    width: 45%;
+  }
+  @media ${({theme}) => theme.media.laptop} { 
+    width: 23%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `
 export const CardTitle= styled.p`
 
@@ -32,7 +47,7 @@ export const CardTitle= styled.p`
   bottom: 24%;
   left: 50%;
   transform: translate(-50%, -20%);
-  z-index: 999;
+  z-index: 2;
 `
 
 export const SlidesContainer = styled.div<IStyledSlides>`

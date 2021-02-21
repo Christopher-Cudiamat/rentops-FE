@@ -22,6 +22,8 @@ import {
   filterFurnishConfig, 
   filterPropertyTypeConfig 
 } from './filterPropertyForm.config';
+import { Backdrop } from '../../../components/ui/backdrop.style';
+import { scrollStop } from '../../../utils/scrollManager';
 
 
 
@@ -44,74 +46,87 @@ const FilterPropertyForm: React.FC<IFilterPropertyForm> = ({
     setShow(false);
     setShowAllFilter(false);
     setFilterPropertyInfo();
+    scrollStop(false);
   }
+
+  const handleClickSeeFilter = () => {
+    setShow(true);
+    scrollStop(true);
+  }
+
+  const handleFilter = () => {
+    setFilter(!filter);
+    setShow(false);
+    scrollStop(false);
+  }
+
 
   return (
     <>
-      <ButtonStyled onClick={() => setShow(!show)}>
+      <ButtonStyled onClick={handleClickSeeFilter}>
         Filter
       </ButtonStyled>
       {show &&
-        <FormContainer>
-            <FilterNav>
-              <ButtonBack
-                onClick={handleClickBack}>
-                Back
-              </ButtonBack>
-              <ResetFilter onClick={() => setFilterPropertyInfo()}>
-                Reset filter
-              </ResetFilter>
-            </FilterNav>
-            <FieldLocation/>
-            <FilterPriceRange/>
-            <FilterSizeRange/>
-          { 
-            !showAllFilter 
-            ?
-            <ButtonShowAllFilter 
+        <>
+          <Backdrop onClick={handleClickBack}/>
+          <FormContainer scrollable={showAllFilter}>
+              <FilterNav>
+                <ButtonBack
+                  onClick={handleClickBack}>
+                  Back
+                </ButtonBack>
+                <ResetFilter onClick={() => setFilterPropertyInfo()}>
+                  Reset filter
+                </ResetFilter>
+              </FilterNav>
+              <FieldLocation/>
+              <FilterPriceRange/>
+              <FilterSizeRange/>
+            { 
+              !showAllFilter 
+              ?
+              <ButtonShowAllFilter 
+                type="button"
+                secondary
+                onClick={() => setShowAllFilter(!showAllFilter)}>
+                See All Filter
+              </ButtonShowAllFilter>
+              :
+              <>
+                <FilterBoxes 
+                  arr={filterBedConfig.arr}
+                  label={filterBedConfig.label}
+                  filterName={filterBathConfig.name}/>
+                <FilterBoxes 
+                  arr={filterBathConfig.arr}
+                  label={filterBathConfig.label}
+                  filterName={filterBathConfig.name}/>
+                <FilterCheckBox
+                  arr={filterPropertyTypeConfig.arr}
+                  label={filterPropertyTypeConfig.label}
+                  filterName={filterPropertyTypeConfig.name}/>  
+                <FilterCheckBox
+                  arr={filterFurnishConfig.arr}
+                  label={filterFurnishConfig.label}
+                  filterName={filterFurnishConfig.name}/> 
+                <FilterCheckBox
+                  arr={filterContractLengthConfig.arr}
+                  label={filterContractLengthConfig.label}
+                  filterName={filterContractLengthConfig.name}/> 
+                <FilterCheckBox
+                  arr={filterAmenitiesConfig.arr}
+                  label={filterAmenitiesConfig.label}
+                  filterName={filterAmenitiesConfig.name}/> 
+              </>
+            }
+            <FilterButton
               type="button"
-              secondary
-              onClick={() => setShowAllFilter(!showAllFilter)}>
-              See All Filter
-            </ButtonShowAllFilter>
-            :
-            <>
-              <FilterBoxes 
-                arr={filterBedConfig.arr}
-                label={filterBedConfig.label}
-                filterName={filterBathConfig.name}/>
-              <FilterBoxes 
-                arr={filterBathConfig.arr}
-                label={filterBathConfig.label}
-                filterName={filterBathConfig.name}/>
-              <FilterCheckBox
-                arr={filterPropertyTypeConfig.arr}
-                label={filterPropertyTypeConfig.label}
-                filterName={filterPropertyTypeConfig.name}/>  
-              <FilterCheckBox
-                arr={filterFurnishConfig.arr}
-                label={filterFurnishConfig.label}
-                filterName={filterFurnishConfig.name}/> 
-              <FilterCheckBox
-                arr={filterContractLengthConfig.arr}
-                label={filterContractLengthConfig.label}
-                filterName={filterContractLengthConfig.name}/> 
-              <FilterCheckBox
-                arr={filterAmenitiesConfig.arr}
-                label={filterAmenitiesConfig.label}
-                filterName={filterAmenitiesConfig.name}/> 
-            </>
-          }
-          <FilterButton
-            type="button"
-            onClick={() => {
-              setFilter(!filter);
-              setShow(false);
-            }} 
-            tertiary>
-            Search Filter
-          </FilterButton>
-        </FormContainer>
+              onClick={handleFilter} 
+              tertiary>
+              Search Filter
+            </FilterButton>
+          </FormContainer>
+        </>
       }
     </>
   );

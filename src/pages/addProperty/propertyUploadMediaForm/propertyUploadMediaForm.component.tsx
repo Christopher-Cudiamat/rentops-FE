@@ -33,7 +33,7 @@ const ProperUploadMediaForm: React.FC<IPropertyMediaProps> = ({
   return (
     <FormContainer>
       <FieldImageUploadGallery 
-        label={"Click here to add gallery photos"}
+        label={"Click here to add property photos"}
         text={"Gallery Photos:"}
         previewWidth={"100"}
       />

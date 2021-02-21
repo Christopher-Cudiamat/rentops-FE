@@ -2,12 +2,15 @@ import styled from "styled-components/macro";
 import filterIcon from "../../../assets/icon/filter.svg";
 import { Button } from "../../../components/ui/button.style";
 
+interface IFilterPropertyStyle {
+  scrollable?: boolean,
+}
+
 export const ButtonStyled = styled.div`
   font-size: 1.4rem;
   padding: 1rem 1rem 1rem 4rem;
   display: inline-block;
   position: relative;
-  border-radius: .4rem;
   &:after {
     content: "";
     background: url(${filterIcon});
@@ -21,9 +24,19 @@ export const ButtonStyled = styled.div`
     opacity: 0.7;
     position: absolute;
   }
+  @media ${({theme}) => theme.media.laptop} { 
+    margin-right: 2rem;
+    transition: transform .3s;
+    font-size: 1.8rem;
+    font-weight: 500;
+    &:hover {
+      box-shadow: 0 3px 0 0 ${({theme}) => theme.color.primary};
+      cursor: pointer;
+    }
+  }
 `
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.form<IFilterPropertyStyle>`
   width: 100%;
   position: fixed;
   top: 0%;
@@ -34,6 +47,11 @@ export const FormContainer = styled.form`
   font-size: 1.8rem;
   height: 100vh;
   overflow-Y:scroll;
+  @media ${({theme}) => theme.media.laptop} { 
+    width: 25%;
+    height: 100vh;
+    overflow-Y:${({scrollable}) => scrollable ? "scroll" : "hidden"};
+  }
 `
 
 export const FilterButton = styled(Button)`
@@ -41,7 +59,10 @@ export const FilterButton = styled(Button)`
   position: fixed;
   bottom: 0%;
   left: 0%;
-  width:100%;
+  width: 100%;
+  @media ${({theme}) => theme.media.laptop} { 
+    width: 25%;
+  }
 `
 export const ButtonShowAllFilter = styled(Button)`
   font-size: 1.8rem;

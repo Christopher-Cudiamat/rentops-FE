@@ -12,7 +12,8 @@ interface IDiv {
   section?: boolean,
   header?: boolean,
   headerSub?: boolean,
-  page?: boolean
+  page?: boolean,
+  small?: boolean
 }
 
 
@@ -72,6 +73,12 @@ export const Title = styled.p<IDiv>`
   ${({sub}) => sub &&
     css`
     font-size: 2.5rem;
+    `
+  };
+
+  ${({small}) => small &&
+    css`
+    font-size: 2.1rem;
     `
   };
 

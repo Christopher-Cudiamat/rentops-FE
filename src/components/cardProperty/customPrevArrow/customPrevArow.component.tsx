@@ -13,7 +13,7 @@ export const Img = styled.img`
   position: absolute;
   top: 50%;
   left: 0%;
-  z-index: 999;
+  z-index: 7;
   opacity: 0.6;
   cursor: pointer;
   transition: all .5s;

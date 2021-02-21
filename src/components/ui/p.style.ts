@@ -6,6 +6,7 @@ interface IPharagrap {
   main?: boolean,
   sub?: boolean,
   bold?: boolean,
+  medium?: boolean,
   white?: boolean,
   gray?: boolean,
   error?: boolean,
@@ -14,6 +15,18 @@ interface IPharagrap {
 export const Paragraph = styled.p<IPharagrap>`
   font-size: 1.6rem;
   color: ${({theme}) => theme.color.blackLight};
+
+  ${({medium}) => medium &&
+    css`
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    `
+  };
+   ${({bold}) => bold &&
+    css`
+    font-weight: bold;
+    `
+  };
 
   ${({primary}) => primary &&
     css`

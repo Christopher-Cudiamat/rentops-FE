@@ -3,6 +3,7 @@ import {
   CardContainer,
   CardDetails,
   CardTitle, 
+  Container, 
   Slides,
   SlidesContainer,
   TextNew
@@ -15,6 +16,7 @@ import heartIcon from '../../assets/icon/nav/like.svg'
 import Slider from "react-slick";
 import { useHistory } from 'react-router-dom';
 import { favoriteProperty } from '../../services/propertyController';
+
 
 const CardProperty: React.FC<ICardPropertyProps> = ({data}) => {
 
@@ -50,43 +52,45 @@ const CardProperty: React.FC<ICardPropertyProps> = ({data}) => {
 
   return (
     <>
+      <Container>
         {
-        data.map((el:any,index: number) => 
-          <CardContainer 
-            onClick={() => handleGoToProperty(el._id)}
-            key={index}>
-            <CardTitle>
-              {`${el.propertyInfo.propertyType} in ${el.propertyInfo.location}`}
-            </CardTitle>
-            <Slider ref={slider} {...settings}>
-              {
-                el.propertyMedia.galleryPhotos.map((el: any, index: number) => (  
-                  <SlidesContainer key={index}>
-                    <Slides bgImage={el}/>   
-                    <TextNew>New</TextNew>     
-                  </SlidesContainer>            
-                ))
-              }
-            </Slider>
-            <CardDetails>
-              <div>
-                <p>
-                  ₱{formatAddComa(el.propertyInfo.price)}/monthly
-                </p>
-                <img 
-                  src={heartIcon}
-                  alt="Like icon"
-                  onClick={() => handleFavoriteProperty(el._id,el.user)}/>
-              </div>
-              <div>
-                <p>{el.propertyInfo.furnish}</p>
-                <p>{el.propertyInfo.bed}</p>
-                <p>{el.propertyInfo.bathroom}</p>
-              </div>
-            </CardDetails>
-          </CardContainer>
-        )
-      } 
+          data.map((el:any,index: number) => 
+            <CardContainer 
+              onClick={() => handleGoToProperty(el._id)}
+              key={index}>
+              <CardTitle>
+                {`${el.propertyInfo.propertyType} in ${el.propertyInfo.location}`}
+              </CardTitle>
+              <Slider ref={slider} {...settings}>
+                {
+                  el.propertyMedia.galleryPhotos.map((el: any, index: number) => (  
+                    <SlidesContainer key={index}>
+                      <Slides bgImage={el}/>   
+                      <TextNew>New</TextNew>     
+                    </SlidesContainer>            
+                  ))
+                }
+              </Slider>
+              <CardDetails>
+                <div>
+                  <p>
+                    ₱{formatAddComa(el.propertyInfo.price)}/monthly
+                  </p>
+                  <img 
+                    src={heartIcon}
+                    alt="Like icon"
+                    onClick={() => handleFavoriteProperty(el._id,el.user)}/>
+                </div>
+                <div>
+                  <p>{el.propertyInfo.furnish}</p>
+                  <p>{el.propertyInfo.bed}</p>
+                  <p>{el.propertyInfo.bathroom}</p>
+                </div>
+              </CardDetails>
+            </CardContainer>
+          )
+        } 
+      </Container>
     </>
   );
 }

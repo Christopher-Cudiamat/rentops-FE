@@ -9,6 +9,7 @@ interface IButton {
   widthTablet?: string,
   widthLaptop?: string,
   color?: string,
+  align?: string
 }
 
 export const Button = styled.button<IButton>`
@@ -82,5 +83,14 @@ export const ButtonBack = styled.button<IButton>`
     width: 3rem;
     opacity: 0.5;
   }
+`
+export const ButtonContainer = styled.div<IButton>`
+  text-align: ${({align}) => align ? align : "left"};
+  margin-top: 4rem;
+
+  @media ${({theme}) => theme.media.laptop} { 
+    margin-top: 5rem;
+  }
+  
 `
 

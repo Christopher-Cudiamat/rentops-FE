@@ -1,4 +1,4 @@
-import styled  from "styled-components";
+import styled  from "styled-components/macro";
 
 interface ITextArea {
   visibility?: boolean
@@ -13,10 +13,10 @@ export const TextAreaControl = styled.div<ITextArea>`
 export const TextArea = styled.textarea<ITextArea>`
   width: 100%;
   height: 14rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   padding: 1rem 1rem;
   border-radius: .5rem;
-  border: 1px solid ${({theme}) => theme.color.gray};
+  border: 1px solid ${({theme}) => theme.color.grayLight};
   &::placeholder { 
     color: ${({theme}) => theme.color.grayLight};
   }

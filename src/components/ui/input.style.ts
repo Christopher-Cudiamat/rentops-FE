@@ -13,7 +13,7 @@ export const InputControl = styled.div<IInput>`
 export const Input = styled.input<IInput>`
   width: 100%;
   height: 4.8rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   padding: 0rem 1rem;
   border-radius: .5rem;
   border: 1px solid ${({theme}) => theme.color.gray};

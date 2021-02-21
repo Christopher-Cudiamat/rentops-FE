@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ImageUploading, { ImageListType } from "react-images-uploading";
 import { 
   RemoveButton,
@@ -24,6 +24,7 @@ const FieldImageUploadGallery: React.FC<IPhotoGalleryProps> = ({
 
   
   const handleListingPhoto = (imageList: ImageListType) => {
+    console.log("IMAGE LIST",imageList)
     setImages(imageList as never[]);
     setPropertyImage("galleryPhotos", imageList);
   }

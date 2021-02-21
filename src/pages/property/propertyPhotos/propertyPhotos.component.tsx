@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonBack } from '../../../components/ui/button.style';
 import { Title, TitleBar } from '../../../components/ui/title.style';
-import { Container, GalleryPhoto} from './propertyPhotos.style';
+import { Container, GalleryPhoto, GalleryPhotoContainer} from './propertyPhotos.style';
 import { IPropertyPhotosProps } from './propertyPhotos.type';
 
 const PropertyPhotos: React.FC<IPropertyPhotosProps> = ({
@@ -22,15 +22,17 @@ const PropertyPhotos: React.FC<IPropertyPhotosProps> = ({
           Back
         </ButtonBack>
       </TitleBar>
-     
-      {
-        photos!.map((el: any, index: number) => 
-          <GalleryPhoto 
-            src={el.dataURL} 
-            alt="Property view" 
-            key={index}/>
-        )
-      }
+      
+      <GalleryPhotoContainer>
+        {
+          photos!.map((el: any, index: number) => 
+            <GalleryPhoto 
+              src={el} 
+              alt="Property view" 
+              key={index}/>
+          )
+        }
+      </GalleryPhotoContainer>
     </Container>
   );
 }

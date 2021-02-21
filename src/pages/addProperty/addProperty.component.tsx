@@ -19,7 +19,7 @@ const AddProperty: React.FC<IAddPropertyFormProps> = () => {
 
   useEffect(() => {
     return () => dispatch(resetPropertyInfo());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   useEffect(() => {
@@ -34,8 +34,7 @@ const AddProperty: React.FC<IAddPropertyFormProps> = () => {
       case AddPropertyPage.media:
         return  <PropertyUploadMediaForm/>
       default:
-        // return  <PropertyInfoForm setStep={setStep}/>
-        return  <PropertyUploadMediaForm/>
+        return  <PropertyInfoForm setStep={setStep}/>
     }
   } 
 

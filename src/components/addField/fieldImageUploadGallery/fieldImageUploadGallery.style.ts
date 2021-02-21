@@ -39,11 +39,16 @@ export const UploadImageButton = styled(Button)<IImageUploader>`
     right: 0;
     background-size: contain;
     position: absolute;
-    z-index: -1;  
-    @media ${({theme}) => theme.media.laptop} { 
+    z-index: -1;   
+    @media ${({theme}) => theme.media.laptopL} { 
       opacity: 0.7;
     } 
   }
+
+  @media ${({theme}) => theme.media.laptopL} { 
+    width: 80%;
+    font-size: 2.2rem;
+  } 
 `
 
 export const RemoveButton = styled.button`

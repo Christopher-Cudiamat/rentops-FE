@@ -14,10 +14,11 @@ const FieldDescription = () => {
   return (
     <TextAreaControl>
       <TextAreaLabel>
-        Description(Optional)
+        Description (Maximum 500 characters - Optional)
       </TextAreaLabel>
-      <TextArea 
-        placeholder="Short description of your property..."
+      <TextArea
+        maxLength={500}
+        placeholder="Type a short description of your property..."
         onChange={
         (e:any) => dispatch(setPropertyInfo("description",e.target.value))
         }>
