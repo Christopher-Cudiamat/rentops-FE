@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import SignIn from './signIn/signIn.component';
 import Signup from './signup/signup.component';
 import Home from './home/home.component';
@@ -26,6 +26,7 @@ const Pages: React.FC<IPagesProps> = ({
     return(
         <div>
             <Switch>
+                 {/* PUBLIC ROUTES */}
                 <Route exact path="/">
                     <Home />
                 </Route>
@@ -50,8 +51,16 @@ const Pages: React.FC<IPagesProps> = ({
                 <Route exact path="/property">
                     <Property />
                 </Route>
+
+                {/* PRIVATE ROUTES */}
+
                 <Route exact path="/add-property">
-                    <AddProperty />
+                    {
+                        isAuthenticated ?     
+                        <AddProperty />
+                        :
+                        <Redirect to={{pathname:"/signIn"}}/>
+                    }
                 </Route>
             </Switch>
         </div>

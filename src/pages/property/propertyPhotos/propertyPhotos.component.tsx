@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ButtonBack } from '../../../components/ui/button.style';
 import { Title, TitleBar } from '../../../components/ui/title.style';
 import { Container, GalleryPhoto, GalleryPhotoContainer} from './propertyPhotos.style';
@@ -8,8 +8,14 @@ const PropertyPhotos: React.FC<IPropertyPhotosProps> = ({
   photos,
   setOpenModal
   }) => {
-  
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "visible";
+    }
+  }, []);
+  
   return (
     <Container>
       <TitleBar>

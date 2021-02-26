@@ -12,7 +12,7 @@ export const LoaderUnderlay = styled(Modal)`
 export const LoaderStyled = styled.img`
   width: 9rem;
   height: 9rem;
-  position: absolute;
+  position: fixed;
   z-index: 999999999;  
   top: 50%;
   left: 50%;

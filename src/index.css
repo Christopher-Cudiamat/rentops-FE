@@ -11,15 +11,30 @@ code {
    License: none (public domain)
    CSS RESET
 */
+
+@font-face {
+	font-family: 'opensans';
+	src: url('./assets//fonts//opansans//opensans-regular-webfont.woff2') format('woff2'),
+	url('./assets/fonts//opansans//opensans-regular-webfont.woff') format('woff');
+	font-style: normal;
+} 
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html { 
+	width: 100%;
 	font-size: 62.5% !important; 
-	font-family: 'Helvetica Neue';
+	font-family: 'Helvetica Neue',sans-serif;
+	box-sizing: border-box;
  }
 body {
+	width: 100%;
 	font-size: 1.6rem; 
   margin: 0;
-  font-family: 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Helvetica Neue',sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

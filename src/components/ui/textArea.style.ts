@@ -12,6 +12,7 @@ export const TextAreaControl = styled.div<ITextArea>`
 
 export const TextArea = styled.textarea<ITextArea>`
   width: 100%;
+  margin-top: .8rem;
   height: 14rem;
   font-size: 1.8rem;
   padding: 1rem 1rem;

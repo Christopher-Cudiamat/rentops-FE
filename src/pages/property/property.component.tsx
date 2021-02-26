@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { getProperty } from '../../services/propertyController';
-import { Container, MapContainer } from './property.style';
+import { Container, MapContainer, Wrapper } from './property.style';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import locationPin from '../../assets/icon/location.svg'
 import PropertyDetails from './propertyDetails/propertyDetails.component';
 import PropertyPhotos from './propertyPhotos/propertyPhotos.component';
+import CarouselCities from '../../components/carouselCities/carouselCities.container';
+import { topNcrCityList } from '../home/home.config';
 
 
 
@@ -77,6 +79,9 @@ const Property = () => {
           }
         </Container>
       }
+      <Wrapper>
+        <CarouselCities sliderArr={topNcrCityList}/>
+      </Wrapper>
     </div>
   );
 }

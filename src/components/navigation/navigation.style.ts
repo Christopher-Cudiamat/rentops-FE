@@ -10,10 +10,7 @@ interface INavbars {
 export const Div = styled.div``
 
 export const Navbar = styled.nav<INavbars>`
-  position: ${({toFixPosition}) =>  toFixPosition ? "fixed" : "relative"};
-  background: ${({toFixPosition}) =>  toFixPosition ? "rgba(250,250,250, 0.9)" : "transparent"};
   top:0%;
-  width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   display: flex;
@@ -24,7 +21,12 @@ export const Navbar = styled.nav<INavbars>`
   color: ${({theme}) => theme.color.white};
   justify-content: space-between;
   @media ${({theme}) => theme.media.laptop} { 
-    padding-left: 2rem;
+    position: ${({toFixPosition}) =>  toFixPosition ? "fixed" : "relative"};
+    background: ${({toFixPosition}) =>  toFixPosition ? "rgba(250,250,250, 0.9)" : "transparent"};
+    width: ${({toFixPosition}) =>  toFixPosition ? "100%" : ""};
+    padding-left: 3rem;
+    
+
   }
 
   ${({primary}) => primary &&
@@ -94,4 +96,5 @@ export const NavbarRight = styled.div`
     display: flex;
   }
 `
+
 

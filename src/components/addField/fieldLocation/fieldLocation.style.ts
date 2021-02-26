@@ -13,6 +13,7 @@ export const LocationInputcontrol = styled(InputControl)`
     border-radius: .5rem;
     text-align: left;
     margin-bottom: 0rem;
+    margin-top: .8rem;
     border: 1px solid ${({theme}) => theme.color.gray};
     &::placeholder { 
       color: ${({theme}) => theme.color.grayLight};

@@ -5,7 +5,8 @@ import {
   HeroImageMobile,
   MainContainer,
   SearchIcon,
-  SearchInput
+  SearchInput,
+  SearchInputContainer
 } from './homeSearchForm.style';
 import bannerImg from "../../../assets/images/apartments-hero.png";
 import bannerImgDesktop from "../../../assets/images/hero-home-desktop-2.png";
@@ -38,15 +39,15 @@ const HeaderForm: React.FC = () => {
           src={bannerImg} 
           alt={"Apartment buildings"}
         />
-        <SearchInput onClick={() => setOpenModal(true)}>
-          <div> 
+        <SearchInputContainer>
+          <SearchInput onClick={() => setOpenModal(true)}> 
             Where do you want to live?
-          </div> 
+          </SearchInput> 
           <SearchIcon 
             src={search} 
             alt={"Search"}
           />
-        </SearchInput>  
+        </SearchInputContainer>  
       </Container>
       <HeroImageDesktop 
         src={bannerImgDesktop} 

@@ -13,6 +13,7 @@ export const SliderStyled = styled(Slider)`
 export const Container = styled.div`
   @media ${({theme}) => theme.media.tablet} { 
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
   }
 `
@@ -20,16 +21,17 @@ export const Container = styled.div`
 export const CardContainer = styled.div`
   width: 95%;
   border-bottom: 1px solid ${({theme}) => theme.color.grayLight};
-  margin: 0rem auto 2rem auto;
+  margin: 0rem auto 3rem auto;
   position:relative;
   @media ${({theme}) => theme.media.tablet} { 
     width: 45%;
   }
   @media ${({theme}) => theme.media.laptop} { 
-    width: 23%;
+    width: 26%;
     &:hover {
       cursor: pointer;
     }
+    
   }
 `
 export const CardTitle= styled.p`

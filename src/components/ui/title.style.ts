@@ -34,6 +34,7 @@ export const Title = styled.p<IDiv>`
   ${({header}) => header &&
     css`
     font-size: 3rem;
+    
     @media ${({theme}) => theme.media.tablet} { 
       font-size: 5rem;
     }
@@ -65,6 +66,7 @@ export const Title = styled.p<IDiv>`
     css`
     font-size: 2.5rem;
     @media ${({theme}) => theme.media.tablet} { 
+      font-size: 3rem;
       margin-bottom: 4rem;
     }
     `

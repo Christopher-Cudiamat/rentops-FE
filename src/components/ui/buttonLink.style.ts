@@ -78,7 +78,6 @@ export const ButtonLink = styled(Link)<IButtonLink>`
 
 
 export const AuthButtonLink = styled(Link)<IButtonLink>`
-  width: 100%;
   color: ${({color,theme}) => color ||  color ? color : theme.color.white};
   height: 5rem;
   padding: 1rem 2rem;

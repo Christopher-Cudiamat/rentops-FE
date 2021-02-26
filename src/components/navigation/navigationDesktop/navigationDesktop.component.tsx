@@ -39,6 +39,11 @@ const NavigationDesktop: React.FC<INavigationDesktopProps> = ({
     }
   }
 
+  const handleClickDropdownLink = (value: string, path: string) => {
+    setPage(value,true);
+    history.push(path);
+  }
+
   return (
     <Ul>
       {
@@ -57,19 +62,21 @@ const NavigationDesktop: React.FC<INavigationDesktopProps> = ({
             </NavDeskLink>
             { 
             el.dropDownLinks &&
-              <DropdownContainer>
-                {
-                  el.dropDownLinks.map((el: IDropDownLink) => 
-                    <DropdownList
-                      key={nanoid()}
-                      onClick={() => setPage(el.value,true)}>
-                      <DropdownLink to={el.path}>
-                        {el.linkName}
-                      </DropdownLink>
-                    </DropdownList>
-                  )
-                }
-              </DropdownContainer>
+              <div>
+                <DropdownContainer>
+                  {
+                    el.dropDownLinks.map((el: IDropDownLink) => 
+                      <DropdownList
+                        key={nanoid()}
+                        onClick={() => handleClickDropdownLink(el.value,el.path)}>
+                        <DropdownLink>
+                          {el.linkName}
+                        </DropdownLink>
+                      </DropdownList>
+                    )
+                  }
+                </DropdownContainer>
+              </div>
             }
           </NavList>
         )

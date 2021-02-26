@@ -1,17 +1,19 @@
 import styled  from "styled-components";
 
 interface IInput {
-  visibility?: boolean
+  visibility?: boolean,
+  error?: boolean
 }
 
 export const InputControl = styled.div<IInput>`
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
   height: 8.2rem;
 `
 
 export const Input = styled.input<IInput>`
   width: 100%;
+  margin-top: .8rem;
   height: 4.8rem;
   font-size: 1.8rem;
   padding: 0rem 1rem;
@@ -24,12 +26,13 @@ export const Input = styled.input<IInput>`
 
 export const InputLabel = styled.label<IInput>`
   font-size: 1.4rem;
-  color: ${({theme}) => theme.color.gray}
+  color: ${({theme}) => theme.color.gray};
 `
 export const InputError= styled.p<IInput>`
   line-height: 1.4rem;
   color: ${({theme}) => theme.color.error};
   margin-bottom: 0rem;
+  margin-top: .5rem;
   font-size: 1.2rem;
   visibility: ${({visibility}) => visibility ? "visible" : "hidden"}
 `

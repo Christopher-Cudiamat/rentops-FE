@@ -43,7 +43,7 @@ export const Div = styled.div<ICarousel>`
 `
 
 export const P = styled.p<ICarousel>`
-  font-size: 2rem;
+  font-size: 1.8rem;
   position: absolute;
   left: 0%;
   bottom: 0%;
@@ -54,6 +54,9 @@ export const P = styled.p<ICarousel>`
   margin-bottom: -2px;
   padding: .5rem 6rem .5rem 1.5rem;
   clip-path: polygon(0 0, 71% 0, 100% 100%, 0% 100%);
+  @media ${({theme}) => theme.media.tablet} { 
+    font-size: 2rem;
+  }
 `
 
 

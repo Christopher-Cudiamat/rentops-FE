@@ -30,13 +30,28 @@ export const NavList = styled.li<INavigationDesktop>`
   padding: 0rem 2rem;
   position: relative;
   display: ${({isNotVisible}) => isNotVisible ? "none":"inline-block"};
-  &:hover > ul{
+  & div {
+    display: none;
+  }
+
+  & div:hover div{
     display: block;
+  }
+
+  &:hover > div{
+    display: block;
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
   }
   &:hover a {
     color: ${({theme}) => theme.color.secondary};
   }
   & > a {
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .3s;
     color: ${
       ({active,theme}) => active ? theme.color.primary : theme.color.blackLight
     }; 
@@ -44,17 +59,10 @@ export const NavList = styled.li<INavigationDesktop>`
 `
 
 export const NavDeskLink = styled(Link)<INavigationDesktop>`
-  font-size: 1.8rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all .3s;
 `
 
 export const DropdownContainer = styled.ul<INavigationDesktop>`
-  display: none;
-  position: absolute;
-  top: 2.5rem;
-  left: 2rem;
+  margin-top: 4rem;
   box-shadow: -7px 3px 16px -7px rgba(0,0,0,0.37);
 
 `
@@ -76,7 +84,7 @@ export const DropdownList = styled.li<INavigationDesktop>`
     background: ${({theme}) => theme.color.secondary};
   }
 `
-export const DropdownLink = styled(Link)<INavigationDesktop>`
+export const DropdownLink = styled.p<INavigationDesktop>`
   color: ${({theme}) => theme.color.white} !important;
   font-size: 1.6rem;
 

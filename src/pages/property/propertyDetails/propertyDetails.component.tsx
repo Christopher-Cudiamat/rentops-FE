@@ -20,6 +20,7 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
   data,
   setOpenModal
 }) => {
+  
   return (
     <Wrapper>
       <ImageBanner bgImage={data.propertyMedia.galleryPhotos[0]}/>
@@ -31,7 +32,8 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
           View {data.propertyMedia.galleryPhotos.length} Photos
         </ButtonViewPhotos>
         <ButtonViewVideos 
-          secondary>
+          secondary
+        >
           View 1 Video
         </ButtonViewVideos>
       </MediaButtonsWrapper>
@@ -44,17 +46,20 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
         <Title small black bold>
           {data.propertyInfo.location}
         </Title>
-        <DivDescription>
-          <Paragraph 
-            medium
-            bold
-          >
-            About the property
-          </Paragraph>
-          <Paragraph medium>
-            {data.propertyInfo.description}
-          </Paragraph>
-        </DivDescription>
+        {
+          data.propertyInfo.description &&
+          <DivDescription>
+            <Paragraph 
+              medium
+              bold
+            >
+              About the property
+            </Paragraph>
+            <Paragraph medium>
+              {data.propertyInfo.description}
+            </Paragraph>
+          </DivDescription>
+        }
         <Paragraph 
           medium 
           bold
@@ -65,7 +70,7 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
           medium 
           bold
         >
-          Surface:     {data.propertyInfo.size} sqm.
+          Surface: {data.propertyInfo.size} sqm.
         </Paragraph>
         <Paragraph 
           medium 
@@ -94,27 +99,28 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
             Developer: {data.propertyInfo.developer}
           </Paragraph>
         }
-      
-        <div>
-          <Paragraph 
-            medium 
-            bold
-          >
-            Amenities:
-          </Paragraph>
-        
-          {
-            data.propertyInfo.amenities.map((el: string, index: number) =>
+
+        {
+          data.propertyInfo.amenities.length > 0 &&
+          <div>
             <Paragraph 
-              key={index}
-              style={{marginLeft:".7rem", fontSize: "1.6rem"}} 
+              medium 
+              bold
             >
-              -  {el}
+              Amenities:
             </Paragraph>
-            )
-          }
-          
-        </div>
+            {
+              data.propertyInfo.amenities.map((el: string, index: number) =>
+              <Paragraph 
+                key={index}
+                style={{marginLeft:".7rem", fontSize: "1.6rem"}} 
+              >
+                -  {el}
+              </Paragraph>
+              )
+            }            
+          </div>
+        }
         <PropertyContactPerson contactInfo={data.propertyContact}/>
       </Details>
     </Wrapper>

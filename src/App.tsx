@@ -5,8 +5,8 @@ import Pages from './pages/pages.container';
 import {  BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './themeGlobal/themeGlobal';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Loader from './components/loader/loader.container';
+
 
 
 

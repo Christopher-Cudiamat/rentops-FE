@@ -70,6 +70,7 @@ export const DrawerUnderlay = styled.div<IDrawer>`
 `
 export const DrawerList = styled.li<IDrawer>`
   & > a {
+    transition: all .3s;
     color: ${
       ({active,theme}) => active ? theme.color.primary : theme.color.blackLight
     }; 
@@ -78,17 +79,20 @@ export const DrawerList = styled.li<IDrawer>`
   font-weight: 500;
   margin: 2.5rem 0rem;
   font-size: 1.6rem;
-  transition: all .3s;
   display: ${({showLink}) => showLink ? "none" : "flex"};
   align-items: end;
   flex-wrap: wrap;
   &:hover > a {
-    color: ${({theme}) => theme.color.primary}; 
+    color: ${({theme}) => theme.color.secondary}; 
     text-decoration: none;
   }
 `
 export const DrawerSubList = styled.ul<IDrawer>`
   margin: 1.5rem 0rem;
+  &:hover a{
+    color: ${({theme}) => theme.color.primary}; 
+    text-decoration: none;
+  }
 `
 
 export const DrawerLinkIcon = styled.img`
@@ -101,11 +105,17 @@ export const DrawerLinkText = styled(Link)`
   font-size: 1.6rem;
   margin: 0rem;
   width: 80%;
+  font-weight: 600;
 `
 export const DrawerSubLinkText = styled(Link)`
   font-size: 1.4rem;
+  font-weight: 600;
   margin: 0rem;
   color: ${({theme}) => theme.color.blackLight}; 
+  &:hover {
+    color: ${({theme}) => theme.color.secondary}; 
+    text-decoration: none;
+  }
 `
 
 export const DrawerClose = styled.img<IDrawer>`

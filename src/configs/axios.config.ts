@@ -3,6 +3,7 @@ import {
   setIsLoadingButton,
   setIsLoadingPage 
 } from '../store/loader/loader.action';
+import { scrollToTop } from '../utils/scrollManager';
 import store from './store.config';
 
 const token = localStorage.getItem('token');
@@ -56,6 +57,7 @@ instancePostButton.interceptors.response.use(
 
 instancePost.interceptors.request.use(async (config) => {
   store.dispatch(setIsLoadingPage(true));
+  scrollToTop();
   return config;
 });
 
@@ -74,6 +76,7 @@ instancePost.interceptors.response.use(
 
 instanceGet.interceptors.request.use(async (config) => {
   store.dispatch(setIsLoadingPage(true));
+  scrollToTop();
   return config;
 });
 

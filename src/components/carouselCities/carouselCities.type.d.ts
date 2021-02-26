@@ -7,5 +7,6 @@ export interface sliderList {
   cityImage: string,
   cityName: string,
   cityAltText: string,
+  cityValue: string
 }
 

@@ -62,7 +62,7 @@ const CarouselCities: React.FC<CarouselCitiesPropTypes> = ({
               <Div 
               container 
               key={index}
-              onClick={() => handleSearchCityProperties(el.cityName)}>
+              onClick={() => handleSearchCityProperties(el.cityValue)}>
                 <Div imageWrapper>
                   <img 
                     src={el.cityImage} 

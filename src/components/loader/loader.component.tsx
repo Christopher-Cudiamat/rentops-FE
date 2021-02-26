@@ -7,7 +7,7 @@ import { ILoaderProps } from './loader.type';
 const Loader: React.FC<ILoaderProps> = ({
   isLoading
 }) => {
-
+  
 
   return (
     <>

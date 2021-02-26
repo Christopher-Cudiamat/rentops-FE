@@ -10,7 +10,7 @@ import { resetPropertyInfo } from '../../store/propertyInfo/propertyInfo.action'
 
 const mapStateToProps = (state:AppState) => {
   return{
-    properties: selectorsPropertyList.getPropertyList(state),
+    data: selectorsPropertyList.getPropertyList(state),
     propertyInfo: selectorsPropertyInfo.getPropertyInfo(state)
   }
 }

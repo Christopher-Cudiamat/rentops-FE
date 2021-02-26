@@ -12,7 +12,8 @@ const ProperUploadMediaForm: React.FC<IPropertyMediaProps> = ({
   propertyInfo,
   propertyContact,
   propertyMedia,
-  resetPropertyMedia
+  resetPropertyMedia,
+  setPage
 }) => {
 
   const history = useHistory();
@@ -25,8 +26,9 @@ const ProperUploadMediaForm: React.FC<IPropertyMediaProps> = ({
     })
       .then(() => {
         resetPropertyMedia();
+        setPage("homePage",true);
         history.push('./');
-    })
+    })  
   }
 
 

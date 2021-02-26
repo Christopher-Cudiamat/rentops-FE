@@ -15,21 +15,13 @@ export const Container = styled.div<IHeaderForm>`
     text-align: left;
   }
   & > p:first-child {
-    margin: 0rem 0rem 0rem 0rem;
+    margin: 0rem 0rem 1rem 0rem;
   }
   & > div {
     text-align: left;
     margin-top: -1px;
   }
-  & > div > div {
-    background: ${({theme}) => theme.color.white};
-    color: ${({theme}) => theme.color.blackLight};
-    font-size: 1.8rem;
-    height: 5rem;
-    border-radius: .5rem;
-    padding-top: 1.2rem;
-    padding-left: 1.7rem;
-  }
+ 
   & label {
     font-size: 1.6rem;
     font-weight: 500;
@@ -64,7 +56,7 @@ export const HeroImageMobile = styled.img<IHeaderForm>`
   }
 `;
 
-export const SearchInput = styled.div<IHeaderForm>`
+export const SearchInputContainer = styled.div<IHeaderForm>`
   padding: 3rem 2rem 3rem 2rem;
   position: relative;
   width: 95%;
@@ -76,16 +68,29 @@ export const SearchInput = styled.div<IHeaderForm>`
   @media ${({theme}) => theme.media.laptop} { 
     width: 100%;
   }
-  
 `;
 
-export const SearchIcon = styled.img<IHeaderForm>`
-  width: 5rem;
+export const SearchInput = styled.div<IHeaderForm>`
+  background: ${({theme}) => theme.color.white};
+  color: ${({theme}) => theme.color.blackLight};
+  font-size: 1.8rem;
   height: 5rem;
-  padding: 1.3rem;
+  border-radius: .5rem;
+  padding-top: 0rem;
+  padding-left: 1.7rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+
+
+export const SearchIcon = styled.img<IHeaderForm>`
+  width: 3rem;
+  height: 3rem;
   position: absolute;
-  top: 3rem;
+  top: 50%;
   right: 2rem;
+  transform: translate(-50%, -50%);
   border-bottom-right-radius: .5rem;
   border-top-right-radius: .5rem;
 `;

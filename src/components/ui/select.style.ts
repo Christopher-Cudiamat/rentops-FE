@@ -10,4 +10,5 @@ export const Select= styled.select`
   padding-left: 1rem;
   color: ${({theme}) => theme.color.blackLight};
   width: 100%;
+  margin-top: .8rem;
 `

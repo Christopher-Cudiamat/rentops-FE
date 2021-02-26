@@ -32,9 +32,12 @@ export const getAddedProperties = async () => {
 
 export const getAllProperties = async (
   sort:string = "newest",
-  propertyInfo: any
+  propertyInfo: any,
+  skip: number = 0,
+  limit: number = 6
   ) => {
 
+    console.log("SKIP IN RES",skip)
   let {
     location,
     propertyType,
@@ -47,10 +50,11 @@ export const getAllProperties = async (
     sizeRange = {min: "", max: ""}
   } = propertyInfo;
 
-  let url = `/api/property/get-all-properties?sort=${sort}&location=${location}&propertyType[]=${propertyType}&furnish[]=${furnish}&contractLength[]=${contractLength}&bed=${bed}&bathroom=${bathroom}&amenities[]=${amenities}&priceMin=${priceRange.min}&priceMax=${priceRange.max}&sizeMin=${sizeRange.min}&sizeMax=${sizeRange.max}`;
+  let url = `/api/property/get-all-properties?sort=${sort}&location=${location}&propertyType[]=${propertyType}&furnish[]=${furnish}&contractLength[]=${contractLength}&bed=${bed}&bathroom=${bathroom}&amenities[]=${amenities}&priceMin=${priceRange.min}&priceMax=${priceRange.max}&sizeMin=${sizeRange.min}&sizeMax=${sizeRange.max}&skip=${skip}&limit=${limit}`;
 
   let newUrl = url.replace(/[^=&]+=(&|$)/g,"").replace(/&$/,"");
   const res = await instanceGet.get(newUrl);
+  console.log("DATA",res.data)
   return res.data;
 };
 

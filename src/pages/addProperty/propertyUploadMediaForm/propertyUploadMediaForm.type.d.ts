@@ -2,5 +2,6 @@ export interface IPropertyMediaProps {
   propertyInfo: any,
   propertyContact: any,
   propertyMedia: any,
-  resetPropertyMedia: () => void
+  resetPropertyMedia: () => void,
+  setPage:  (name:string, value:boolean) => void
 }

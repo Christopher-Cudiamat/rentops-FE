@@ -6,6 +6,8 @@ import { selectorsPropertyContact } from '../../../store/propertyContact/propert
 import { selectorsPropertyMedia } from '../../../store/propertyMedia/propertyMedia.selector';
 import { Dispatch } from 'redux';
 import { resetPropertyMedia } from '../../../store/propertyMedia/propertyMedia.action';
+import { setPage } from '../../../store/pageManager/pageManager.action';
+
 
 
 
@@ -21,7 +23,8 @@ const mapStateToProps = (state:AppState) => {
 
 const mapStateToDispatch = (dispatch: Dispatch) => {
   return { 
-    resetPropertyMedia: () => dispatch(resetPropertyMedia())
+    resetPropertyMedia: () => dispatch(resetPropertyMedia()),
+    setPage: (name:string, value:boolean) => dispatch(setPage(name,value))
   }
 }
 
