@@ -1,5 +1,10 @@
 import React from 'react';
-import { Container, ErrorMessage, LoaderIcon, StyledButton } from './authButton.style';
+import { 
+  Container,
+  ErrorMessage, 
+  LoaderIcon, 
+  StyledButton 
+} from './authButton.style';
 import { IAuthButtonProps } from './authButton.type';
 import loaderGif from '../../assets/gifs/reload.gif';
 

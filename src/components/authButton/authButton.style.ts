@@ -7,9 +7,7 @@ interface IStyledButton {
   isLoading?: boolean,
 }
 
-export const Container = styled(Div)`
-
-`
+export const Container = styled(Div)``
 
 export const StyledButton = styled(Button)<IStyledButton>`
   margin-top: 2rem;

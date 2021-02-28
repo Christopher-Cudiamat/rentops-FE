@@ -3,14 +3,15 @@ import { useDispatch } from 'react-redux';
 import { setPropertyInfo } from '../../../store/propertyInfo/propertyInfo.action';
 import { formatToThousand } from '../../../utils/formatNumbers';
 import { Container, Price, StyledInputRange } from './filterPriceRange.style';
+import { IFilterRangeValue } from './filterPriceRange.type';
 
 
 const FilterPriceRange = () => {
 
-  const [value,setValue] = useState<any>({ min: 0, max: 50 });
+  const [value,setValue] = useState<IFilterRangeValue>({ min: 0, max: 50 });
   const dispatch = useDispatch();
   
-  const handlePrice = (e: any) => {
+  const handlePrice = (e: IFilterRangeValue) => {
     setValue(e);
     dispatch(setPropertyInfo("priceRange",{
         min: e.min * 1000,
@@ -29,7 +30,7 @@ const FilterPriceRange = () => {
       maxValue={50}
       minValue={1}
       value={value}
-      onChange={(value:any) => handlePrice(value)}/>
+      onChange={(value) => handlePrice(value as IFilterRangeValue)}/>
     </Container>
   );
 }

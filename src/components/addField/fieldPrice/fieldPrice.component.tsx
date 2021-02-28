@@ -10,9 +10,9 @@ const FieldPrice = () => {
   const [value,setValue] = useState(.5);
   const dispatch = useDispatch();
 
-  const handlePrice = (e: any) => {
+  const handlePrice = (e: number) => {
     setValue(e);
-    dispatch(setPropertyInfo("price",e * 1000))
+    dispatch(setPropertyInfo("price", e * 1000))
   }
 
   return (
@@ -25,7 +25,7 @@ const FieldPrice = () => {
       minValue={1}
       step={.5}
       value={value}
-      onChange={(value:any) => handlePrice(value)}/>
+      onChange={(value) => handlePrice(value as number)}/>
     </Container>
   );
 }

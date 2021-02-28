@@ -4,7 +4,7 @@ export interface IFilterBoxesProps {
   filterName: string
 }
 
-interface IArr {
+export interface IArr {
   value: string,
   text: string
 }

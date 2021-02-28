@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPropertyInfo } from '../../../store/propertyInfo/propertyInfo.action';
-import { Box, Container, FilterLabel } from './filterBoxes.style';
-import { IFilterBoxesProps } from './filterBoxes.type';
+import { 
+  Box, 
+  Container, 
+  FilterLabel 
+} from './filterBoxes.style';
+import { 
+  IArr, 
+  IFilterBoxesProps 
+} from './filterBoxes.type';
 
 
 const FilterBoxes: React.FC<IFilterBoxesProps> = ({
@@ -25,7 +32,7 @@ const FilterBoxes: React.FC<IFilterBoxesProps> = ({
         {label}
       </FilterLabel>
       {
-        arr.map((el:any, index: number) => 
+        arr.map((el: IArr, index: number) => 
           <Box 
             key={index}
             active={index === selectedBox}

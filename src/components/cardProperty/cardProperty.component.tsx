@@ -15,15 +15,17 @@ import { formatAddComa } from '../../utils/formatNumbers';
 import heartIcon from '../../assets/icon/nav/like.svg'
 import Slider from "react-slick";
 import { useHistory } from 'react-router-dom';
-import { favoriteProperty } from '../../services/propertyController';
+// import { favoriteProperty } from '../../services/propertyController';
 import { isPropertyNew } from '../../utils/dateManager';
+// import { IPropertyList } from '../../store/propertyList/propertyList.type';
+import {nanoid} from 'nanoid';
 
 
 const CardProperty: React.FC<ICardPropertyProps> = ({
   data
 }) => {
   
-
+  console.log("DATAAA", data);
   const slider = useRef<Slider>(null);
   const history = useHistory();
   const settings = {
@@ -46,30 +48,34 @@ const CardProperty: React.FC<ICardPropertyProps> = ({
     })
   }
 
-  const handleFavoriteProperty = (propertyId: string, userId: string) => {
-    favoriteProperty(propertyId,userId)
-      .then(res => {
-        console.log("RES", res);
-      })
-  }
+  //To be used when we develop the like functionalities
+  // const handleFavoriteProperty = (propertyId: string, userId: string) => {
+  //   favoriteProperty(propertyId,userId)
+  //     .then(res => {
+  //       console.log("RES", res);
+  //     })
+  // }
   
 
   return (
     <>
       <Container>
         {data &&
-          data.map((el:any,index: number) => {
+          data.map((el: any) => {
             let isNew = isPropertyNew(el.createdAt);
+            console.log("ELLL", el);
             return  <CardContainer 
                       onClick={() => handleGoToProperty(el._id)}
-                      key={index}>
+                      key={nanoid()}>
                       <CardTitle>
-                        {`${el.propertyInfo.propertyType} in ${el.propertyInfo.location}`}
+                        {
+                          `${el.propertyInfo.propertyType} in ${el.propertyInfo.location}`
+                        }
                       </CardTitle>
                       <Slider ref={slider} {...settings}>
-                        {
-                          el.propertyMedia.galleryPhotos.map((el: any, index: number) => (  
-                            <SlidesContainer key={index}>
+                        { 
+                          el.propertyMedia.galleryPhotos.map((el: string) => (  
+                            <SlidesContainer key={nanoid()}>
                               <Slides bgImage={el}/>   
                               {
                                 isNew &&
@@ -88,7 +94,7 @@ const CardProperty: React.FC<ICardPropertyProps> = ({
                           <img 
                             src={heartIcon}
                             alt="Like icon"
-                            onClick={() => handleFavoriteProperty(el._id,el.user)}/>
+                          />
                         </div>
                         <div>
                           <p>{el.propertyInfo.furnish}</p>

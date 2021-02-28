@@ -30,7 +30,7 @@ const initialState: IPropertyInfoState = {
 
 export const propertyInfoReducer = (
   state = initialState,
-  action: IPropertyInfoAction) => {
+  action: IPropertyInfoAction): IPropertyInfoState  => {
     
   const {type,name,value}: IActionData = action;
 
@@ -94,6 +94,7 @@ export const propertyInfoReducer = (
         contractLength: [],
         furnish: [],
         bed: "",
+        developer: "none",
         bathroom: "",
         amenities: []
       }

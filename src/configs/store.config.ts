@@ -1,9 +1,16 @@
-import {applyMiddleware, createStore, compose} from "redux";
+import {
+  applyMiddleware,
+  createStore,
+  compose
+} from "redux";
 import {rootReducer} from "./redux.config";
 import thunk from "redux-thunk";
 import {routerMiddleware} from "connected-react-router";
 import {history} from "./redux.config";
-import { loadState, saveState } from "../utils/setLocalStorage";
+import { 
+  loadState,
+  saveState 
+} from "../utils/setLocalStorage";
 
 import throttle from 'lodash/throttle';
 

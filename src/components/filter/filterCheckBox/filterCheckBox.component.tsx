@@ -3,7 +3,8 @@ import { addAmenities, removeAmenities } from '../../../store/propertyInfo/prope
 import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, CheckboxControl, CheckboxLabel } from '../../ui/checkbox';
 import { Container, FilterLabel } from './filterCheckBox.style';
-import { IFilterCheckBoxProps } from './filterCheckBox.type';
+import { IArr, IFilterCheckBoxProps } from './filterCheckBox.type';
+import { AppState } from '../../../configs/redux.config';
 
 
 const FilterCheckBox: React.FC<IFilterCheckBoxProps> = ({
@@ -13,12 +14,16 @@ const FilterCheckBox: React.FC<IFilterCheckBoxProps> = ({
 }) => {
 
   const dispatch = useDispatch();
-  const selectedArr = useSelector((state: any) => state.propertyInfo[filterName]);
+  
+  const selectedArr = useSelector((state: AppState) => state.propertyInfo[filterName]);
+  
   const handleOnChange = (el: string) => {
-    if(selectedArr.includes(el)) {
-       dispatch(removeAmenities(filterName,el));
-    } else {
-      dispatch(addAmenities(filterName,el));
+    if(Array.isArray(selectedArr)) {
+      if(selectedArr.includes(el)) {
+        dispatch(removeAmenities(filterName,el));
+      } else {
+        dispatch(addAmenities(filterName,el));
+      }
     }
   }
 
@@ -28,7 +33,7 @@ const FilterCheckBox: React.FC<IFilterCheckBoxProps> = ({
         {label}
       </FilterLabel>
       {
-        arr.map((el:any, index: number) => 
+        arr.map((el: IArr, index: number) => 
           <CheckboxControl key={index}>
             <Checkbox onChange={() => handleOnChange(el.value)}/>
             <CheckboxLabel>{el.text}</CheckboxLabel>

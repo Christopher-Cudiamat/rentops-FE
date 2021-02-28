@@ -15,9 +15,9 @@ export interface IPropertyInfoState {
   description: string,
   price?: number,
   size?: number,
-  propertyType: string,
-  contractLength: string,
-  furnish: string,
+  propertyType: string | string[],
+  contractLength: string | string[],
+  furnish: string | string[],
   bed: string,
   bathroom: string,
   developer: string,
@@ -39,9 +39,9 @@ export interface ISetPropertyInfo {
 }
 
 export interface IAddAmenities {
-    type: typeof ADD_TO_ARRAY,
-    name: string,
-    value: string
+  type: typeof ADD_TO_ARRAY,
+  name: string,
+  value: string
 }
 
 export interface IRemoveAmenities {
@@ -65,7 +65,7 @@ export interface IResetPropertyInfo {
 export interface IActionData {
   type: string,
   name?: any,
-  value?: string | number | IRangeObj | string[] | undefined ,
+  value?: string | number | IRangeObj | string[] | undefined
 }
 
 export type IPropertyInfoAction = 

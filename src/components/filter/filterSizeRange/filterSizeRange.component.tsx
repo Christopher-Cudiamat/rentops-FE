@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPropertyInfo } from '../../../store/propertyInfo/propertyInfo.action';
-import { Container, Size, StyledInputRange } from './filterSizeRange.style';
+import { 
+  Container, 
+  Size, 
+  StyledInputRange 
+} from './filterSizeRange.style';
+import { IFilterRangeValue } from './filterSizeRange.type';
 
 
 const FilterSizeRange = () => {
 
-  const [value,setValue] = useState<any>({ min: 0, max: 300 });
+  const [value,setValue] = useState<IFilterRangeValue>({ min: 0, max: 300 });
   const dispatch = useDispatch();
 
-  const handleSize = (e: any) => {
+  const handleSize = (e: IFilterRangeValue) => {
     setValue(e);
     dispatch(setPropertyInfo("sizeRange",{
         min: e.min,
@@ -29,7 +34,7 @@ const FilterSizeRange = () => {
       minValue={1}
       step={1}
       value={value}
-      onChange={(value:any) => handleSize(value)}/>
+      onChange={(value) => handleSize(value as IFilterRangeValue)}/>
     </Container>
   );
 }

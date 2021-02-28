@@ -5,7 +5,7 @@ export const Container = styled.div`
   background: ${({theme}) => theme.color.primaryLight};
   padding: 2rem 2rem 1rem 2rem;
   
-  &>p {
+  & > p {
     color: ${({theme}) => theme.color.white};
     font-size: 1.8rem;
     margin-bottom: 1rem;

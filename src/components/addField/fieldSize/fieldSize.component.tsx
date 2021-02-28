@@ -18,18 +18,18 @@ const FieldSize = () => {
 
   return (
     <div style={{margin: "1rem 0rem 4rem 0rem"}}>
-    <Paragraph 
-      style={{fontSize: "2.2rem", marginBottom: "2rem"}}
-    >
-      Size: {value} square meters 
-    </Paragraph>
-    <InputRange
-      maxValue={300}
-      minValue={1}
-      step={1}
-      value={value}
-      onChange={(value:any) => handleSize(value)}
-    />
+      <Paragraph 
+        style={{fontSize: "2.2rem", marginBottom: "2rem"}}
+      >
+        Size: {value} square meters 
+      </Paragraph>
+      <InputRange
+        maxValue={300}
+        minValue={1}
+        step={1}
+        value={value}
+        onChange={(value) => handleSize(value as number)}
+      />
     </div>
   );
 }

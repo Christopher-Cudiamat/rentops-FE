@@ -15,15 +15,18 @@ const FieldDeveloper = () => {
       <InputLabel>
         Developer
       </InputLabel>
-      <Select onChange={(e:any) => dispatch(setPropertyInfo("developer",e.target.value))}>
+      <Select onChange={
+          (e) => dispatch(setPropertyInfo("developer",e.target.value))
+        }
+      >
         {
-          developerArr.map((el:any, index: number) => 
+          developerArr.map((el:string, index: number) => 
             <>
-            <Option
-              key={index} 
-              value={el}>
-              {el}
-            </Option>
+              <Option
+                key={index} 
+                value={el}>
+                {el}
+              </Option>
             </>
         )} 
       </Select>

@@ -3,6 +3,8 @@ export const formatToThousand = (num: number) => {
   return numThousand.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export const formatAddComa = (num: number) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+export const formatAddComa = (num: number | undefined) => {
+  if(num){
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 }
