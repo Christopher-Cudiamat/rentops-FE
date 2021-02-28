@@ -27,14 +27,14 @@ code {
 html { 
 	width: 100%;
 	font-size: 62.5% !important; 
-	font-family: 'Helvetica Neue',sans-serif;
+	font-family: 'opensans',sans-serif;
 	box-sizing: border-box;
  }
 body {
 	width: 100%;
 	font-size: 1.6rem; 
   margin: 0;
-  font-family: 'Helvetica Neue',sans-serif;
+  font-family: 'opensans',sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -101,6 +101,7 @@ textarea {
     sans-serif;
 	font-size: inherit;
 }
+
 
 *:focus {
 	outline: 0 !important;

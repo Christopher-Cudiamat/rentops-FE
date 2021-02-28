@@ -15,6 +15,7 @@ interface IPharagrap {
 export const Paragraph = styled.p<IPharagrap>`
   font-size: 1.6rem;
   color: ${({theme}) => theme.color.blackLight};
+  line-height: 3rem;
 
   ${({medium}) => medium &&
     css`

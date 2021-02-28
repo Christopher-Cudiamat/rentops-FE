@@ -22,7 +22,7 @@ const SearchModal: React.FC<ISearchModalProps> = ({
       setCloseModal={setCloseModal}
     >
       <Container>
-        <Title sub bold gray>Search Property</Title>
+        <Title small bold>Search Property</Title>
         <FieldLocation/>
         <FilterPriceRange/>
         <Button 

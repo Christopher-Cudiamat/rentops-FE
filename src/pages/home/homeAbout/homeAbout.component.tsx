@@ -4,12 +4,15 @@ import { Div } from './homeAbout.style';
 import { offersArr } from './homeAbout.config';
 import { IOffers } from './homeAbout.type';
 import {nanoid} from 'nanoid';
+import { Paragraph } from '../../../components/ui/p.style';
 
 const HomeAbout: React.FC = () => {
   return (
     <Div>
       <Title gray bold section>What we offer</Title>
-      <p>You are about to explore an inventory of over 700,000 active rental listings, so you can bet that wherever you want to live, we can find a place for you.</p>
+      <Paragraph>
+        You are about to exParagraphlore an inventory of over 700,000 active rental listings, so you can bet that wherever you want to live, we can find a place for you.
+      </Paragraph>
       <Div offersContainer>
         {
           offersArr.map((el: IOffers) =>

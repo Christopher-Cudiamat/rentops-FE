@@ -11,6 +11,7 @@ export const Div = styled.div``
 
 export const Navbar = styled.nav<INavbars>`
   top:0%;
+  width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   display: flex;

@@ -1,6 +1,9 @@
-import "react-app-polyfill/ie9";
-import "react-app-polyfill/ie11";
-import "react-app-polyfill/stable";
+import 'core-js';
+import 'react-app-polyfill/ie11';
+import 'core-js/features/array/find';
+import 'core-js/features/array/includes';
+import 'core-js/features/number/is-nan';
+import './pollyfill'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -9,19 +12,6 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import store from "./configs/store.config";
 
-// if (window.fetch()) {
-//   // Check whether ES6 is supported in Modern Browsers
-//   import("./App").then(function (module) {
-//     module.default();
-//   });
-// } else {
-//   // For legacy or old browsers
-//   import("./polyfills").then(() => {
-//     import("./App").then(function (module) {
-//       module.default();
-//     });
-//   });
-// }
 
 ReactDOM.render(
   <React.StrictMode>

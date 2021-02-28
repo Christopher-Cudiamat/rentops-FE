@@ -8,11 +8,13 @@ import {
 import { IModalProps } from './modals.type';
 import closeIcon from '../../assets/icon/close.svg';
 
+
 const Modals: React.FC<IModalProps> = ({
   isOpen,
   children,
   setCloseModal
 }) => {
+
 
 
   return (

@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { getProperty } from '../../services/propertyController';
 import { Container, MapContainer, Wrapper } from './property.style';
-import ReactMapGL, { Marker } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
 import locationPin from '../../assets/icon/location.svg'
 import PropertyDetails from './propertyDetails/propertyDetails.component';
 import PropertyPhotos from './propertyPhotos/propertyPhotos.component';
 import CarouselCities from '../../components/carouselCities/carouselCities.container';
 import { topNcrCityList } from '../home/home.config';
+import ReactMapGL, { Marker } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
+//@ts-ignore 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 
 
 
@@ -53,7 +58,7 @@ const Property = () => {
               <ReactMapGL
                 {...viewport}
                 // mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-                mapboxApiAccessToken="pk.eyJ1IjoiY3Jpc3RvcHMxMyIsImEiOiJja2tsYXZqbDQwOTU0Mnhsb2g0OWszNmRvIn0.BZPjU2rnwZKo_hNBfhsjmg"
+                mapboxApiAccessToken="pk.eyJ1IjoiY3Jpc3RvcHMxMyIsImEiOiJja2xtaHd5bjAwOTZ4MnZuMzBwd2hzYmwyIn0.RhVzfTLRHtpC9naStw8peA"
                 mapStyle="mapbox://styles/cristops13/ckklclyxe3nnp17tc2d1p36tt"
                 onViewportChange={(nextViewport: any) => setViewport(nextViewport)}
               >
@@ -73,9 +78,10 @@ const Property = () => {
           
           {
             openModal &&
-              <PropertyPhotos 
-                photos={data.propertyMedia.galleryPhotos}
-                setOpenModal={setOpenModal}/>
+            <PropertyPhotos 
+              photos={data.propertyMedia.galleryPhotos}
+              setOpenModal={setOpenModal}
+            />
           }
         </Container>
       }

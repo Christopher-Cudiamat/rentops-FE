@@ -13,8 +13,8 @@ const drawerSlideIn = keyframes`
   100% { left: 0% }
 `
 const drawerSlideOut = keyframes`
- 0% { left: 0% }
- 100% { left: -60%;}
+  0% { left: 0% }
+  100% { left: -60%;}
 `
 export const DrawerContainer = styled.div<IDrawer>`
   overflow-y: scroll;

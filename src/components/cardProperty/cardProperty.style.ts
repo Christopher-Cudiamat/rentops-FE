@@ -46,7 +46,7 @@ export const CardTitle= styled.p`
   position: absolute;
   width: fit-content;
   position: absolute;
-  bottom: 24%;
+  bottom: 18%;
   left: 50%;
   transform: translate(-50%, -20%);
   z-index: 2;
@@ -82,13 +82,13 @@ export const CardDetails = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: .5rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
     & > p {
       color: ${({theme}) => theme.color.blackLight};
       font-size: 1.8rem;
       font-weight: 500;
-      margin-bottom: 0rem;
+      margin-top: 1rem;
     }
     & > img {
       width: 2rem;

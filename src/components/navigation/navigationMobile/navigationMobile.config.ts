@@ -69,7 +69,7 @@ export const navMobileLinks = [
   },
   {
     linkName: "HELP",
-    path: "./",
+    path: "/help",
     icon: helpIcon,
     altText: "Help Icon",
     value: "helpPage"

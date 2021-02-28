@@ -86,6 +86,8 @@ export const DropdownList = styled.li<INavigationDesktop>`
 `
 export const DropdownLink = styled.p<INavigationDesktop>`
   color: ${({theme}) => theme.color.white} !important;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-right: 2rem
 
 `

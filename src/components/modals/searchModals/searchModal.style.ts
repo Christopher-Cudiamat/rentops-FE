@@ -13,8 +13,8 @@ export const Container = styled.div`
   & > p:first-child {
    text-align: left;
    position: absolute;
-   top: 1%;
-   left: 2%;
+   top: 3%;
+   left: 3%;
   }
 
   & > div:nth-child(2){

@@ -11,6 +11,7 @@ import Rent from './rent/rent.container';
 import Property from './property/property.component';
 import { scrollToTop } from '../utils/scrollManager';
 import { IPagesProps } from './pages.type';
+import Help from './help/help.component';
 
 const Pages: React.FC<IPagesProps> = ({
     //to be used for private routings.
@@ -50,6 +51,9 @@ const Pages: React.FC<IPagesProps> = ({
                 </Route>
                 <Route exact path="/property">
                     <Property />
+                </Route>
+                <Route exact path="/help">
+                    <Help />
                 </Route>
 
                 {/* PRIVATE ROUTES */}
