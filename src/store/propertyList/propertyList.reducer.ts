@@ -1,20 +1,36 @@
 import { 
+  IPropertyListAction,
+  IPropertyListState,
   RESET_PROPERTY_LIST,
   SET_PROPERTY_LIST,
   }
 from "./propertyList.type";
 
 
-const initialState: any = []
+const initialState: IPropertyListState = {
+  dataLength: 0,
+  properties: []
+}
 
-export const propertyListReducer = (state = initialState, action: any) => {
-  const {type,value} = action;
+export const propertyListReducer = (
+  state = initialState,
+  action: IPropertyListAction
+) => {
 
+  //to resolve typing issue
+  const { type, dataLength, properties }: any = action;
+ 
   switch(type) {
     case SET_PROPERTY_LIST:
-      return value;
+      return {
+        dataLength: dataLength,
+        properties: properties
+      };
     case RESET_PROPERTY_LIST:
-      return [];
+      return {
+        dataLength: 0,
+        properties: []
+      };
     default:
       return state;
   }

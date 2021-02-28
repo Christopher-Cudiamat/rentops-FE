@@ -4,6 +4,7 @@ import {AppState} from "../../configs/redux.config";
 import { Dispatch } from 'redux';
 import { selectorsPropertyList } from '../../store/propertyList/propertyList.selector';
 import { setPropertyList } from '../../store/propertyList/propertyList.action';
+import { IPropertyList } from '../../store/propertyList/propertyList.type';
 
 
 const mapStateToProps = (state:AppState) => {
@@ -14,7 +15,10 @@ const mapStateToProps = (state:AppState) => {
 
 const mapStateToDispatch = (dispatch: Dispatch) => {
   return {
-    setPropertyList:(data:any) => dispatch(setPropertyList(data)), 
+    setPropertyList:(
+      dataLength: number,
+      properties: IPropertyList[]
+    ) => dispatch(setPropertyList(dataLength, properties)), 
   }
 }
 

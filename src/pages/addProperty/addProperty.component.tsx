@@ -18,7 +18,9 @@ const AddProperty: React.FC<IAddPropertyFormProps> = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    return () => dispatch(resetPropertyInfo());
+    return () => {
+      dispatch(resetPropertyInfo());
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 

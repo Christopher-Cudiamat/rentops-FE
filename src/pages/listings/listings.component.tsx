@@ -12,7 +12,7 @@ const Listings: React.FC<IListingsProps> = ({
   useEffect(() => {
     getAddedProperties()
       .then(res => {
-        setPropertyList(res);
+        setPropertyList(res.dataLength,res.properties);
       })
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -16,7 +16,7 @@ const SortPropertyForm: React.FC<ISortPropertyForm> = ({
   const handleSort = (value: string) => {
     setSort(value);
     setShow(false);
-    scrollStop(true);
+    scrollStop(false);
   }
 
   const handleOpenModal = () => {

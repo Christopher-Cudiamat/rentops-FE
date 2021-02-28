@@ -1,4 +1,7 @@
-import { ISetPageAction, SET_PAGE } from "./pageManager.type"
+import { 
+  ISetPageAction,
+  SET_PAGE 
+} from "./pageManager.type"
 
 
 export const setPage = (name: string, value: boolean): ISetPageAction => {

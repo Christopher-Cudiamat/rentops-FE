@@ -6,6 +6,7 @@ import { selectorsPropertyList } from '../../store/propertyList/propertyList.sel
 import { setPropertyList } from '../../store/propertyList/propertyList.action';
 import { selectorsPropertyInfo } from '../../store/propertyInfo/propertyInfo.selector';
 import { resetPropertyInfo } from '../../store/propertyInfo/propertyInfo.action';
+import { IPropertyList } from "../../store/propertyList/propertyList.type";
 
 
 const mapStateToProps = (state:AppState) => {
@@ -17,7 +18,10 @@ const mapStateToProps = (state:AppState) => {
 
 const mapStateToDispatch = (dispatch: Dispatch) => {
   return {
-    setPropertyList:(data:any) => dispatch(setPropertyList(data)), 
+    setPropertyList:(
+      dataLength: number,
+      properties: IPropertyList[]
+    ) => dispatch(setPropertyList(dataLength, properties)), 
     resetPropertyInfo:() => dispatch(resetPropertyInfo()), 
   }
 }

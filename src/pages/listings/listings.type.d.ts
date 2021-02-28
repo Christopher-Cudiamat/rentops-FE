@@ -1,4 +1,6 @@
+import { IPropertyList } from "../../store/propertyList/propertyList.type";
+
 export interface IListingsProps {
   properties: any,
-  setPropertyList: (data:any) => void
+  setPropertyList: (dataLength: number, properties: IPropertyList[]) => void,
 }

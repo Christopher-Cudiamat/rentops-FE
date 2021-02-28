@@ -1,17 +1,24 @@
 import { 
+  IPropertyList,
+  IResetPropertyListACtion,
+  ISetPropertyListAction,
   RESET_PROPERTY_LIST,
    SET_PROPERTY_LIST 
 } from "./propertyList.type";
 
-export const setPropertyList = (value:any): any => {
+export const setPropertyList = (
+  dataLength: number,
+  properties: IPropertyList[]
+): ISetPropertyListAction => {
   return {
     type: SET_PROPERTY_LIST,
-    value
+    dataLength,
+    properties
   }
 }
 
-export const resetPropertyList = (): any => {
+export const resetPropertyList = (): IResetPropertyListACtion => {
   return {
-    type: RESET_PROPERTY_LIST,
+    type: RESET_PROPERTY_LIST
   }
 }

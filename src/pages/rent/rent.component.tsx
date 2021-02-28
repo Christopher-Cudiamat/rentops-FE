@@ -25,7 +25,7 @@ const Rent: React.FC<IRentProps>= ({
   const handlePropertyList = (sort: string, propertyInfo: IPropertyInfoState) => {
     getAllProperties(sort,propertyInfo,skip)
       .then(res => {
-        setPropertyList(res);
+        setPropertyList(res.dataLength,res.properties);
       })
   }
 
@@ -47,11 +47,13 @@ const Rent: React.FC<IRentProps>= ({
       </FilterNav>
       <Container>
         <ResultText>
-          { data.dataLength === 1  
+          { 
+            data.dataLength === 1  
             ? `${data.dataLength} Property Found` 
             : data.dataLength >= 2
             ? `${data.dataLength} Properties Found` 
-            : "No result found"}
+            : "No result found"
+          }
         </ResultText>
         <CardProperty data={data.properties}/>
         <Pagination 

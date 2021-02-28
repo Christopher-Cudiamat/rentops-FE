@@ -1,17 +1,23 @@
 import { 
+  IPropertyContact,
+  IPropertyContactAction,
   SET_CONTACT_INFO,
   }
 from "./propertyContact.type";
 
 
-const initialState: any = {
+const initialState: IPropertyContact= {
   lastName: "",
   firstName: "",
-  email: 0,
-  phoneNumber: 0,
+  email: "",
+  phoneNumber: "",
 } 
 
-export const propertyContactReducer = (state = initialState, action: any) => {
+export const propertyContactReducer = (
+  state = initialState,
+  action: IPropertyContactAction
+) => {
+
   const {type,data} = action;
 
   switch(type) {

@@ -11,7 +11,11 @@ const initialState: ILoaderParameter = {
   loaderButton: false
 };
 
-export const loaderReducer = (state = initialState, action: ILoaderAction): ILoaderParameter => {
+export const loaderReducer = (
+  state = initialState,
+ action: ILoaderAction
+): ILoaderParameter => {
+
   switch(action.type) {
     case IS_LOADING_BUTTON:
       return {...state, loaderButton: action.loader};
@@ -19,5 +23,6 @@ export const loaderReducer = (state = initialState, action: ILoaderAction): ILoa
       return {...state, loaderPage: action.loader};
     default:
       return state;
-  } 
+  }  
+  
 }; 

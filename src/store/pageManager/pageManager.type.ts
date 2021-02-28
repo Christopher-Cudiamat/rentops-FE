@@ -1,7 +1,7 @@
 export const SET_PAGE = "SET_PAGE";
 
 export interface IPageManagerState {
-  homePage: boolean,
+  [homePage: string]: boolean,
   rentPage: boolean,
   myAccountPage: boolean,
   addPropertyPage: boolean,
@@ -9,7 +9,7 @@ export interface IPageManagerState {
   contactUsPage: boolean,
   helpPage: boolean,
   signInPage: boolean,
-  signOutPage: boolean,
+  signOutPage: boolean
 }
 
 export interface ISetPageAction {

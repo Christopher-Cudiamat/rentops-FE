@@ -1,10 +1,11 @@
 import { 
   IPageManagerActions,
+  IPageManagerState,
   SET_PAGE 
 } from "./pageManager.type";
 
 
-const initialState: any = {
+const initialState: IPageManagerState = {
   homePage: true,
   rentPage: false,
   myAccountPage: false,
@@ -16,7 +17,10 @@ const initialState: any = {
   signOutPage: false,
 } 
 
-export const pageManagerReducer = (state = initialState, action: IPageManagerActions) => {
+export const pageManagerReducer = (
+  state = initialState,
+  action: IPageManagerActions
+) => {
   
   const {type,name,value} = action;
 

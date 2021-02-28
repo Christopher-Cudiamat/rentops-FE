@@ -5,7 +5,8 @@ import Signup from './signup/signup.component';
 import Home from './home/home.component';
 import About from './about/about.component';
 import Contact from './contact/contact.component';
-import Listings from './listings/listings.container';
+//Component routing will be used once we start the development for My Account section
+// import Listings from './listings/listings.container';
 import AddProperty from './addProperty/addProperty.component';
 import Rent from './rent/rent.container';
 import Property from './property/property.component';
@@ -46,9 +47,13 @@ const Pages: React.FC<IPagesProps> = ({
                 <Route exact path="/contact">
                     <Contact />
                 </Route>
+                
+                {/* 
+                //Component routing will be used once we start the development for My Account section
                 <Route exact path="/my-listings">
                     <Listings />
-                </Route>
+                </Route> 
+                */}
                 <Route exact path="/property">
                     <Property />
                 </Route>

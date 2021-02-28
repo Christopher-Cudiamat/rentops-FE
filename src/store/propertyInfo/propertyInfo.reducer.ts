@@ -5,11 +5,14 @@ import {
   SET_ADD_PROPERTY_INFO,
   SET_PROPERTY_INFO,
   SET_FILTER_PROPERTY_INFO,
+  IPropertyInfoState,
+  IPropertyInfoAction,
+  IActionData,
   }
 from "./propertyInfo.type";
 
 
-const initialState: any = {
+const initialState: IPropertyInfoState = {
   location: "",
   latitude: "",
   longitude: "",
@@ -25,8 +28,11 @@ const initialState: any = {
   amenities: []
 } 
 
-export const propertyInfoReducer = (state = initialState, action: any) => {
-  const {type,name,value} = action;
+export const propertyInfoReducer = (
+  state = initialState,
+  action: IPropertyInfoAction) => {
+    
+  const {type,name,value}: IActionData = action;
 
   switch(type) {
     case SET_PROPERTY_INFO:
@@ -37,12 +43,12 @@ export const propertyInfoReducer = (state = initialState, action: any) => {
     case ADD_TO_ARRAY:
     return {
       ...state,
-      [name] : [...state[name], value]
+      [name] : [...state.amenities, value] 
     }
     case REMOVE_FROM_ARRAY:
     return {
       ...state,
-      [name] : state[name].filter((el: string) => el !== value)
+      [name] : state.amenities!.filter((el: string) => el !== value)
     }
     case RESET_PROPERTY_INFO:
       return {
