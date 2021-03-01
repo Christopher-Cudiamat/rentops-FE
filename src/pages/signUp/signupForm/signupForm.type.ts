@@ -13,13 +13,14 @@ export interface ISignupObj {
   placeholder: string,
   defaultValue: string,
   required: boolean,
-  pattern: any,
+  pattern?: RegExp,
   minLength?: number,
-  errorMessage: any,
+  errorMessage: IErrorMessage,
   type?: string
 }
 
 interface IErrorMessage {
+  [key:string]: string | undefined,
   required: string,
   pattern: string,
   minLength?: string,

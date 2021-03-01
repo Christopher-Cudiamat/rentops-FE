@@ -1,12 +1,15 @@
-import { IPropertyList } from "../../store/propertyList/propertyList.type";
+import { 
+  IPropertyList,
+  IPropertyInfoState
+} from "../../store/propertyList/propertyList.type";
 export interface IRentProps {
   data: IProperties,
-  propertyInfo: any
+  propertyInfo: IPropertyInfoState
   setPropertyList: (dataLength: number, properties: IPropertyList[]) => void,
   resetPropertyInfo: () => void
 }
 
 interface IProperties {
-  properties: any[],
+  properties: IPropertyList[],
   dataLength: number
 }

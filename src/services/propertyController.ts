@@ -3,10 +3,17 @@ import {
   instanceGetPrivate,
   instancePost
 } from "../configs/axios.config";
+import { IPropertyContact } from "../store/propertyContact/propertyContact.type";
+import { IPropertyInfoState } from "../store/propertyInfo/propertyInfo.type";
+import { IPropertyMedia } from "../store/propertyMedia/propertyMedia.type";
 
+interface IAddPropertiesData {
+  propertyContact: IPropertyContact,
+  propertyInfo: IPropertyInfoState,
+  propertyMedia: IPropertyMedia
+}
 
-
-export const addProperty = async (data: any) => {
+export const addProperty = async (data: IAddPropertiesData) => {
   let url = '/api/property/add-property';
   let body = data;
   const res = await instancePost.post(url,body);
@@ -32,12 +39,11 @@ export const getAddedProperties = async () => {
 
 export const getAllProperties = async (
   sort:string = "newest",
-  propertyInfo: any,
+  propertyInfo: IPropertyInfoState,
   skip: number = 0,
   limit: number = 6
   ) => {
 
-    console.log("SKIP IN RES",skip)
   let {
     location,
     propertyType,
@@ -54,7 +60,6 @@ export const getAllProperties = async (
 
   let newUrl = url.replace(/[^=&]+=(&|$)/g,"").replace(/&$/,"");
   const res = await instanceGet.get(newUrl);
-  console.log("DATA",res.data)
   return res.data;
 };
 

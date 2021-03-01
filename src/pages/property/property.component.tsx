@@ -10,6 +10,8 @@ import { topNcrCityList } from '../home/home.config';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
+import { IPropertyList } from '../../store/propertyList/propertyList.type';
+
 //@ts-ignore 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
@@ -19,10 +21,12 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 
 const Property = () => {
   
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<IPropertyList>();
   const location = useLocation<{id:string}>();
-  let  [viewport, setViewport] = useState<any|undefined>();
+  let  [viewport, setViewport] = useState<any | undefined>();
   const [openModal, setOpenModal] = useState(false);
+
+
 
   useEffect(() => {
     getProperty(location.state!.id)
@@ -66,11 +70,13 @@ const Property = () => {
                   latitude={+data.propertyInfo.latitude} 
                   longitude={+data.propertyInfo.longitude} 
                   offsetLeft={-20} 
-                  offsetTop={-10}>
+                  offsetTop={-10}
+                >
                   <img 
-                  src={locationPin}  
-                  alt="location"
-                  style={{height:"3rem", width: "3rem"}}/>
+                    src={locationPin}  
+                    alt="location"
+                    style={{height:"3rem", width: "3rem"}}
+                  />
                 </Marker>
               </ReactMapGL>
             </MapContainer>

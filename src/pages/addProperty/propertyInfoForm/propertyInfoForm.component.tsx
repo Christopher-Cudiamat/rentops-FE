@@ -10,18 +10,24 @@ import { FormContainer, Wrapper } from './propertyInfoForm.style';
 import FieldFurnish from '../../../components/addField/fieldFurnish/fieldFurnish.component';
 import FieldSize from '../../../components/addField/fieldSize/fieldSize.component';
 import FieldAmenities from '../../../components/addField/fieldAmenities/fieldAmenities.component';
-import { Button, ButtonContainer } from '../../../components/ui/button.style';
+import { 
+  Button, 
+  ButtonContainer 
+} from '../../../components/ui/button.style';
 import { IProperyInfoFormProps } from './propertyInfoForm.type';
 import { AddPropertyPage } from '../addProperty.config';
 import FieldDescription from '../../../components/addField/fieldDesciption/fieldDescription.component';
 import { InputError } from '../../../components/ui/input.style';
 import { scrollToTop } from '../../../utils/scrollManager';
 
+
+
 const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
   setStep,
   setAddPropertyInfo,
   propertyInfo
   }) => {
+
 
   const [showError,setShowError] = useState(false)
 
@@ -37,8 +43,10 @@ const PropertyInfoForm: React.FC<IProperyInfoFormProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propertyInfo.location]);
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
+
     e.preventDefault();
+
     if(propertyInfo.location === ""){
       setShowError(true);
       scrollToTop();

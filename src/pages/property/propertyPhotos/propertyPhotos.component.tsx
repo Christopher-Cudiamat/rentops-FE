@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react';
 import { ButtonBack } from '../../../components/ui/button.style';
-import { Title, TitleBar } from '../../../components/ui/title.style';
-import { Container, GalleryPhoto, GalleryPhotoContainer} from './propertyPhotos.style';
+import { 
+  Title,
+  TitleBar } from '../../../components/ui/title.style';
+import { 
+  Container,
+  GalleryPhoto,
+  GalleryPhotoContainer
+} from './propertyPhotos.style';
 import { IPropertyPhotosProps } from './propertyPhotos.type';
+import { nanoid } from 'nanoid'; 
+
 
 const PropertyPhotos: React.FC<IPropertyPhotosProps> = ({
   photos,
   setOpenModal
-  }) => {
+}) => {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -31,11 +39,11 @@ const PropertyPhotos: React.FC<IPropertyPhotosProps> = ({
       
       <GalleryPhotoContainer>
         {
-          photos!.map((el: any, index: number) => 
+          photos!.map((el: string) => 
             <GalleryPhoto 
               src={el} 
               alt="Property view" 
-              key={index}/>
+              key={nanoid()}/>
           )
         }
       </GalleryPhotoContainer>

@@ -20,6 +20,7 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
   data,
   setOpenModal
 }) => {
+
   
   return (
     <Wrapper>

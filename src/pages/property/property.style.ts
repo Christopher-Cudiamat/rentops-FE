@@ -39,7 +39,7 @@ export const Wrapper = styled.div`
     padding-top: 7rem;
 
     @media ${({theme}) => theme.media.tablet} { 
-      background-color: ${({theme}) => theme.color.grayLightest};
+      background-color: ${({theme}) => theme.color.grayLightBlue};
     }
   }
 `

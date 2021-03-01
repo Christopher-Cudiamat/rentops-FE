@@ -1,4 +1,4 @@
 export interface IPropertyPhotosProps {
-  photos: any,
+  photos: string[],
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }

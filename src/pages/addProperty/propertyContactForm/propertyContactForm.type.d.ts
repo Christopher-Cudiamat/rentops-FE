@@ -1,7 +1,7 @@
 import { IUserAuthState } from '../../../store/userAuth/userAuth.type';
 
 export interface IPropertyContactFormProps {
-  UserAuth: IUserAuthState | any,
+  UserAuth: IUserAuthState,
   setContactInfo: (data: IPropertyContactData) => void,
   setStep: React.Dispatch<React.SetStateAction<number>>, 
 }
@@ -21,5 +21,12 @@ export interface IContactFormArr {
   required: string | boolean | ValidationValueMessage<boolean> | undefined,
   pattern: RegExp | ValidationValueMessage<RegExp> | undefined,
   minLength: string | number | ValidationValueMessage<React.ReactText> | undefined,
-  errorMessage: any,
+  errorMessage: IErrorMessage,
+}
+
+export interface IErrorMessage {
+  [key:string]: string | undefined,
+  required: string,
+  minLength?: string,
+  pattern: string,
 }

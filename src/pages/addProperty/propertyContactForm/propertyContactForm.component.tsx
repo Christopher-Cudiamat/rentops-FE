@@ -6,7 +6,10 @@ import {
   InputError,  
   InputLabel 
 } from '../../../components/ui/input.style';
-import { Button, ButtonContainer } from '../../../components/ui/button.style';
+import { 
+  Button, 
+  ButtonContainer 
+} from '../../../components/ui/button.style';
 import { contactFormArr } from './propertyContactForm.config';
 import { 
   IContactFormArr,
@@ -15,7 +18,7 @@ import {
 } from './propertyContactForm.type';
 import { AddPropertyPage } from '../addProperty.config';
 import { FormContact } from './propertyContactForm.style';
-
+import { nanoid } from 'nanoid';
 
 
 const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
@@ -23,7 +26,9 @@ const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
   setContactInfo,
   setStep
   }) => {
-    console.log(UserAuth)
+
+    console.log("UserAuth",UserAuth)
+
   const { 
     register,
     handleSubmit,
@@ -38,8 +43,8 @@ const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
   return (
       <FormContact onSubmit={handleSubmit(onSubmit)}>
         {
-          contactFormArr.map((el: IContactFormArr,index: number) => 
-            <InputControl key={index}>
+          contactFormArr.map((el: IContactFormArr) => 
+            <InputControl key={nanoid()}>
               <InputLabel>{el.label}</InputLabel>
               <Input
                 placeholder={el.placeholder}
@@ -66,7 +71,6 @@ const PropertyContactForm: React.FC<IPropertyContactFormProps> = ({
           </Button>
         </ButtonContainer>
       </FormContact>
- 
   );
 }
 

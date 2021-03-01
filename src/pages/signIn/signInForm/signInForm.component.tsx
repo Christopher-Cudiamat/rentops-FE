@@ -9,10 +9,17 @@ import {
 } from '../../../components/ui/input.style';
 import { Title } from '../../../components/ui/title.style';
 import { signInFormArr } from './signInform.config';
-import { FormControl, Text } from './signInForm.style';
+import { 
+  FormControl, 
+  Text 
+} from './signInForm.style';
 import ShowPasswordIcon from '../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
-import { ISignInFormProps } from './signInForm.type';
+import { 
+  IDataSignIn,
+  ISignInFormArr, 
+  ISignInFormProps 
+} from './signInForm.type';
 import { signin } from '../../../services/signinController';
 import { signInPages } from '../signIn.config';
 import AuthButton from '../../../components/authButton/authButton.container';
@@ -31,7 +38,7 @@ const SignInForm: React.FC<ISignInFormProps> = ({
   const [error, setError] = useState("");
   const history = useHistory();
  
-	const onSubmit = (data:any) => {
+	const onSubmit = (data: IDataSignIn) => {
     signin(data)
       .then(res => {
         login(res);
@@ -56,7 +63,7 @@ const SignInForm: React.FC<ISignInFormProps> = ({
           Sign In
         </Title>
         {
-          signInFormArr.map((el: any,index: number) => 
+          signInFormArr.map((el: ISignInFormArr,index: number) => 
             <InputControl key={index}>
               <InputLabel>{el.label}</InputLabel>
               <Input
@@ -66,8 +73,8 @@ const SignInForm: React.FC<ISignInFormProps> = ({
                 defaultValue={el.defaultValue}
                 ref={register({
                   required: el.required,
-                  pattern: el.pattern,
-                  minLength: el.minLength
+                  // pattern: el.pattern,
+                  // minLength: el.minLength
                 })}/>
               {
                 el.type === "password"	&& 

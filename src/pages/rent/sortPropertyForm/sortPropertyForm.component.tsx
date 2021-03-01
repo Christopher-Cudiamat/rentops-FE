@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { Backdrop } from '../../../components/ui/backdrop.style';
 import { ButtonBack } from '../../../components/ui/button.style';
-import { Title, TitleBar } from '../../../components/ui/title.style';
+import { 
+  Title, 
+  TitleBar 
+} from '../../../components/ui/title.style';
 import { scrollStop } from '../../../utils/scrollManager';
-import { ISortPropertyForm } from './sertPropertyForm.type';
+import { ISortArr, ISortPropertyForm } from './sertPropertyForm.type';
 import { sortArr } from './sortPropertyForm.config';
-import { ButtonStyled, SortModal, SortText } from './SortPropertyForm.style';
+import { 
+  ButtonStyled, 
+  SortModal, 
+  SortText 
+} from './SortPropertyForm.style';
+import { nanoid } from 'nanoid';
+
+
 
 const SortPropertyForm: React.FC<ISortPropertyForm> = ({
   setSort
-  }) => {
+}) => {
 
   const [show,setShow] = useState(false);
   
@@ -53,9 +63,9 @@ const SortPropertyForm: React.FC<ISortPropertyForm> = ({
             </TitleBar>
             
             {
-              sortArr.map((el:any, index: number) => 
+              sortArr.map((el: ISortArr) => 
                 <SortText 
-                  key={index} 
+                  key={nanoid()} 
                   onClick={() => handleSort(el.value)}>
                   {el.text}
                 </SortText>

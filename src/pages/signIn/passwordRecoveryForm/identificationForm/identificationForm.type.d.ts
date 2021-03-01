@@ -16,7 +16,14 @@ export interface IIdentificationArr {
     defaultValue: string,
     required: boolean,
     pattern: RegExp,
-    errorMessage: any
+    errorMessage: IErrorMessage
+}
+
+
+export interface IErrorMessage {
+  [key:string]: string,
+  required: string,
+  pattern: string
 }
 
 export interface IIdentificationData {

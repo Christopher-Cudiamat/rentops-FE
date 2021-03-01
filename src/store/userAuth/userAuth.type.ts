@@ -3,6 +3,7 @@ export const LOGOUT = "LOGOUT";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
 export interface IUserAuthState {
+  [key:string]: any,
   token: string | null,
   isAuthenticated: boolean,
   email:string,

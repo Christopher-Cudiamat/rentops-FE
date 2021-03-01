@@ -10,6 +10,7 @@ const PropertyContactPerson: React.FC<IPropertyContactPersonProps> = ({
   contactInfo
 }) => {
 
+
   return (
     <Container>
       <div>

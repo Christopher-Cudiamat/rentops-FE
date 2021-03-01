@@ -4,7 +4,10 @@ import { StepperStyled } from '../../components/stepper/stepperStyled.style';
 import { Title } from '../../components/ui/title.style';
 import { resetPropertyInfo } from '../../store/propertyInfo/propertyInfo.action';
 import { scrollToTop } from '../../utils/scrollManager';
-import { AddPropertyPage, stepperLabelsArr } from './addProperty.config';
+import { 
+  AddPropertyPage, 
+  stepperLabelsArr 
+} from './addProperty.config';
 import { IAddPropertyFormProps } from './addProperty.type';
 import PropertyContactForm from './propertyContactForm/propertyContactForm.container';
 import PropertyInfoForm from './propertyInfoForm/propertyInfoForm.container';

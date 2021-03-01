@@ -20,10 +20,15 @@ import ShowPasswordIcon from '../../../assets/icon/show-password.svg';
 import HidePasswordIcon from '../../../assets/icon/hide-password.svg';
 import { FormControl } from './signupForm.style';
 import { signup } from '../../../services/signupController';
-import { ISignupData, ISignupFormProps, ISignupObj } from './signupForm.type';
+import { 
+	ISignupData, 
+	ISignupFormProps, 
+	ISignupObj 
+} from './signupForm.type';
 import AuthButton from '../../../components/authButton/authButton.container';
 import { Paragraph } from '../../../components/ui/p.style';
 import { useHistory } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 
 
 const SignupForm: React.FC<ISignupFormProps> = ({
@@ -39,13 +44,14 @@ const SignupForm: React.FC<ISignupFormProps> = ({
 	const history = useHistory();
 	
 	const onSubmit = (data:ISignupData) => {
-		console.log(data)
 		signup(data)
 		.then((res) =>{
 			setForm("email-verification");
 			setUserData(res);
+			console.log("WORKS")
 		})
 		.catch (err => {
+			console.log("ERROR")
 			setErrorStatus(err.response.status);
 			setError(err.response.data.error);
 		});
@@ -66,8 +72,8 @@ const SignupForm: React.FC<ISignupFormProps> = ({
 				Sign up
 			</Title>
 			{
-				signupFormArr.map((el: ISignupObj,index: number) => 
-					<InputControl key={index}>
+				signupFormArr.map((el: ISignupObj) => 
+					<InputControl key={nanoid()}>
 						<InputLabel>{el.label}</InputLabel>
 						<Input
 							placeholder={el.placeholder}
@@ -78,7 +84,8 @@ const SignupForm: React.FC<ISignupFormProps> = ({
 								required: el.required,
 								pattern: el.pattern,
 								minLength: el.minLength,
-							})}/>
+							})}
+						/>
 						{
 							el.type === "password"	&& 
 							<InputIcon 

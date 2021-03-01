@@ -1,4 +1,5 @@
+import { IPropertyList } from '../../../store/propertyList/propertyList.type';
 export interface IPropertyDetailsProps {
-  data: any,
+  data: IPropertyList,
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }

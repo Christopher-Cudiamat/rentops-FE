@@ -1,5 +1,5 @@
 export interface IAuthButtonProps {
   error?: string,
-  children: any,
+  children: React.ReactNode,
   isLoading?: boolean
 }

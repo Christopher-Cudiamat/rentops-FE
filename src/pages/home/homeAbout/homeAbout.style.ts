@@ -8,7 +8,7 @@ interface IDiv {
 export const Div = styled.div<IDiv>`
   margin-top: 6rem;
   text-align: center;
-  background: ${props => props.theme.color.grayLightest};
+  background-color: ${({theme}) => theme.color.grayLightBlue};
   padding: 3rem 2rem;
   
   & p:nth-child(2) {

@@ -45,7 +45,6 @@ export const signupFormArr = [
     placeholder: "Password",
     defaultValue: "",
     required: true,
-    pattern: "",
     minLength: 8,
     errorMessage: {
       required: "Password is required",

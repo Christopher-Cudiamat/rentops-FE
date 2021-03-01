@@ -11,8 +11,17 @@ export interface IChangePasswordArr {
   required: boolean,
   pattern: RegExp | ValidationValueMessage<RegExp> | undefined,
   minLength: string | number | ValidationValueMessage<React.ReactText> | undefined,
-  errorMessage: any,
+  errorMessage: IErrorMessage,
   type: string
+}
+
+
+export interface IErrorMessage {
+  [key:string]: string | undefined,
+  required: string,
+  pattern?: string,
+  minLength?: string
+  validate?: string
 }
 
 export interface IChangePasswordData {

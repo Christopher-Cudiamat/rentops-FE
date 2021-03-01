@@ -4,6 +4,7 @@ import {AppState} from "../../../configs/redux.config";
 import { selectorsUserAuth } from '../../../store/userAuth/userAuth.selector';
 import { Dispatch } from 'redux';
 import { setPropertyContact } from '../../../store/propertyContact/propertyContact.action';
+import { IPropertyContact } from '../../../store/propertyContact/propertyContact.type';
 
 
 
@@ -15,7 +16,7 @@ const mapStateToProps = (state:AppState) => {
 
 const mapStateToDispatch = (dispatch: Dispatch) => {
   return {
-    setContactInfo:(data:any) => dispatch(setPropertyContact(data)), 
+    setContactInfo:(data:IPropertyContact) => dispatch(setPropertyContact(data)), 
   }
 }
 
