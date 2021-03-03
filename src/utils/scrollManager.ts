@@ -6,6 +6,11 @@ export const scrollStop = (flag: boolean) => {
   }
 }
 
-export const scrollToTop = () => {
-  window.scrollTo(0, 0)
+export const scrollToTop = (behavior?: string) => {
+  if(behavior){
+    window.scrollTo({top: 0,behavior: 'smooth'});
+  } else {
+    window.scrollTo(0, 0);
+  }
+
 }

@@ -1,59 +1,90 @@
 import styled from "styled-components/macro";
-import { keyframes } from 'styled-components';
-import arrow from '../../assets/icon/bath.svg';
+import arrow from '../../assets/icon/right-arrow-black.svg';
 
 interface IAccordion {
-  showPanel?: boolean;
+  showPanel?: boolean,
+  colorTitle?: string,
+  colorPanel?: string,
+  bgColorPanel?: string,
+  bgColorTitle?: string,
+  rotateArrow?: boolean,
 }
-
-
-const slideUp = keyframes`
-  0% { height: 100%; }
-  100% { height: 0%; }
-`
-const slideDown = keyframes`
-  100% { height: 0%; }
-  100% { height: 100%; }
-`
 
 
 export const Accordion = styled.div`
   
 `
 
-export const AccordionButton = styled.div`
-  background: ${({theme}) => theme.color.grayLightest};
-  color: ${({theme}) => theme.color.blackLight};
+export const AccordionButton = styled.div<IAccordion>`
+  transition: all .3s;
+  background: ${({ bgColorTitle, theme}) => {
+    if(bgColorTitle){
+      return bgColorTitle;
+    } else {
+      return theme.color.white;
+    }; 
+  }};
+  color: ${({ colorTitle, theme}) => {
+    if(colorTitle){
+      return colorTitle;
+    } else {
+      return theme.color.blackLight;
+    }; 
+  }};
   padding: 2rem;
   font-size: 1.8rem;
   font-weight: 700;
   position: relative;
+  transition: all .5s;
+  display: inline-block;
   &:before {
+    transition: all .5s;
     content: "";
     background-image: url(${arrow});
     background-repeat: no-repeat;
-    opacity: 0.4;
-    width: 2rem;
-    height: 2rem;
+    background-size: cover;
+    opacity: 1;
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 2rem;
     position: absolute;
-    top: 0rem;
-    left: 0rem;   
+    top: 50%;
+    left: 0%; 
+    transform: 
+      ${({rotateArrow}) => {
+      if(rotateArrow) {
+        return " translate(0%, -50%) rotate(90deg)";
+      } else {
+        return "translate(0%, -50%) rotate(0deg)";
+      }
+    }};
     z-index: 99999;
+  }
+  @media ${props => props.theme.media.laptop} { 
+    &:hover {
+      cursor: pointer;
+      color:  ${({theme}) => theme.color.secondary};
+    }
   }
 `
 
 export const AccordionPanel = styled.div<IAccordion>`
-   background: ${({theme}) => theme.color.white};
-  /* height: 0%;
-  animation-name: ${
-    ({showPanel}) => showPanel ? slideDown : slideUp
-  };
-  animation-duration: .3s; */
+  background: ${({ bgColorPanel, theme}) => {
+    if(bgColorPanel){
+      return bgColorPanel;
+    } else {
+      return theme.color.grayLightBlue;
+    }; 
+  }};
+  color: ${({ colorTitle, theme}) => {
+    if(colorTitle){
+      return colorTitle;
+    } else {
+      return theme.color.blackLight;
+    }; 
+  }};
   display: ${({showPanel}) => showPanel ? "block" : "none"};
   padding: 2rem;
 `
- /* display: ${({showPanel}) => showPanel ? "block" : "none"} */
-   /* animation-name: ${
-    ({showPanel}) => showPanel ? slideDown : slideUp
-  }; */
+
 
