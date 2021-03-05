@@ -19,7 +19,7 @@ const FieldLocation = () => {
         Location
       </LocationLabel>
       <LocationInput
-        publicKey="pk.eyJ1IjoiY3Jpc3RvcHMxMyIsImEiOiJja2tsYXZqbDQwOTU0Mnhsb2g0OWszNmRvIn0.BZPjU2rnwZKo_hNBfhsjmg"
+        publicKey="pk.eyJ1IjoiY3Jpc3RvcHMxMyIsImEiOiJja2xtaHd5bjAwOTZ4MnZuMzBwd2hzYmwyIn0.RhVzfTLRHtpC9naStw8peA"
         // publicKey={process.env.REACT_APP_MAPBOX_TOKEN}
         onSuggestionSelect={suggestionSelect}
         country='ph'

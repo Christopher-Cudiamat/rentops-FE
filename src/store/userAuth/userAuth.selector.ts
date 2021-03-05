@@ -28,6 +28,10 @@ const getUserToken = (state: AppState) => {
     return state.userAuth.token
 };
 
+const getUserLikes = (state: AppState) => {
+    return state.userAuth.likes
+};
+
 export const selectorsUserAuth = {
     getUserAuthState,
     getUserIsAuthenticated,
@@ -35,5 +39,6 @@ export const selectorsUserAuth = {
     getUserToken,
     // getUserPhoneNumber,
     getUserLastName,
-    getUserFirstName
+    getUserFirstName,
+    getUserLikes
 };

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import SignIn from './signIn/signIn.component';
-import Signup from './signup/signup.component';
 import Home from './home/home.component';
 import About from './about/about.component';
 import Contact from './contact/contact.component';
@@ -13,6 +12,7 @@ import Property from './property/property.component';
 import { scrollToTop } from '../utils/scrollManager';
 import { IPagesProps } from './pages.type';
 import Help from './help/help.component';
+import Signup from './signup/signUp.component';
 
 const Pages: React.FC<IPagesProps> = ({
     //to be used for private routings.

@@ -75,7 +75,7 @@ const Property = () => {
                   <img 
                     src={locationPin}  
                     alt="location"
-                    style={{height:"3rem", width: "3rem"}}
+                    style={{height:"5rem", width: "5rem"}}
                   />
                 </Marker>
               </ReactMapGL>

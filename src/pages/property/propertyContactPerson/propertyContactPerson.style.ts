@@ -3,10 +3,9 @@ import styled  from "styled-components/macro";
 
 export const Container = styled.div`
 
-  margin-top: 4rem; 
+  margin-top: 3rem; 
   padding-top: 4rem;
   padding-bottom: 2.5rem;
-  border-top: 1px solid #ccc;
   @media ${({theme}) => theme.media.laptop} { 
     padding-bottom: 4.5rem;
   }

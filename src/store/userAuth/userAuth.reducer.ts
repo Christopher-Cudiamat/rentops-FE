@@ -3,7 +3,8 @@ import {
   IUserAuthState,
   LOGIN_SUCCESS,
   LOGOUT,
-  REGISTER_SUCCESS
+  REGISTER_SUCCESS,
+  SET_LIKES
 } from "./userAuth.type";
 
 
@@ -12,7 +13,8 @@ const initialState: IUserAuthState = {
   isAuthenticated: false,
   email: "",
   lastName: "",
-  firstName: ""
+  firstName: "",
+  likes: []
 } 
 
 export const userAuthReducer = (state = initialState, action: IUserAuthAction) => {
@@ -35,6 +37,11 @@ export const userAuthReducer = (state = initialState, action: IUserAuthAction) =
         ...state,
         ...payload
       }
+    case SET_LIKES: 
+    return {
+      ...state,
+      likes: payload
+    }
     default:
       return state;
   }

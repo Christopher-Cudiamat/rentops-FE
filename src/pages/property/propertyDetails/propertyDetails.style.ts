@@ -79,12 +79,12 @@ export const ImageBanner = styled.div<IPropertyDetailsStyle>`
 `
 
 export const Details = styled.div<IPropertyDetailsStyle>`
-  padding: 1rem 1rem 3rem 1rem;
+  padding: 2rem 1rem 3rem 1rem;
   @media ${({theme}) => theme.media.tablet} { 
-    padding: 1rem 2rem 3rem 2rem;
+    padding: 3rem 2rem 3rem 2rem;
   }
   @media ${({theme}) => theme.media.laptop} { 
-    padding: 1rem 3rem 30rem 3rem;
+    padding: 3rem 3rem 30rem 3rem;
     font-size: 1.6rem;
     height: 100%;
   }
@@ -96,7 +96,6 @@ export const Details = styled.div<IPropertyDetailsStyle>`
 export const DivDescription = styled.div<IPropertyDetailsStyle>`
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
   margin-bottom: 2rem;
 `

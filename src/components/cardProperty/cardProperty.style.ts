@@ -46,7 +46,7 @@ export const CardTitle= styled.p`
   position: absolute;
   width: fit-content;
   position: absolute;
-  bottom: 18%;
+  bottom: 21%;
   left: 50%;
   transform: translate(-50%, -20%);
   z-index: 2;
@@ -77,24 +77,24 @@ export const TextNew = styled.div<IStyledSlides>`
 
 
 export const CardDetails = styled.div`
-  padding: .5rem 1rem 1rem 1rem;
+  padding: .5rem 1rem 1.5rem 1rem;
+  position: relative;
   & > div:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     & > p {
       color: ${({theme}) => theme.color.blackLight};
       font-size: 1.8rem;
       font-weight: 500;
-      margin-top: 1rem;
     }
-    & > img {
+    /* & > img {
       width: 2rem;
       height: 2rem;
       opacity: 0.4;
-    }
+    } */
   }
 
   & > div:last-child {

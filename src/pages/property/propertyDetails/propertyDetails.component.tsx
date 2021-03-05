@@ -1,5 +1,6 @@
 import React from 'react';
 import { Paragraph } from '../../../components/ui/p.style';
+import { Table, Td, Tr} from '../../../components/ui/table.style';
 import { Title } from '../../../components/ui/title.style';
 import { formatAddComa } from '../../../utils/formatNumbers';
 import PropertyContactPerson from '../propertyContactPerson/propertyContactPerson.component';
@@ -40,6 +41,7 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
       </MediaButtonsWrapper>
 
       <Details>
+
         <Title small black bold>
           {data.propertyInfo.propertyType} -
           ₱ {formatAddComa(data.propertyInfo.price)}/{data.propertyInfo.contractLength! === "Daily" ? "daily" : "monthly"}
@@ -47,6 +49,7 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
         <Title small black bold>
           {data.propertyInfo.location}
         </Title>
+
         {
           data.propertyInfo.description &&
           <DivDescription>
@@ -61,67 +64,58 @@ const PropertyDetails: React.FC<IPropertyDetailsProps> = ({
             </Paragraph>
           </DivDescription>
         }
-        <Paragraph 
-          medium 
-          bold
-        >
-          Contract: {data.propertyInfo.contractLength}
-        </Paragraph>
-        <Paragraph 
-          medium 
-          bold
-        >
-          Surface: {data.propertyInfo.size} sqm.
-        </Paragraph>
-        <Paragraph 
-          medium 
-          bold
-        >
-          Bedrooms: {data.propertyInfo.bed}
-        </Paragraph>
-        <Paragraph 
-          medium 
-          bold
-        >
-          Bathrooms: {data.propertyInfo.bathroom}
-        </Paragraph>
-        <Paragraph 
-          medium 
-          bold
-        >
-          Furnish: {data.propertyInfo.furnish}
-        </Paragraph>
-        {
-          data.propertyInfo.developer !== "none"  &&
-          <Paragraph 
-            medium 
-            bold
-          >
-            Developer: {data.propertyInfo.developer}
-          </Paragraph>
-        }
+      
+        <Table>
+        <Tr>
+          <Td>Contract-Length</Td>
+          <Td>{data.propertyInfo.contractLength}</Td>
+        </Tr>
+        <Tr>
+          <Td>Surface</Td>
+          <Td>{data.propertyInfo.size} sqm.</Td>
+        </Tr>
+        <Tr>
+          <Td>Bedrooms</Td>
+          <Td>{data.propertyInfo.bed} bedroom/s</Td>
+        </Tr>
+        <Tr>
+          <Td>Bathrooms</Td>
+          <Td>{data.propertyInfo.bathroom} bathroom/s</Td>
+        </Tr>
+        <Tr>
+          <Td>Furnish</Td>
+          <Td>{data.propertyInfo.furnish}</Td>
+        </Tr>
 
         {
+          data.propertyInfo.developer !== "none"  &&
+          <Tr>
+            <Td>Developer</Td>
+            <Td>{data.propertyInfo.developer}</Td>
+          </Tr>
+        }
+        
+        {
           data.propertyInfo.amenities.length > 0 &&
-          <div>
-            <Paragraph 
-              medium 
-              bold
-            >
+          <Tr>
+            <Td>
               Amenities:
-            </Paragraph>
+            </Td>
             {
               data.propertyInfo.amenities.map((el: string, index: number) =>
-              <Paragraph 
+              <div
                 key={index}
-                style={{marginLeft:".7rem", fontSize: "1.6rem"}} 
+                style={{marginBottom:"1.2rem",marginLeft:".7rem", fontSize: "1.6rem"}} 
               >
                 -  {el}
-              </Paragraph>
+              </div>
               )
             }            
-          </div>
-        }
+          </Tr> 
+        } 
+
+        </Table>
+        
         <PropertyContactPerson contactInfo={data.propertyContact}/>
       </Details>
     </Wrapper>

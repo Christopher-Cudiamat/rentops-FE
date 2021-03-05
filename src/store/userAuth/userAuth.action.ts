@@ -1,9 +1,12 @@
 import { 
+  ILikes,
+  ISetLikes,
   IUserAuthAction,
   IUserAuthState,
   LOGIN_SUCCESS,
   LOGOUT,
-  REGISTER_SUCCESS 
+  REGISTER_SUCCESS, 
+  SET_LIKES
 } from "./userAuth.type"
 
 export const setRegistration = (data: IUserAuthState): IUserAuthAction => {
@@ -28,7 +31,15 @@ export const setLogout = (): IUserAuthAction => {
       isAuthenticated: false,
       email: "",
       firstName: "",
-      lastName: ""
+      lastName: "",
+      likes: []
     }
+  }
+}
+
+export const setLikes = (likesArray: any): ISetLikes => {
+  return {
+    type:  SET_LIKES,
+    payload: likesArray
   }
 }

@@ -12,20 +12,22 @@ import { ICardPropertyProps } from './cardProperty.type';
 import CustomNextArrow from './customNextArrow/customNextArrow.component';
 import CustomPrevArrow from './customPrevArrow/customPrevArow.component';
 import { formatAddComa } from '../../utils/formatNumbers';
-import heartIcon from '../../assets/icon/nav/like.svg'
 import Slider from "react-slick";
 import { useHistory } from 'react-router-dom';
-// import { favoriteProperty } from '../../services/propertyController';
 import { isPropertyNew } from '../../utils/dateManager';
-// import { IPropertyList } from '../../store/propertyList/propertyList.type';
 import {nanoid} from 'nanoid';
+import LikeButton from './../likeButton/likedButton.container';
+import { favoriteProperty } from '../../services/propertyController';
+import { setLikes } from '../../store/userAuth/userAuth.action';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../configs/redux.config';
 
 
 const CardProperty: React.FC<ICardPropertyProps> = ({
   data
 }) => {
-  
-  console.log("DATAAA", data);
+  const isAuthenticated = useSelector((state: AppState) => state.userAuth.isAuthenticated);
+  const dispatch = useDispatch();
   const slider = useRef<Slider>(null);
   const history = useHistory();
   const settings = {
@@ -48,13 +50,23 @@ const CardProperty: React.FC<ICardPropertyProps> = ({
     })
   }
 
-  //To be used when we develop the like functionalities
-  // const handleFavoriteProperty = (propertyId: string, userId: string) => {
-  //   favoriteProperty(propertyId,userId)
-  //     .then(res => {
-  //       console.log("RES", res);
-  //     })
-  // }
+
+  const handleOnClickLike = (
+    e: React.SyntheticEvent,
+    propertyId: string, 
+    userId: string 
+  ) => {
+    e.stopPropagation();
+    
+    if(isAuthenticated){
+      favoriteProperty(propertyId,userId)
+      .then(res => {
+        dispatch(setLikes(res.likes));
+      })
+    } else {
+      history.push('/signIn');
+    }
+  }
   
 
   return (
@@ -63,7 +75,6 @@ const CardProperty: React.FC<ICardPropertyProps> = ({
         {data &&
           data.map((el: any) => {
             let isNew = isPropertyNew(el.createdAt);
-            console.log("ELLL", el);
             return  <CardContainer 
                       onClick={() => handleGoToProperty(el._id)}
                       key={nanoid()}>
@@ -79,7 +90,9 @@ const CardProperty: React.FC<ICardPropertyProps> = ({
                               <Slides bgImage={el}/>   
                               {
                                 isNew &&
-                                <TextNew>New</TextNew>   
+                                <TextNew>
+                                  New
+                                </TextNew>   
                               }
                                 
                             </SlidesContainer>            
@@ -91,10 +104,10 @@ const CardProperty: React.FC<ICardPropertyProps> = ({
                           <p>
                             ₱{formatAddComa(el.propertyInfo.price)}/monthly
                           </p>
-                          <img 
-                            src={heartIcon}
-                            alt="Like icon"
-                          />
+                          <div   
+                            onClick={(e) => handleOnClickLike(e,el._id,el.user)}>
+                            <LikeButton propertyId={el._id}/>
+                          </div>
                         </div>
                         <div>
                           <p>{el.propertyInfo.furnish}</p>

@@ -8,19 +8,21 @@ import { IPropertyInfoState } from "../store/propertyInfo/propertyInfo.type";
 import { IPropertyMedia } from "../store/propertyMedia/propertyMedia.type";
 
 interface IAddPropertiesData {
-  propertyContact: IPropertyContact,
+  propertyContact: IPropertyContact, 
   propertyInfo: IPropertyInfoState,
   propertyMedia: IPropertyMedia
 }
 
-export const addProperty = async (data: IAddPropertiesData) => {
+export const addProperty = async (data: any) => {
   let url = '/api/property/add-property';
   let body = data;
   const res = await instancePost.post(url,body);
   return res.data;
-};
+}; 
 
 export const favoriteProperty = async (propertyId: string, userId: string) => {
+  console.log("propertyID",propertyId);
+  console.log("userId",userId);
   let url = '/api/property/favorite-property';
   let body = {
     propertyId,
