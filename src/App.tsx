@@ -6,6 +6,7 @@ import {  BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './themeGlobal/themeGlobal';
 import Loader from './components/loader/loader.container';
+import JestTest from './components/jestTest/jestTest.component';
 
 
 
@@ -13,14 +14,15 @@ import Loader from './components/loader/loader.container';
 const App = () => {
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Loader/> 
-        <Navigation />
-        <Pages/>
-        <Footer />
-      </Router>
-    </ThemeProvider>
+    // <ThemeProvider theme={theme}>
+    //   <Router>
+    //     <Loader/> 
+    //     <Navigation />
+    //     <Pages/>
+    //     <Footer />
+    //   </Router>
+    // </ThemeProvider>
+    <JestTest/>
   )
 }
 
