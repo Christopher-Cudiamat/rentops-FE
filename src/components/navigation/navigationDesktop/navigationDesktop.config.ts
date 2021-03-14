@@ -1,6 +1,4 @@
-
 export const navLinksDesktopArr = [
-
   {
     linkName: "RENT",
     value: "rentPage",
@@ -35,21 +33,21 @@ export const navLinksDesktopArr = [
         propertyType: "Townhouse",
         value: "rentPage",
       },
-    ]
+    ],
   },
   {
     linkName: "ADVERTISE PROPERTY",
     path: "/add-property",
-    value: "addPropertiesPage"
+    value: "addPropertiesPage",
   },
   {
     linkName: "SIGN IN",
     path: "/signIn",
-    value: "signInPage"
+    value: "signInPage",
   },
   {
     linkName: "SIGN OUT",
     path: "/",
-    value: ""
+    value: "",
   },
-]
+];

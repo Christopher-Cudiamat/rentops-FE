@@ -1,47 +1,42 @@
-import axios from 'axios';
-import { 
+import axios from "axios";
+import {
   setIsLoadingButton,
-  setIsLoadingPage 
-} from '../store/loader/loader.action';
-import { scrollToTop } from '../utils/scrollManager';
-import store from './store.config';
+  setIsLoadingPage,
+} from "../store/loader/loader.action";
+import { scrollToTop } from "../utils/scrollManager";
+import store from "./store.config";
 
-const token = localStorage.getItem('token');
-
+const token = localStorage.getItem("token");
 
 export const instanceGet = axios.create({
-  headers: {"Content-Type": "application/json"}
+  headers: { "Content-Type": "application/json" },
 });
 
 export const instanceGetPrivate = axios.create({
   headers: {
     "Content-Type": "application/json",
-    "Authorization": token,
-  }
+    Authorization: token,
+  },
 });
 
 export const instancePost = axios.create({
   headers: {
     "Content-Type": "application/json",
-    "Authorization": token,
-  }
+    Authorization: token,
+  },
 });
 
 export const instancePostButton = axios.create({
   headers: {
     "Content-Type": "application/json",
-    "Authorization": token,
-  }
+    Authorization: token,
+  },
 });
 
-
-instancePostButton.interceptors.request.use(
-  async (config) => {
-    store.dispatch(setIsLoadingButton(true));
-    return config;
-  }
-);
-
+instancePostButton.interceptors.request.use(async (config) => {
+  store.dispatch(setIsLoadingButton(true));
+  return config;
+});
 
 instancePostButton.interceptors.response.use(
   async (config) => {
@@ -54,13 +49,11 @@ instancePostButton.interceptors.response.use(
   }
 );
 
-
 instancePost.interceptors.request.use(async (config) => {
   store.dispatch(setIsLoadingPage(true));
   scrollToTop();
   return config;
 });
-
 
 instancePost.interceptors.response.use(
   async (config) => {
@@ -73,13 +66,11 @@ instancePost.interceptors.response.use(
   }
 );
 
-
 instanceGet.interceptors.request.use(async (config) => {
   store.dispatch(setIsLoadingPage(true));
   scrollToTop();
   return config;
 });
-
 
 instanceGet.interceptors.response.use(
   async (config) => {
@@ -92,5 +83,19 @@ instanceGet.interceptors.response.use(
   }
 );
 
+instanceGetPrivate.interceptors.request.use(async (config) => {
+  store.dispatch(setIsLoadingPage(true));
+  scrollToTop();
+  return config;
+});
 
-
+instanceGetPrivate.interceptors.response.use(
+  async (config) => {
+    store.dispatch(setIsLoadingPage(false));
+    return config;
+  },
+  (error) => {
+    store.dispatch(setIsLoadingPage(false));
+    return Promise.reject(error);
+  }
+);
