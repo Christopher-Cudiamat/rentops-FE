@@ -10,11 +10,8 @@ const Loader: React.FC<ILoaderProps> = ({ isLoading }) => {
         <>
           <LoaderStyled src={loader} alt="loader" />
           <LoaderUnderlay />
-<<<<<<< HEAD
-          <p>loading from component B</p>
-=======
           <p>loading branch A</p>
->>>>>>> componentA
+          <p>loading branch B</p>
         </>
       ) : null}
     </>
