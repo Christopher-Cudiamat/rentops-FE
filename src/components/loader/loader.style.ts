@@ -22,7 +22,7 @@ export const LoaderStyled = styled.img`
     height: 10rem;
   }
   @media ${({ theme }) => theme.media.laptop} {
-    width: 12rem;
-    height: 12rem;
+    width: 10rem;
+    height: 10rem;
   }
 `;
